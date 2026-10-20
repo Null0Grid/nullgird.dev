@@ -269,6 +269,52 @@ footer a { color: var(--muted); }
 .policy li strong, .policy p strong { color: var(--fg); }
 .policy p { font-size: 16px; }
 
+/* Git-graph journey (home) */
+:root { --ln-notes: #00e5ff; --ln-drive: #39ff88; --ln-grid: #ff2e88; --ln-search: #b38cff; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --ln-notes: #007f99; --ln-drive: #128a4a; --ln-grid: #c4126a; --ln-search: #6b3fd1; } }
+:root[data-theme="light"] { --ln-notes: #007f99; --ln-drive: #128a4a; --ln-grid: #c4126a; --ln-search: #6b3fd1; }
+.ggraph { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; }
+.g-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: var(--panel-2); font: 13px var(--f-mono); }
+.g-repo { color: var(--fg); font-weight: 500; }
+.g-branch { color: var(--muted); }
+.g-scroll { overflow-x: auto; padding: 8px 10px 0; }
+.g-svg { display: block; width: 100%; min-width: 680px; height: auto; }
+.lane { stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 6; }
+.tag rect { fill: var(--panel-2); stroke-width: 1.5; }
+.tag text { font: 500 13px var(--f-mono); }
+.t-notes rect { stroke: var(--ln-notes); } .t-notes text { fill: var(--ln-notes); }
+.t-drive rect { stroke: var(--ln-drive); } .t-drive text { fill: var(--ln-drive); }
+.t-grid rect { stroke: var(--ln-grid); } .t-grid text { fill: var(--ln-grid); }
+.t-search rect { stroke: var(--ln-search); } .t-search text { fill: var(--ln-search); }
+.seg { fill: none; stroke-width: 4; stroke-linecap: round; opacity: .28; transition: opacity .3s; }
+.seg.l-notes { stroke: var(--ln-notes); } .seg.l-drive { stroke: var(--ln-drive); } .seg.l-grid { stroke: var(--ln-grid); } .seg.l-search { stroke: var(--ln-search); }
+.seg.done, .seg.live { opacity: 1; }
+.seg.live { stroke-dasharray: 10 8; }
+.commit { cursor: pointer; outline: none; }
+.commit .dot { fill: var(--panel); stroke-width: 4; transition: fill .2s; }
+.commit .halo { fill: transparent; stroke: none; transition: fill .2s; }
+.c-notes .dot { stroke: var(--ln-notes); } .c-drive .dot { stroke: var(--ln-drive); } .c-grid .dot { stroke: var(--ln-grid); } .c-search .dot { stroke: var(--ln-search); }
+.c-notes { color: var(--ln-notes); } .c-drive { color: var(--ln-drive); } .c-grid { color: var(--ln-grid); } .c-search { color: var(--ln-search); }
+.commit.done .dot, .commit.on .dot { fill: currentColor; }
+.commit.on .halo, .commit:hover .halo, .commit:focus-visible .halo { fill: color-mix(in srgb, currentColor 22%, transparent); }
+.commit .msg { font: 500 13px var(--f-mono); fill: var(--muted); transition: fill .2s; }
+.commit .hash { font: 11px var(--f-mono); fill: var(--muted); opacity: .7; }
+.commit.on .msg, .commit:hover .msg { fill: var(--fg); }
+.ggraph .j-panel { margin: 10px 14px 14px; }
+.j-panel { display: grid; gap: 8px; padding: 18px 20px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; }
+.j-kind { font: 12px var(--f-mono); color: var(--green); letter-spacing: .06em; }
+.j-panel h3 { margin: 0; font: 400 22px var(--f-display); letter-spacing: .03em; }
+#j-points { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+#j-points li { display: grid; grid-template-columns: 18px 1fr; gap: 6px; color: var(--muted); font-size: 15px; }
+#j-points li::before { content: "//"; font: 500 12px/1.9 var(--f-mono); color: var(--pink); }
+.j-nav { display: flex; align-items: center; gap: 12px; justify-self: end; font: 12px var(--f-mono); color: var(--muted); }
+.j-nav button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer; font-size: 16px; }
+.j-nav button:hover { border-color: var(--cyan); color: var(--cyan); }
+@media (prefers-reduced-motion: no-preference) {
+  .seg.live { animation: segflow .9s linear infinite; }
+  @keyframes segflow { to { stroke-dashoffset: -36; } }
+}
+
 /* Motto */
 .motto { margin: -6px 0 0; font: 400 clamp(18px, 2.6vw, 26px)/1.2 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--fg); }
 .motto span { color: var(--cyan); text-shadow: 0 0 14px rgba(255, 46, 136, .55); }
@@ -497,16 +543,121 @@ footer a { color: var(--muted); }
 
 <section class="sec" id="together">
   <div class="wrap">
-    <div class="sec-head"><h2>Built to work together</h2><p>Each app stands alone. Run more than one and they connect.</p></div>
-    <div class="links">
-      <div class="link-row"><div class="pair"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-grid"/></svg><span class="arrow">→</span><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-search"/></svg></div><p><b>Null Grid searches through Null Search.</b> <span>With Vault switched on, your own saved pages merge into the results.</span></p></div>
-      <div class="link-row"><div class="pair"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-grid"/></svg><span class="arrow">→</span><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-drive"/></svg></div><p><b>Null Grid connects to your Null Drive.</b> <span>Add its address and token in Settings. The browser talks to Drive directly, never through the search server.</span></p></div>
-      <div class="link-row"><div class="pair"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-notes"/></svg><span class="arrow">→</span><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-drive"/></svg></div><p><b>Null Notes syncs your vault to Null Drive.</b> <span>Two-way sync follows renames and keeps both copies when both sides change. Locked notes upload still encrypted.</span></p></div>
-      <div class="link-row"><div class="pair"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-notes"/></svg><span class="arrow">→</span><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-search"/></svg></div><p><b>Notes open from search results.</b> <span>Each result carries a nullnotes:// link that opens the note right in the app.</span></p></div>
-      <div class="link-row next"><div class="pair"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-search"/></svg><span class="arrow">→</span><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-drive"/></svg><span class="soon">&nbsp;5.0</span></div><p><b>New in 5.0: your notes and files in Null Search.</b> <span>Matching notes and Drive files show beside web results. Queries go straight from your browser to your own server, with a token that can only search, and each account sees only its own files.</span></p></div>
+    <div class="sec-head"><h2>Built to work together</h2><p>Follow one note through Null Grid, git-graph style. Hover a commit to see what happens there.</p></div>
+    <div class="ggraph" id="journey">
+      <div class="g-head"><span class="g-repo">null0grid / your-data</span><span class="g-branch">⎇ main · 5 commits</span></div>
+      <div class="g-scroll">
+<svg class="g-svg" viewBox="0 0 960 330" role="img" aria-label="A note moving through Null Notes, Null Drive, Null Grid and Null Search, drawn like a git branch graph">
+<line class="lane l-notes" x1="150" y1="70" x2="940" y2="70"/>
+<g class="tag t-notes"><rect x="12" y="57" width="122" height="26" rx="6"/><text x="73" y="75" text-anchor="middle">notes</text></g>
+<line class="lane l-drive" x1="150" y1="140" x2="940" y2="140"/>
+<g class="tag t-drive"><rect x="12" y="127" width="122" height="26" rx="6"/><text x="73" y="145" text-anchor="middle">drive</text></g>
+<line class="lane l-grid" x1="150" y1="210" x2="940" y2="210"/>
+<g class="tag t-grid"><rect x="12" y="197" width="122" height="26" rx="6"/><text x="73" y="215" text-anchor="middle">grid</text></g>
+<line class="lane l-search" x1="150" y1="280" x2="940" y2="280"/>
+<g class="tag t-search"><rect x="12" y="267" width="122" height="26" rx="6"/><text x="73" y="285" text-anchor="middle">search</text></g>
+<path class="seg l-drive" data-seg="0" d="M240 70 C315.0 70, 315.0 140, 390 140"/>
+<path class="seg l-grid" data-seg="1" d="M390 140 C465.0 140, 465.0 210, 540 210"/>
+<path class="seg l-search" data-seg="2" d="M540 210 C615.0 210, 615.0 280, 690 280"/>
+<path class="seg l-notes" data-seg="3" d="M690 280 C760.0 280, 760.0 70, 830 70"/>
+<g class="commit c-notes" data-step="0" tabindex="0" role="button" aria-label="Step 1: write note.md">
+  <circle class="halo" cx="240" cy="70" r="22"/><circle class="dot" cx="240" cy="70" r="10"/>
+  <text class="msg" x="240" y="44" text-anchor="middle">write note.md</text>
+  <text class="hash" x="240" y="104" text-anchor="middle">a3f9c1e</text>
+</g>
+<g class="commit c-drive" data-step="1" tabindex="0" role="button" aria-label="Step 2: sync to drive">
+  <circle class="halo" cx="390" cy="140" r="22"/><circle class="dot" cx="390" cy="140" r="10"/>
+  <text class="msg" x="390" y="114" text-anchor="middle">sync → drive</text>
+  <text class="hash" x="390" y="174" text-anchor="middle">7b20d4f</text>
+</g>
+<g class="commit c-grid" data-step="2" tabindex="0" role="button" aria-label="Step 3: search &quot;pi-hole&quot;">
+  <circle class="halo" cx="540" cy="210" r="22"/><circle class="dot" cx="540" cy="210" r="10"/>
+  <text class="msg" x="540" y="184" text-anchor="middle">search &quot;pi-hole&quot;</text>
+  <text class="hash" x="540" y="244" text-anchor="middle">c91e0a2</text>
+</g>
+<g class="commit c-search" data-step="3" tabindex="0" role="button" aria-label="Step 4: match in vault">
+  <circle class="halo" cx="690" cy="280" r="22"/><circle class="dot" cx="690" cy="280" r="10"/>
+  <text class="msg" x="690" y="254" text-anchor="middle">match in vault</text>
+  <text class="hash" x="690" y="314" text-anchor="middle">4de8b37</text>
+</g>
+<g class="commit c-notes" data-step="4" tabindex="0" role="button" aria-label="Step 5: open nullnotes://">
+  <circle class="halo" cx="830" cy="70" r="22"/><circle class="dot" cx="830" cy="70" r="10"/>
+  <text class="msg" x="830" y="44" text-anchor="middle">open nullnotes://</text>
+  <text class="hash" x="830" y="104" text-anchor="middle">f06a915</text>
+</g>
+</svg>
+      </div>
+      <div class="j-panel" aria-live="polite">
+        <div class="j-kind" id="j-kind">&gt; commit a3f9c1e · null notes</div>
+        <h3 id="j-title">You write a note</h3>
+        <ul id="j-points">
+          <li>It's saved as a plain Markdown file in your vault, a folder on your own disk.</li>
+          <li>Null Notes gives it a permanent id, so it can be found and linked even after you rename it.</li>
+          <li>Lock it if it's private: it's encrypted with your passphrase before it's ever written to disk.</li>
+        </ul>
+        <div class="j-nav"><button type="button" id="j-prev" aria-label="Previous commit">←</button><span id="j-count">1 / 5</span><button type="button" id="j-next" aria-label="Next commit">→</button></div>
+      </div>
     </div>
   </div>
 </section>
+<script>
+(() => {
+  const STEPS = [
+    { kind: "commit a3f9c1e · null notes", title: "You write a note", points: [
+      "It's saved as a plain Markdown file in your vault, a folder on your own disk.",
+      "Null Notes gives it a permanent id, so it can be found and linked even after you rename it.",
+      "Lock it if it's private: it's encrypted with your passphrase before it's ever written to disk." ] },
+    { kind: "commit 7b20d4f · null drive", title: "It syncs to your server", points: [
+      "Within seconds, two-way sync uploads the note to the Null Drive server you run.",
+      "Its id travels with it, so a rename on one computer follows on every other. If two edits collide, you keep both copies.",
+      "Drive adds it to your account's private search index. On an end-to-end encrypted account it's encrypted first and never indexed." ] },
+    { kind: "commit c91e0a2 · null grid", title: "You search in the browser", points: [
+      "You type into Null Grid's start page with Vault switched on.",
+      "The search goes to Null Search for web results.",
+      "At the same moment, the browser itself asks your Drive with your token. That query goes straight to your server, never through ours." ] },
+    { kind: "commit 4de8b37 · null search", title: "Your note shows up", points: [
+      "The results page shows web results and Vault Matches side by side.",
+      "Your note appears with its title, a snippet and where it lives.",
+      "It's shown once, even though it exists in both Notes and Drive, because both copies share the same id." ] },
+    { kind: "commit f06a915 · null notes", title: "One click opens it", points: [
+      "The result carries a nullnotes:// link.",
+      "Click it and the note opens right in Null Notes on your computer, ready to edit.",
+      "Your edit syncs back to Drive, and the loop starts again." ] },
+  ];
+  const root = document.getElementById("journey");
+  if (!root) return;
+  const commits = [...root.querySelectorAll(".commit")];
+  const segs = [...root.querySelectorAll(".seg")];
+  const kind = document.getElementById("j-kind"), title = document.getElementById("j-title"),
+        list = document.getElementById("j-points"), count = document.getElementById("j-count");
+  let cur = 0, timer = null, held = false;
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function show(i) {
+    cur = (i + STEPS.length) % STEPS.length;
+    const st = STEPS[cur];
+    kind.textContent = "> " + st.kind; title.textContent = st.title;
+    list.innerHTML = "";
+    st.points.forEach(t => { const li = document.createElement("li"); li.textContent = t; list.append(li); });
+    count.textContent = (cur + 1) + " / " + STEPS.length;
+    commits.forEach((c, n) => { c.classList.toggle("on", n === cur); c.classList.toggle("done", n < cur); });
+    segs.forEach((g, n) => { g.classList.toggle("done", n < cur - 1); g.classList.toggle("live", n === cur - 1); });
+  }
+  function play() { if (reduce || held) return; stop(); timer = setInterval(() => show(cur + 1), 4200); }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+  commits.forEach((c, n) => {
+    c.addEventListener("pointerenter", () => { stop(); show(n); });
+    c.addEventListener("focus", () => { stop(); show(n); });
+    c.addEventListener("click", () => { held = true; stop(); show(n); });
+    c.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); held = true; stop(); show(n); } });
+  });
+  document.getElementById("j-prev").addEventListener("click", () => { held = true; stop(); show(cur - 1); });
+  document.getElementById("j-next").addEventListener("click", () => { held = true; stop(); show(cur + 1); });
+  root.addEventListener("pointerleave", play);
+  root.addEventListener("focusout", ev => { if (!root.contains(ev.relatedTarget)) play(); });
+  show(0); play();
+})();
+</script>
+
 
 <section class="sec" id="apps">
   <div class="wrap">
