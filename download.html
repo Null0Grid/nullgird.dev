@@ -286,6 +286,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
       <feMerge><feMergeNode in="g3"/><feMergeNode in="g2"/><feMergeNode in="g1"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <clipPath id="tile1024"><rect width="1024" height="1024" rx="224"/></clipPath>
+    <filter id="sc-wave" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="6"/><feFlood flood-color="#ff2e88" flood-opacity=".55"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sc-led" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
   <symbol id="logo-search" viewBox="0 0 1024 1024">
     <rect width="1024" height="1024" rx="110" fill="#080b0c"/>
@@ -321,6 +323,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
       <rect x="300" y="680" width="150" height="28" rx="8" fill="#1f2a33"/>
       <polygon points="470,300 545,300 465,700 390,700" fill="#00e8ff" filter="url(#n-sl)"/>
       <polygon points="640,300 715,300 635,700 560,700" fill="#00e8ff" filter="url(#n-sl)"/>
+    </g>
+  </symbol>
+  <symbol id="logo-scribe" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)">
+      <rect width="1024" height="1024" fill="#08090c"/>
+      <path d="M196 216 H828 a56 56 0 0 1 56 56 V654 a56 56 0 0 1 -56 56 H404 L276 816 V710 H196 a56 56 0 0 1 -56 -56 V272 a56 56 0 0 1 56 -56 Z" fill="none" stroke="#00e5ff" stroke-width="22" stroke-linejoin="round" filter="url(#n-sq)"/>
+      <polygon points="318,292 384,292 314,634 248,634" fill="#00e8ff" filter="url(#n-sl)"/>
+      <polygon points="452,292 518,292 448,634 382,634" fill="#00e8ff" filter="url(#n-sl)"/>
+      <g stroke="#ff2e88" stroke-width="30" stroke-linecap="round" filter="url(#sc-wave)">
+        <line x1="588" y1="418" x2="588" y2="508"/><line x1="648" y1="350" x2="648" y2="576"/><line x1="708" y1="396" x2="708" y2="530"/><line x1="768" y1="438" x2="768" y2="488"/>
+      </g>
+      <circle cx="790" cy="640" r="20" fill="#39ff88" filter="url(#sc-led)"/>
+      <rect x="610" y="628" width="140" height="24" rx="8" fill="#1f2a33"/>
     </g>
   </symbol>
   <symbol id="suite-mark" viewBox="0 0 32 32">
@@ -508,7 +523,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
 <footer>
   <div class="wrap">
     <span>Null Grid · <b class="foot-motto">Your data. Your grid.</b> · nullgrid.dev</span>
-    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
+    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
   </div>
 </footer>
 <script>

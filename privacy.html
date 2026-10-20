@@ -117,6 +117,7 @@ h2 { margin: 0; font: 400 clamp(22px, 3vw, 28px) var(--f-display); letter-spacin
 
 /* Product tiles (home) */
 .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 20px; }
+@media (min-width: 960px) { .grid4 > .block:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 .block { min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 24px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; position: relative; }
 .block::before { content: ""; position: absolute; inset: -1px -1px auto; height: 2px; border-radius: 12px 12px 0 0; background: linear-gradient(90deg, var(--cyan), var(--pink)); box-shadow: 0 0 14px rgba(255, 46, 136, .35); }
 .block-top { display: flex; align-items: center; gap: 16px; }
@@ -267,7 +268,64 @@ footer a { color: var(--muted); }
 .policy h2:first-child { margin-top: 0; }
 .policy ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); font-size: 16px; }
 .policy li strong, .policy p strong { color: var(--fg); }
+.policy ul ul { margin-top: 6px; gap: 4px; }
+.policy code { font: 13px var(--f-mono); color: var(--fg); }
 .policy p { font-size: 16px; }
+
+/* Git-graph journey (home) */
+:root { --ln-notes: #00e5ff; --ln-drive: #39ff88; --ln-grid: #ff2e88; --ln-search: #b38cff; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --ln-notes: #007f99; --ln-drive: #128a4a; --ln-grid: #c4126a; --ln-search: #6b3fd1; } }
+:root[data-theme="light"] { --ln-notes: #007f99; --ln-drive: #128a4a; --ln-grid: #c4126a; --ln-search: #6b3fd1; }
+.ggraph { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; }
+.g-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: var(--panel-2); font: 13px var(--f-mono); }
+.g-repo { color: var(--fg); font-weight: 500; }
+.g-branch { color: var(--muted); }
+.g-scroll { overflow-x: auto; padding: 8px 10px 0; }
+.g-svg { display: block; width: 100%; min-width: 680px; height: auto; }
+.lane { stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 6; }
+.tag rect { fill: var(--panel-2); stroke-width: 1.5; }
+.tag text { font: 500 13px var(--f-mono); }
+.t-notes rect { stroke: var(--ln-notes); } .t-notes text { fill: var(--ln-notes); }
+.t-drive rect { stroke: var(--ln-drive); } .t-drive text { fill: var(--ln-drive); }
+.t-grid rect { stroke: var(--ln-grid); } .t-grid text { fill: var(--ln-grid); }
+.t-search rect { stroke: var(--ln-search); } .t-search text { fill: var(--ln-search); }
+.seg { fill: none; stroke-width: 4; stroke-linecap: round; opacity: .28; transition: opacity .3s; }
+.seg.l-notes { stroke: var(--ln-notes); } .seg.l-drive { stroke: var(--ln-drive); } .seg.l-grid { stroke: var(--ln-grid); } .seg.l-search { stroke: var(--ln-search); }
+.seg.done, .seg.live { opacity: 1; }
+.seg.live { stroke-dasharray: 10 8; }
+.commit { cursor: pointer; outline: none; }
+.commit .dot { fill: var(--panel); stroke-width: 4; transition: fill .2s; }
+.commit .halo { fill: transparent; stroke: none; transition: fill .2s; }
+.c-notes .dot { stroke: var(--ln-notes); } .c-drive .dot { stroke: var(--ln-drive); } .c-grid .dot { stroke: var(--ln-grid); } .c-search .dot { stroke: var(--ln-search); }
+.c-notes { color: var(--ln-notes); } .c-drive { color: var(--ln-drive); } .c-grid { color: var(--ln-grid); } .c-search { color: var(--ln-search); }
+.commit.done .dot, .commit.on .dot { fill: currentColor; }
+.commit.on .halo, .commit:hover .halo, .commit:focus-visible .halo { fill: color-mix(in srgb, currentColor 22%, transparent); }
+.commit .msg { font: 500 13px var(--f-mono); fill: var(--muted); transition: fill .2s; }
+.commit .hash { font: 11px var(--f-mono); fill: var(--muted); opacity: .7; }
+.commit.on .msg, .commit:hover .msg { fill: var(--fg); }
+.ggraph .j-panel { margin: 10px 14px 14px; }
+.j-panel { display: grid; gap: 8px; padding: 18px 20px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; }
+.j-kind { font: 12px var(--f-mono); color: var(--green); letter-spacing: .06em; }
+.j-panel h3 { margin: 0; font: 400 22px var(--f-display); letter-spacing: .03em; }
+#j-points { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+#j-points li { display: grid; grid-template-columns: 18px 1fr; gap: 6px; color: var(--muted); font-size: 15px; }
+#j-points li::before { content: "//"; font: 500 12px/1.9 var(--f-mono); color: var(--pink); }
+.j-nav { display: flex; align-items: center; gap: 12px; justify-self: end; font: 12px var(--f-mono); color: var(--muted); }
+.j-nav button { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer; font-size: 16px; }
+.j-nav button:hover { border-color: var(--cyan); color: var(--cyan); }
+@media (prefers-reduced-motion: no-preference) {
+  .seg.live { animation: segflow .9s linear infinite; }
+  @keyframes segflow { to { stroke-dashoffset: -36; } }
+}
+
+/* Scribe flow line */
+.flowline { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; }
+.fl-step { flex: 1 1 180px; min-width: 0; display: grid; gap: 4px; padding: 16px 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+.fl-step b { font: 400 15px var(--f-display); letter-spacing: .03em; color: var(--cyan); }
+.fl-step span { color: var(--muted); font-size: 14px; }
+.fl-arrow { align-self: center; color: var(--pink); font: 20px var(--f-mono); }
+@media (max-width: 760px) { .fl-arrow { display: none; } }
+.dl-note strong { color: var(--fg); }
 
 /* Motto */
 .motto { margin: -6px 0 0; font: 400 clamp(18px, 2.6vw, 26px)/1.2 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--fg); }
@@ -373,6 +431,8 @@ footer a { color: var(--muted); }
       <feMerge><feMergeNode in="g3"/><feMergeNode in="g2"/><feMergeNode in="g1"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <clipPath id="tile1024"><rect width="1024" height="1024" rx="224"/></clipPath>
+    <filter id="sc-wave" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="6"/><feFlood flood-color="#ff2e88" flood-opacity=".55"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sc-led" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
   <symbol id="logo-search" viewBox="0 0 1024 1024">
     <rect width="1024" height="1024" rx="110" fill="#080b0c"/>
@@ -410,6 +470,19 @@ footer a { color: var(--muted); }
       <polygon points="640,300 715,300 635,700 560,700" fill="#00e8ff" filter="url(#n-sl)"/>
     </g>
   </symbol>
+  <symbol id="logo-scribe" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)">
+      <rect width="1024" height="1024" fill="#08090c"/>
+      <path d="M196 216 H828 a56 56 0 0 1 56 56 V654 a56 56 0 0 1 -56 56 H404 L276 816 V710 H196 a56 56 0 0 1 -56 -56 V272 a56 56 0 0 1 56 -56 Z" fill="none" stroke="#00e5ff" stroke-width="22" stroke-linejoin="round" filter="url(#n-sq)"/>
+      <polygon points="318,292 384,292 314,634 248,634" fill="#00e8ff" filter="url(#n-sl)"/>
+      <polygon points="452,292 518,292 448,634 382,634" fill="#00e8ff" filter="url(#n-sl)"/>
+      <g stroke="#ff2e88" stroke-width="30" stroke-linecap="round" filter="url(#sc-wave)">
+        <line x1="588" y1="418" x2="588" y2="508"/><line x1="648" y1="350" x2="648" y2="576"/><line x1="708" y1="396" x2="708" y2="530"/><line x1="768" y1="438" x2="768" y2="488"/>
+      </g>
+      <circle cx="790" cy="640" r="20" fill="#39ff88" filter="url(#sc-led)"/>
+      <rect x="610" y="628" width="140" height="24" rx="8" fill="#1f2a33"/>
+    </g>
+  </symbol>
   <symbol id="suite-mark" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="7" fill="#08090c"/>
     <path d="M14.5 6h3l-4 20h-3zM21.5 6h3l-4 20h-3z" fill="#00e8ff" style="filter: drop-shadow(0 0 2px #ff2e88)"/>
@@ -440,7 +513,7 @@ footer a { color: var(--muted); }
 <section class="sec">
   <div class="wrap policy">
     <nav class="toc" aria-label="On this page">
-      <a href="#site">This website</a><a href="#search">Null Search</a><a href="#grid">Null Grid</a><a href="#notes">Null Notes</a><a href="#drive">Null Drive</a><a href="#stores">Downloads and stores</a><a href="#contact">Contact</a>
+      <a href="#site">This website</a><a href="#search">Null Search</a><a href="#grid">Null Grid</a><a href="#notes">Null Notes</a><a href="#drive">Null Drive</a><a href="#scribe">Null Scribe</a><a href="#stores">Downloads and stores</a><a href="#contact">Contact</a>
     </nav>
 
     <div class="prose">
@@ -480,6 +553,26 @@ footer a { color: var(--muted); }
         <li>The desktop app talks only to the server you connect it to. A Null Search token can search and nothing else.</li>
       </ul>
 
+      <h2 id="scribe">Null Scribe</h2>
+      <p>Null Scribe has no accounts, analytics, telemetry, ads or crash reporting, and it doesn't connect to any server we run. We never receive your recordings, transcripts or summaries.</p>
+      <ul>
+        <li><strong>Everything runs on your computer.</strong> Transcription (whisper.cpp) and summaries (the built-in llama.cpp model) run locally. The summary engine listens only on 127.0.0.1, so it can't be reached from your network.</li>
+        <li><strong>Microphone and app audio</strong> are used only while you're recording. In Meeting mode it captures only the apps you pick, like Zoom or Discord. It never records in the background.</li>
+        <li><strong>Stored on your device:</strong> recordings, transcripts, summaries, settings and the models, in the app's data folder. Your Null Drive token is encrypted with your system's secure storage.</li>
+        <li><strong>When data leaves your computer:</strong> only if you choose it.
+          <ul>
+            <li>On first launch, the models download from <a href="https://huggingface.co/privacy">Hugging Face</a>, which sees your IP address. No recordings are sent.</li>
+            <li>With Ollama as the engine, transcripts go to the Ollama address you enter, usually your own server.</li>
+            <li><strong>Send to Drive</strong> uploads the files you choose to your Null Drive server.</li>
+            <li><strong>Send to Notes</strong> writes a note into your vault folder. Nothing goes over the network.</li>
+            <li><strong>Open in Claude</strong> copies the summary to your clipboard and opens claude.ai. Nothing is sent unless you paste it, and then <a href="https://www.anthropic.com/legal/privacy">Anthropic's privacy policy</a> applies.</li>
+          </ul>
+        </li>
+        <li><strong>Deleting your data:</strong> delete any session in the app (Session → Delete). Uninstalling the Store version removes its data folder. On Linux, delete <code>~/.config/Null Scribe</code>.</li>
+        <li><strong>Get consent before you record.</strong> Recording people without their agreement is illegal in many places, and telling them is your responsibility.</li>
+      </ul>
+      <p>The full version is in <a href="https://github.com/Null0Grid/null-scribe/blob/main/PRIVACY.md">Null Scribe's own privacy policy</a>.</p>
+
       <h2 id="stores">Downloads and app stores</h2>
       <p>Downloads come from <strong>GitHub</strong> releases and container images, and from the <strong>Microsoft Store</strong>. Each handles your download under its own privacy policy. We don't receive personal information from them.</p>
 
@@ -494,7 +587,7 @@ footer a { color: var(--muted); }
 <footer>
   <div class="wrap">
     <span>Null Grid · <b class="foot-motto">Your data. Your grid.</b> · nullgrid.dev</span>
-    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
+    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
   </div>
 </footer>
 <script>
@@ -507,8 +600,12 @@ const LINKS = {
   notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.0.0/null-notes_5.0.0_amd64.deb",
   notesWin:   "https://github.com/Null0Grid/null-notes/releases/tag/5.0.0",
   gridZip:    "https://github.com/Null0Grid/node-grid/releases",
+  driveStore: "",
+  scribeStore: "https://apps.microsoft.com/detail/9P2FHWTQPN6G",
+  scribeWin:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/NullScribe-1.0.0-Setup.exe",
+  scribeDeb:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/null-scribe_1.0.0_amd64.deb",
 };
-document.querySelectorAll("[data-link]").forEach(a => { const u = LINKS[a.dataset.link]; if (u) a.href = u; });
+document.querySelectorAll("[data-link]").forEach(a => { const u = LINKS[a.dataset.link]; if (u) a.href = u; else if (u === "") a.hidden = true; });
 document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", () => {
   const pre = btn.previousElementSibling;
   const text = pre.textContent.replace(/^\s*(\$|PS>) /gm, "");

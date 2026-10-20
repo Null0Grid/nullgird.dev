@@ -117,6 +117,7 @@ h2 { margin: 0; font: 400 clamp(22px, 3vw, 28px) var(--f-display); letter-spacin
 
 /* Product tiles (home) */
 .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 20px; }
+@media (min-width: 960px) { .grid4 > .block:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 .block { min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 24px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; position: relative; }
 .block::before { content: ""; position: absolute; inset: -1px -1px auto; height: 2px; border-radius: 12px 12px 0 0; background: linear-gradient(90deg, var(--cyan), var(--pink)); box-shadow: 0 0 14px rgba(255, 46, 136, .35); }
 .block-top { display: flex; align-items: center; gap: 16px; }
@@ -267,6 +268,8 @@ footer a { color: var(--muted); }
 .policy h2:first-child { margin-top: 0; }
 .policy ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); font-size: 16px; }
 .policy li strong, .policy p strong { color: var(--fg); }
+.policy ul ul { margin-top: 6px; gap: 4px; }
+.policy code { font: 13px var(--f-mono); color: var(--fg); }
 .policy p { font-size: 16px; }
 
 /* Git-graph journey (home) */
@@ -314,6 +317,15 @@ footer a { color: var(--muted); }
   .seg.live { animation: segflow .9s linear infinite; }
   @keyframes segflow { to { stroke-dashoffset: -36; } }
 }
+
+/* Scribe flow line */
+.flowline { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; }
+.fl-step { flex: 1 1 180px; min-width: 0; display: grid; gap: 4px; padding: 16px 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+.fl-step b { font: 400 15px var(--f-display); letter-spacing: .03em; color: var(--cyan); }
+.fl-step span { color: var(--muted); font-size: 14px; }
+.fl-arrow { align-self: center; color: var(--pink); font: 20px var(--f-mono); }
+@media (max-width: 760px) { .fl-arrow { display: none; } }
+.dl-note strong { color: var(--fg); }
 
 /* Motto */
 .motto { margin: -6px 0 0; font: 400 clamp(18px, 2.6vw, 26px)/1.2 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--fg); }
@@ -419,6 +431,8 @@ footer a { color: var(--muted); }
       <feMerge><feMergeNode in="g3"/><feMergeNode in="g2"/><feMergeNode in="g1"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <clipPath id="tile1024"><rect width="1024" height="1024" rx="224"/></clipPath>
+    <filter id="sc-wave" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="6"/><feFlood flood-color="#ff2e88" flood-opacity=".55"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sc-led" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
   <symbol id="logo-search" viewBox="0 0 1024 1024">
     <rect width="1024" height="1024" rx="110" fill="#080b0c"/>
@@ -456,6 +470,19 @@ footer a { color: var(--muted); }
       <polygon points="640,300 715,300 635,700 560,700" fill="#00e8ff" filter="url(#n-sl)"/>
     </g>
   </symbol>
+  <symbol id="logo-scribe" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)">
+      <rect width="1024" height="1024" fill="#08090c"/>
+      <path d="M196 216 H828 a56 56 0 0 1 56 56 V654 a56 56 0 0 1 -56 56 H404 L276 816 V710 H196 a56 56 0 0 1 -56 -56 V272 a56 56 0 0 1 56 -56 Z" fill="none" stroke="#00e5ff" stroke-width="22" stroke-linejoin="round" filter="url(#n-sq)"/>
+      <polygon points="318,292 384,292 314,634 248,634" fill="#00e8ff" filter="url(#n-sl)"/>
+      <polygon points="452,292 518,292 448,634 382,634" fill="#00e8ff" filter="url(#n-sl)"/>
+      <g stroke="#ff2e88" stroke-width="30" stroke-linecap="round" filter="url(#sc-wave)">
+        <line x1="588" y1="418" x2="588" y2="508"/><line x1="648" y1="350" x2="648" y2="576"/><line x1="708" y1="396" x2="708" y2="530"/><line x1="768" y1="438" x2="768" y2="488"/>
+      </g>
+      <circle cx="790" cy="640" r="20" fill="#39ff88" filter="url(#sc-led)"/>
+      <rect x="610" y="628" width="140" height="24" rx="8" fill="#1f2a33"/>
+    </g>
+  </symbol>
   <symbol id="suite-mark" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="7" fill="#08090c"/>
     <path d="M14.5 6h3l-4 20h-3zM21.5 6h3l-4 20h-3z" fill="#00e8ff" style="filter: drop-shadow(0 0 2px #ff2e88)"/>
@@ -477,10 +504,10 @@ footer a { color: var(--muted); }
 <section class="hero home">
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow">&gt; null grid <span>· search · browser · notes · sync</span></div>
+    <div class="eyebrow">&gt; null grid <span>· search · browser · notes · sync · scribe</span></div>
     <h1 class="glitch" data-text="NULL//GRID">NULL<span class="sl">//</span>GRID<span class="cur">_</span></h1>
     <p class="motto"><span class="red">Your data.</span> <span>Your grid.</span></p>
-    <p class="tagline">A search engine, a web browser, a notes app and file sync, built to work together.</p>
+    <p class="tagline">A search engine, a web browser, a notes app, file sync and a meeting scribe, built to work together.</p>
     <p class="lede">Search from any browser at search.nullgrid.dev. Install Null Grid and Null Notes from the Microsoft Store or as a .deb. Run Null Drive on your own server and keep your files on your own hardware.</p>
     <div class="ctas">
       <a class="btn primary glitchy" data-link="search" href="https://search.nullgrid.dev"><svg aria-hidden="true"><use href="#i-go"/></svg><span class="gl" data-text="Try Null Search">Try Null Search</span></a>
@@ -492,14 +519,14 @@ footer a { color: var(--muted); }
 <section class="rules" aria-label="Highlights">
   <div class="wrap">
     <div class="rule"><b>Nothing to install</b><p>Null Search runs in any browser at search.nullgrid.dev.</p></div>
-    <div class="rule"><b>Windows and Linux</b><p>Null Grid and Null Notes ship on the Microsoft Store and as .deb packages.</p></div>
+    <div class="rule"><b>Windows and Linux</b><p>Null Grid, Null Notes and Null Scribe ship on the Microsoft Store and as .deb packages.</p></div>
     <div class="rule"><b>Your own server</b><p>Null Drive syncs files through hardware you run, not someone else's cloud.</p></div>
   </div>
 </section>
 
 <section class="sec" id="products">
   <div class="wrap">
-    <div class="sec-head"><h2>The suite</h2><p>Four apps, one look.</p></div>
+    <div class="sec-head"><h2>The suite</h2><p>Five apps, one look.</p></div>
     <div class="grid4">
       <article class="block">
         <div class="block-top">
@@ -535,7 +562,16 @@ footer a { color: var(--muted); }
           <span class="status live">v5.0.0</span>
         </div>
         <p>File sync like Dropbox, on a server you run. Delta sync, version history and optional end-to-end encryption.</p>
-        <div class="actions"><a class="get main" href="download.html#desktop"><svg aria-hidden="true"><use href="#i-win"/></svg>Windows app</a><a class="get" href="download.html#server"><svg aria-hidden="true"><use href="#i-server"/></svg>Server</a><a class="more" href="drive.html">More →</a></div>
+        <div class="actions"><a class="get main" href="download.html#desktop"><svg aria-hidden="true"><use href="#i-win"/></svg>Windows app</a><a class="get" data-link="driveStore" href="#"><svg aria-hidden="true"><use href="#i-win"/></svg>Store</a><a class="get" href="download.html#server"><svg aria-hidden="true"><use href="#i-server"/></svg>Server</a><a class="more" href="drive.html">More →</a></div>
+      </article>
+      <article class="block">
+        <div class="block-top">
+          <a href="scribe.html" tabindex="-1" aria-hidden="true"><svg class="glyph" viewBox="0 0 1024 1024" role="img" aria-label="Null Scribe logo"><use href="#logo-scribe"/></svg></a>
+          <div class="block-title"><h3><a href="scribe.html">Null <span>Scribe</span></a></h3><div class="kind">transcripts · summaries · on device</div></div>
+          <span class="status live">v1.0.0</span>
+        </div>
+        <p>Record or import a conversation, transcribe it on your own machine and get a summary from a built-in AI model. Send it to Notes or Drive.</p>
+        <div class="actions"><a class="get main" data-link="scribeStore" href="#"><svg aria-hidden="true"><use href="#i-win"/></svg>Microsoft Store</a><a class="get" data-link="scribeDeb" href="#"><svg aria-hidden="true"><use href="#i-deb"/></svg>.deb</a><a class="more" href="scribe.html">More →</a></div>
       </article>
     </div>
   </div>
@@ -670,6 +706,7 @@ footer a { color: var(--muted); }
           <tr><td><a href="grid.html">Null Grid</a></td><td class="no">—</td><td><a data-link="gridStore" href="#">Microsoft Store</a></td><td><a data-link="gridDeb" href="#">.deb</a></td><td class="no">—</td></tr>
           <tr><td><a href="notes.html">Null Notes</a></td><td class="no">—</td><td><a data-link="notesStore" href="#">Microsoft Store</a></td><td><a data-link="notesDeb" href="#">.deb</a></td><td class="no">—</td></tr>
           <tr><td><a href="drive.html">Null Drive</a></td><td><span class="soon">built into the server</span></td><td><a href="download.html#desktop">Installer</a></td><td><span class="soon">desktop app coming</span></td><td><a href="download.html#server">Docker · binaries</a></td></tr>
+          <tr><td><a href="scribe.html">Null Scribe</a></td><td class="no">—</td><td><a data-link="scribeStore" href="#">Microsoft Store</a> · <a data-link="scribeWin" href="#">Installer</a></td><td><a data-link="scribeDeb" href="#">.deb</a></td><td class="no">—</td></tr>
         </tbody>
       </table>
     </div>
@@ -678,7 +715,7 @@ footer a { color: var(--muted); }
 <footer>
   <div class="wrap">
     <span>Null Grid · <b class="foot-motto">Your data. Your grid.</b> · nullgrid.dev</span>
-    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
+    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
   </div>
 </footer>
 <script>
@@ -691,8 +728,12 @@ const LINKS = {
   notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.0.0/null-notes_5.0.0_amd64.deb",
   notesWin:   "https://github.com/Null0Grid/null-notes/releases/tag/5.0.0",
   gridZip:    "https://github.com/Null0Grid/node-grid/releases",
+  driveStore: "",
+  scribeStore: "https://apps.microsoft.com/detail/9P2FHWTQPN6G",
+  scribeWin:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/NullScribe-1.0.0-Setup.exe",
+  scribeDeb:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/null-scribe_1.0.0_amd64.deb",
 };
-document.querySelectorAll("[data-link]").forEach(a => { const u = LINKS[a.dataset.link]; if (u) a.href = u; });
+document.querySelectorAll("[data-link]").forEach(a => { const u = LINKS[a.dataset.link]; if (u) a.href = u; else if (u === "") a.hidden = true; });
 document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", () => {
   const pre = btn.previousElementSibling;
   const text = pre.textContent.replace(/^\s*(\$|PS>) /gm, "");
