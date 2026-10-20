@@ -261,6 +261,36 @@ footer a { color: var(--muted); }
 .foot-motto { font-weight: 600; color: var(--fg); }
 .motto span.red { color: var(--pink); text-shadow: 0 0 14px rgba(255, 46, 136, .55); }
 
+/* Glitch on hover (Try Null Search) */
+.glitchy .gl { position: relative; display: inline-block; }
+.glitchy .gl::before, .glitchy .gl::after { content: attr(data-text); position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+.glitchy .gl::before { color: var(--pink); }
+.glitchy .gl::after { color: #5b1cff; }
+@media (prefers-reduced-motion: no-preference) {
+  .glitchy:hover, .glitchy:focus-visible { animation: btn-jolt .5s steps(1) infinite; }
+  .glitchy:hover .gl::before, .glitchy:focus-visible .gl::before { animation: btn-red .5s steps(1) infinite; }
+  .glitchy:hover .gl::after, .glitchy:focus-visible .gl::after { animation: btn-blue .5s steps(1) infinite; }
+  @keyframes btn-jolt {
+    0% { transform: none; box-shadow: -3px 0 0 var(--pink), 3px 0 0 #5b1cff, 0 0 22px rgba(0, 229, 255, .4); }
+    20% { transform: translate(-2px, 1px) skewX(-4deg); box-shadow: 4px 0 0 var(--pink), -4px 0 0 #5b1cff, 0 0 22px rgba(0, 229, 255, .4); }
+    40% { transform: translate(2px, -1px); }
+    60% { transform: none; box-shadow: -2px 0 0 var(--pink), 2px 0 0 #5b1cff, 0 0 22px rgba(0, 229, 255, .4); }
+    80% { transform: translate(1px, 0) skewX(3deg); }
+  }
+  @keyframes btn-red {
+    0% { opacity: 1; transform: translate(-3px, -1px); clip-path: inset(0 0 60% 0); }
+    25% { opacity: 1; transform: translate(3px, 1px); clip-path: inset(55% 0 10% 0); }
+    50% { opacity: 0; }
+    75% { opacity: 1; transform: translate(-2px, 0); clip-path: inset(30% 0 40% 0); }
+  }
+  @keyframes btn-blue {
+    0% { opacity: 1; transform: translate(3px, 1px); clip-path: inset(50% 0 5% 0); }
+    25% { opacity: 0; }
+    50% { opacity: 1; transform: translate(-3px, 0); clip-path: inset(5% 0 65% 0); }
+    75% { opacity: 1; transform: translate(2px, -1px); clip-path: inset(70% 0 0 0); }
+  }
+}
+
 /* Glitching headline (home) */
 .glitch { position: relative; display: inline-block; justify-self: start; }
 .glitch::before, .glitch::after {
@@ -387,10 +417,10 @@ footer a { color: var(--muted); }
     <div class="eyebrow">&gt; null grid <span>· search · browser · notes · sync</span></div>
     <h1 class="glitch" data-text="NULL//GRID">NULL<span class="sl">//</span>GRID<span class="cur">_</span></h1>
     <p class="motto"><span class="red">Your data.</span> <span>Your grid.</span></p>
-    <p class="tagline">Null Search, Null Grid, Null Notes and Null Drive: a search engine, a web browser, a notes app and file sync, built to work together.</p>
+    <p class="tagline">A search engine, a web browser, a notes app and file sync, built to work together.</p>
     <p class="lede">Search from any browser at search.nullgrid.dev. Install Null Grid and Null Notes from the Microsoft Store or as a .deb. Run Null Drive on your own server and keep your files on your own hardware.</p>
     <div class="ctas">
-      <a class="btn primary" data-link="search" href="https://search.nullgrid.dev"><svg aria-hidden="true"><use href="#i-go"/></svg>Try Null Search</a>
+      <a class="btn primary glitchy" data-link="search" href="https://search.nullgrid.dev"><svg aria-hidden="true"><use href="#i-go"/></svg><span class="gl" data-text="Try Null Search">Try Null Search</span></a>
       <a class="btn ghost" href="downloads.html">Downloads</a>
     </div>
   </div>
