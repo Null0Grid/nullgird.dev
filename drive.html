@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Null Drive</title>
+<link rel="icon" href="icons/drive.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0a0a0f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -327,6 +331,15 @@ footer a { color: var(--muted); }
 @media (max-width: 760px) { .fl-arrow { display: none; } }
 .dl-note strong { color: var(--fg); }
 
+/* Linux format picker */
+.lx { display: grid; gap: 12px; scroll-margin-top: 20px; }
+.lx-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.lx-tab { font: 500 13px var(--f-mono); padding: 7px 12px; border-radius: 7px; border: 1px solid var(--line); background: var(--panel-2); color: var(--muted); cursor: pointer; }
+.lx-tab:hover { color: var(--fg); border-color: var(--muted); }
+.lx-tab[aria-selected="true"] { color: var(--on-accent); background: var(--cyan); border-color: var(--cyan); }
+.lx-pane { display: grid; gap: 10px; }
+.lx-dist { margin: 0; color: var(--muted); font-size: 14px; }
+
 /* Motto */
 .motto { margin: -6px 0 0; font: 400 clamp(18px, 2.6vw, 26px)/1.2 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--fg); }
 .motto span { color: var(--cyan); text-shadow: 0 0 14px rgba(255, 46, 136, .55); }
@@ -591,8 +604,18 @@ const LINKS = {
   scribeStore: "https://apps.microsoft.com/detail/9P2FHWTQPN6G",
   scribeWin:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/NullScribe-1.0.0-Setup.exe",
   scribeDeb:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/null-scribe_1.0.0_amd64.deb",
+  scribeRpm:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/null-scribe-1.0.0.x86_64.rpm",
+  scribeAppImage: "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/NullScribe-1.0.0-x86_64.AppImage",
+  scribeTar:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/null-scribe_1.0.0_x64.tar.gz",
 };
 document.querySelectorAll("[data-link]").forEach(a => { const u = LINKS[a.dataset.link]; if (u) a.href = u; else if (u === "") a.hidden = true; });
+document.querySelectorAll(".lx").forEach(box => {
+  const tabs = [...box.querySelectorAll(".lx-tab")], panes = [...box.querySelectorAll(".lx-pane")];
+  const pick = k => { tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.lx === k ? "true" : "false")); panes.forEach(p => p.hidden = p.dataset.lx !== k); };
+  tabs.forEach(t => t.addEventListener("click", () => pick(t.dataset.lx)));
+  const ua = navigator.userAgent || "";
+  if (/Fedora|Red Hat|CentOS|openSUSE|SUSE/i.test(ua)) pick("rpm");
+});
 document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", () => {
   const pre = btn.previousElementSibling;
   const text = pre.textContent.replace(/^\s*(\$|PS>) /gm, "");
