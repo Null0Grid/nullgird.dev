@@ -340,6 +340,23 @@ footer a { color: var(--muted); }
 .lx-pane { display: grid; gap: 10px; }
 .lx-dist { margin: 0; color: var(--muted); font-size: 14px; }
 
+/* Easter egg bot */
+.egg-bot { position: fixed; z-index: 50; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); left: -120px; width: 72px; height: 84px; transition: left 4.2s linear; pointer-events: none; }
+.egg-bot svg { width: 72px; height: 84px; image-rendering: pixelated; filter: drop-shadow(0 0 8px rgba(0, 229, 255, .45)); }
+.egg-bot .f2 { visibility: hidden; }
+.egg-bot.walking .f1 { animation: egg-f1 .36s steps(1) infinite; }
+.egg-bot.walking .f2 { animation: egg-f2 .36s steps(1) infinite; }
+.egg-bot.walking svg { animation: egg-bob .36s steps(1) infinite; }
+@keyframes egg-f1 { 50% { visibility: hidden; } }
+@keyframes egg-f2 { 50% { visibility: visible; } }
+@keyframes egg-bob { 50% { transform: translateY(-3px); } }
+.egg-bubble { position: fixed; z-index: 51; bottom: calc(112px + env(safe-area-inset-bottom, 0px)); max-width: min(340px, calc(100vw - 32px)); background: var(--panel); border: 2px solid var(--cyan); color: var(--fg); padding: 14px 40px 14px 16px; font: 14px/1.5 var(--f-mono); box-shadow: 0 0 0 4px var(--bg), 0 0 26px rgba(255, 46, 136, .35); }
+.egg-bubble::after { content: ""; position: absolute; left: 28px; bottom: -12px; width: 16px; height: 12px; background: var(--cyan); clip-path: polygon(0 0, 100% 0, 0 100%); }
+.egg-bubble b { display: block; color: var(--pink); font-weight: 500; margin-bottom: 4px; }
+.egg-bubble a { color: var(--cyan); word-break: break-all; }
+.egg-bubble button { position: absolute; top: 6px; right: 8px; background: none; border: 0; color: var(--muted); font-size: 20px; cursor: pointer; line-height: 1; padding: 4px; }
+.egg-bubble button:hover { color: var(--fg); }
+
 /* Motto */
 .motto { margin: -6px 0 0; font: 400 clamp(18px, 2.6vw, 26px)/1.2 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--fg); }
 .motto span { color: var(--cyan); text-shadow: 0 0 14px rgba(255, 46, 136, .55); }
@@ -518,7 +535,7 @@ footer a { color: var(--muted); }
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">&gt; self-hosted file sync <span class="status live">v5.0.0</span></div>
+      <div class="eyebrow">&gt; self-hosted file sync <span class="status live">v5.1.0</span></div>
       <h1>NULL<span class="sl">//</span>DRIVE</h1>
       <p class="tagline">File sync like Dropbox, on a server you run.</p>
       <p class="lede">Run the Null Drive server on a NAS, mini PC or VPS, then install the desktop app on each computer. Your files sync through hardware you own.</p>
@@ -529,7 +546,7 @@ footer a { color: var(--muted); }
 </section>
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head"><h2>What's inside</h2><p>One server binary with the web app built in, plus a desktop app for Windows.</p></div>
+    <div class="sec-head"><h2>What's inside</h2><p>One server binary with the web app built in, plus a desktop app for Windows and Linux.</p></div>
     <div class="feats">
       <div class="feat"><h3>Delta sync</h3><p>Files are split into content-defined chunks, so a 1 MiB edit to a 1 GiB file sends about 4.5 MiB.</p></div>
       <div class="feat"><h3>Version history</h3><p>Roll any file back to an earlier version. Deleted files wait in a Recently deleted bin.</p></div>
@@ -551,13 +568,38 @@ footer a { color: var(--muted); }
     -v nulldrive-data:/data --restart unless-stopped \
     ghcr.io/null0grid/null-drive:latest</pre><button class="copy" type="button">copy</button></div>
         <p>On Ubuntu or Debian, the .deb runs it as a service on port 8080:</p>
-        <div class="code"><pre><span class="p">$ </span>sudo apt install ./nulldrive_5.0.0_amd64.deb</pre><button class="copy" type="button">copy</button></div>
+        <div class="code"><pre><span class="p">$ </span>sudo apt install ./nulldrive_5.1.0_amd64.deb</pre><button class="copy" type="button">copy</button></div>
         <div><a class="btn ghost" href="download.html#server">CasaOS, Unraid, TrueNAS and binaries</a></div>
       </div>
       <div class="get-card">
-        <h3><svg aria-hidden="true"><use href="#i-win"/></svg>Desktop app</h3>
+        <h3><svg aria-hidden="true"><use href="#i-win"/></svg>Desktop app for Windows</h3>
         <p>Windows 10 and 11, 64-bit. Get it from the Store, or the installer that sets up for your user with no admin needed. A portable zip is there too.</p>
         <div class="ctas"><a class="btn primary" data-link="driveStore" href="#"><svg aria-hidden="true"><use href="#i-win"/></svg>Get it from Microsoft Store</a><a class="btn ghost" href="download.html#desktop"><svg aria-hidden="true"><use href="#i-win"/></svg>Installer</a></div>
+      </div>
+      <div class="get-card">
+        <h3><svg aria-hidden="true"><use href="#i-deb"/></svg>Desktop app for Linux</h3>
+        <p>New in 5.1. Pick the format for your distro.</p>
+        <div class="lx" id="linux">
+        <div class="lx-tabs" role="tablist" aria-label="Null Drive Linux formats"><button type="button" class="lx-tab" role="tab" aria-selected="true" data-lx="deb">.deb</button><button type="button" class="lx-tab" role="tab" aria-selected="false" data-lx="rpm">.rpm</button><button type="button" class="lx-tab" role="tab" aria-selected="false" data-lx="appimage">AppImage</button><button type="button" class="lx-tab" role="tab" aria-selected="false" data-lx="tar">.tar.gz</button></div>
+        <div class="lx-pane" data-lx="deb">
+          <p class="lx-dist">Ubuntu, Debian, Linux Mint, Pop!_OS</p>
+          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nulldrive-desktop_5.1.0_amd64.deb</pre><button class="copy" type="button">copy</button></div>
+          <div><a class="btn ghost" data-link="driveDeskDeb" href="#"><svg aria-hidden="true"><use href="#i-deb"/></svg>Download .deb</a></div>
+        </div><div class="lx-pane" data-lx="rpm" hidden>
+          <p class="lx-dist">Fedora, RHEL, Rocky, AlmaLinux, openSUSE</p>
+          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nulldrive-desktop-5.1.0-1.x86_64.rpm</pre><button class="copy" type="button">copy</button></div>
+          <div><a class="btn ghost" data-link="driveDeskRpm" href="#"><svg aria-hidden="true"><use href="#i-deb"/></svg>Download .rpm</a></div>
+        </div><div class="lx-pane" data-lx="appimage" hidden>
+          <p class="lx-dist">Any distro. One file, nothing to install.</p>
+          <div class="code"><pre><span class="p">$ </span>chmod +x NullDrive-5.1.0-x86_64.AppImage &amp;&amp; ./NullDrive-5.1.0-x86_64.AppImage</pre><button class="copy" type="button">copy</button></div>
+          <div><a class="btn ghost" data-link="driveDeskAppImage" href="#"><svg aria-hidden="true"><use href="#i-deb"/></svg>Download AppImage</a></div>
+        </div><div class="lx-pane" data-lx="tar" hidden>
+          <p class="lx-dist">Any distro. Extract it, then run the app from the folder it creates.</p>
+          <div class="code"><pre><span class="p">$ </span>tar -xzf nulldrive-desktop_5.1.0_linux_amd64.tar.gz</pre><button class="copy" type="button">copy</button></div>
+          <div><a class="btn ghost" data-link="driveDeskTar" href="#"><svg aria-hidden="true"><use href="#i-deb"/></svg>Download .tar.gz</a></div>
+        </div>
+        
+      </div>
       </div>
     </div>
   </div>
@@ -595,18 +637,24 @@ footer a { color: var(--muted); }
 const LINKS = {
   search:     "https://search.nullgrid.dev",
   gridStore:  "https://apps.microsoft.com/detail/9PL3D6SNHMLS",
-  gridDeb:    "https://github.com/Null0Grid/node-grid/releases",
+  gridDeb:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.0/nullgrid-browser_5.1.0_amd64.deb",
+  gridRpm:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.0/nullgrid-browser-5.1.0.x86_64.rpm",
   notesStore: "https://apps.microsoft.com/detail/9NW82T0G35QF",
-  notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.0.0/null-notes_5.0.0_amd64.deb",
-  notesWin:   "https://github.com/Null0Grid/null-notes/releases/tag/5.0.0",
+  notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.0/null-notes_5.1.0_amd64.deb",
+  notesRpm:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.0/null-notes-5.1.0-1.x86_64.rpm",
+  notesWin:   "https://github.com/Null0Grid/null-notes/releases/tag/5.1.0",
+  driveDeskDeb: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop_5.1.0_amd64.deb",
+  driveDeskRpm: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop-5.1.0-1.x86_64.rpm",
+  driveDeskAppImage: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/NullDrive-5.1.0-x86_64.AppImage",
+  driveDeskTar: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop_5.1.0_linux_amd64.tar.gz",
   gridZip:    "https://github.com/Null0Grid/node-grid/releases",
   driveStore: "https://apps.microsoft.com/detail/9P3NQGJ8ZZMG",
   scribeStore: "https://apps.microsoft.com/detail/9P2FHWTQPN6G",
-  scribeWin:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/NullScribe-1.0.0-Setup.exe",
-  scribeDeb:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/null-scribe_1.0.0_amd64.deb",
-  scribeRpm:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/null-scribe-1.0.0.x86_64.rpm",
-  scribeAppImage: "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/NullScribe-1.0.0-x86_64.AppImage",
-  scribeTar:  "https://github.com/Null0Grid/null-scribe/releases/download/v1.0.0/null-scribe_1.0.0_x64.tar.gz",
+  scribeWin:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/NullScribe-5.1.0-Setup.exe",
+  scribeDeb:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe_5.1.0_amd64.deb",
+  scribeRpm:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe-5.1.0.x86_64.rpm",
+  scribeAppImage: "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/NullScribe-5.1.0-x86_64.AppImage",
+  scribeTar:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe_5.1.0_x64.tar.gz",
 };
 document.querySelectorAll("[data-link]").forEach(a => { const u = LINKS[a.dataset.link]; if (u) a.href = u; else if (u === "") a.hidden = true; });
 document.querySelectorAll(".lx").forEach(box => {
@@ -623,6 +671,61 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
   const fallback = () => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Ctrl+C"; };
   try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
 }));
+
+// Easter egg: press Ctrl, then ↑ ↑ ↓ ↓ ← → ← → with only the arrow keys.
+(() => {
+  const SEQ = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight"];
+  let armed = false, pos = 0, timer = null, running = false;
+  const reset = () => { armed = false; pos = 0; clearTimeout(timer); };
+  const BOT = `<svg viewBox="0 0 12 14" aria-hidden="true" shape-rendering="crispEdges">
+    <rect x="5" y="0" width="2" height="1" fill="#ff2e88"/><rect x="5.5" y="1" width="1" height="1" fill="#8b92a8"/>
+    <rect x="2" y="2" width="8" height="5" fill="#1b2230"/><rect x="2" y="2" width="8" height="1" fill="#2b3446"/>
+    <rect x="3" y="3" width="6" height="3" fill="#06080d"/><rect x="4" y="4" width="1" height="1" fill="#00e5ff"/><rect x="7" y="4" width="1" height="1" fill="#00e5ff"/>
+    <rect x="1" y="4" width="1" height="2" fill="#2b3446"/><rect x="10" y="4" width="1" height="2" fill="#2b3446"/>
+    <rect x="3" y="7" width="6" height="4" fill="#1b2230"/><rect x="4" y="8" width="1" height="2" fill="#00e5ff"/><rect x="5" y="8" width="1" height="2" fill="#00e5ff"/><rect x="6" y="9" width="1" height="1" fill="#39ff88"/>
+    <g class="f1"><rect x="2" y="8" width="1" height="2" fill="#2b3446"/><rect x="9" y="7" width="1" height="2" fill="#2b3446"/><rect x="3" y="11" width="2" height="2" fill="#2b3446"/><rect x="7" y="11" width="2" height="1" fill="#2b3446"/><rect x="7" y="12" width="2" height="1" fill="#2b3446"/><rect x="2" y="13" width="3" height="1" fill="#00e5ff"/><rect x="7" y="13" width="3" height="1" fill="#00e5ff"/></g>
+    <g class="f2"><rect x="2" y="7" width="1" height="2" fill="#2b3446"/><rect x="9" y="8" width="1" height="2" fill="#2b3446"/><rect x="4" y="11" width="2" height="2" fill="#2b3446"/><rect x="6" y="11" width="2" height="2" fill="#2b3446"/><rect x="3" y="13" width="3" height="1" fill="#00e5ff"/><rect x="6" y="13" width="3" height="1" fill="#00e5ff"/></g>
+  </svg>`;
+  function launch() {
+    if (running) return; running = true;
+    const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const bot = document.createElement("div");
+    bot.className = "egg-bot"; bot.innerHTML = BOT;
+    document.body.append(bot);
+    const stopAt = Math.max(16, Math.min(window.innerWidth * 0.5, window.innerWidth - 360));
+    const showBubble = () => {
+      bot.classList.remove("walking");
+      const bub = document.createElement("div");
+      bub.className = "egg-bubble"; bub.setAttribute("role", "dialog"); bub.setAttribute("aria-label", "You found a secret");
+      bub.style.left = Math.max(16, Math.min(stopAt, window.innerWidth - 356)) + "px";
+      bub.innerHTML = '<b>&gt; you found the hidden grid</b>Beep. There&#39;s a secret page:<br><a href="easteregg.html">nullgrid.dev/easteregg.html</a><button type="button" aria-label="Close">×</button>';
+      document.body.append(bub);
+      bub.querySelector("a").focus();
+      bub.querySelector("button").addEventListener("click", () => {
+        bub.remove();
+        if (reduce) { bot.remove(); running = false; return; }
+        bot.style.transition = "left 3s linear";
+        bot.classList.add("walking");
+        bot.style.left = (window.innerWidth + 120) + "px";
+        bot.addEventListener("transitionend", () => { bot.remove(); running = false; }, { once: true });
+      });
+    };
+    if (reduce) { bot.style.transition = "none"; bot.style.left = stopAt + "px"; showBubble(); return; }
+    bot.classList.add("walking");
+    requestAnimationFrame(() => requestAnimationFrame(() => { bot.style.left = stopAt + "px"; }));
+    bot.addEventListener("transitionend", showBubble, { once: true });
+  }
+  document.addEventListener("keydown", e => {
+    if (e.target.closest && e.target.closest("input, textarea, [contenteditable]")) return;
+    if (e.key === "Control") { armed = true; pos = 0; clearTimeout(timer); timer = setTimeout(reset, 6000); return; }
+    if (!armed) return;
+    if (e.key === SEQ[pos]) {
+      pos++;
+      if (pos === SEQ.length) { reset(); launch(); }
+    } else if (e.key.startsWith("Arrow")) { pos = e.key === SEQ[0] ? 1 : 0; }
+    else if (e.key !== "Shift" && e.key !== "Alt") { reset(); }
+  });
+})();
 </script>
 </body>
 </html>

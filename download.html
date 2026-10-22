@@ -373,7 +373,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
 </header>
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">&gt; release <span data-ver>v5.0.0</span> <b>· self-hosted · source on GitHub</b></div>
+    <div class="eyebrow">&gt; release <span data-ver>v5.1.0</span> <b>· self-hosted · source on GitHub</b></div>
     <h1>Your files. Your server. <span class="sl">//</span> Synced.</h1>
     <p class="lede">Null Drive keeps a folder on your computer in sync with a server you run yourself. Install the server on a NAS, mini PC or VPS, then add the desktop app on each machine.</p>
     <div class="pick" id="pick">
@@ -406,12 +406,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
             </div>
             <div class="file">
               <div class="file-name">Installer</div>
-              <div class="file-meta" data-file="NullDrive-{v}-Setup.exe">NullDrive-5.0.0-Setup.exe · x64</div>
+              <div class="file-meta" data-file="NullDrive-{v}-Setup.exe">NullDrive-5.1.0-Setup.exe · x64</div>
               <a class="get" data-asset="NullDrive-{v}-Setup.exe" href="#">Download</a>
             </div>
             <div class="file">
               <div class="file-name">Portable zip</div>
-              <div class="file-meta" data-file="NullDrive-{v}-portable.zip">NullDrive-5.0.0-portable.zip · no install</div>
+              <div class="file-meta" data-file="NullDrive-{v}-portable.zip">NullDrive-5.1.0-portable.zip · no install</div>
               <a class="get" data-asset="NullDrive-{v}-portable.zip" href="#">Download</a>
             </div>
           </div>
@@ -432,8 +432,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
               <div class="file-meta">.dmg · Apple silicon and Intel</div>
             </div>
             <div class="file">
-              <div class="file-name">Linux <span class="tag soon">in progress</span></div>
-              <div class="file-meta">AppImage and .deb</div>
+              <div class="file-name">Linux <span class="tag ok">new in 5.1</span></div>
+              <div class="file-meta">.deb · .rpm · AppImage · .tar.gz, x64 and ARM64</div>
+              <a class="get" href="drive.html#linux">Get it</a>
             </div>
 
           </div>
@@ -512,15 +513,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
 <section class="verify" id="verify">
   <div class="wrap">
     <h2 class="section-title">Verify your download</h2>
-    <p class="note">Every release ships a <a data-asset="SHA256SUMS.txt" href="#">SHA256SUMS.txt</a>, and all 5.0.0 hashes are on the <a href="downloads.html#checksums">Downloads page</a>. Compare the hash of the file you downloaded before running it.</p>
+    <p class="note">Every release ships a <a data-asset="SHA256SUMS.txt" href="#">SHA256SUMS.txt</a>, and all 5.1.0 hashes are on the <a href="downloads.html#checksums">Downloads page</a>. Compare the hash of the file you downloaded before running it.</p>
     <div class="grid">
       <div class="code"><pre id="v-win"><span class="c"># Windows (PowerShell)</span>
-<span class="p">PS&gt; </span>Get-FileHash .\nulldrive_5.0.0_windows_amd64.zip
-<span class="c"># 0885f0856f174f0dda3390256955cc3e055f55a6
-#   5f06b0c6b4e2c5e9084c2d56</span></pre><button class="copy" type="button" data-copy="Get-FileHash .\nulldrive_5.0.0_windows_amd64.zip">copy</button></div>
+<span class="p">PS&gt; </span>Get-FileHash .\nulldrive_5.1.0_windows_amd64.zip
+<span class="c"># f8ad9efc9acfc094836a86abf71bc46076b8c4f7
+#   115589783c46a0e40ad05171</span></pre><button class="copy" type="button" data-copy="Get-FileHash .\nulldrive_5.1.0_windows_amd64.zip">copy</button></div>
       <div class="code"><pre id="v-lin"><span class="c"># Linux / macOS</span>
 <span class="p">$ </span>sha256sum -c SHA256SUMS.txt --ignore-missing
-<span class="c"># nulldrive_5.0.0_linux_arm64.tar.gz: OK</span></pre><button class="copy" type="button" data-copy="sha256sum -c SHA256SUMS.txt --ignore-missing">copy</button></div>
+<span class="c"># nulldrive_5.1.0_linux_arm64.tar.gz: OK</span></pre><button class="copy" type="button" data-copy="sha256sum -c SHA256SUMS.txt --ignore-missing">copy</button></div>
     </div>
   </div>
 </section>
@@ -535,7 +536,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-
 <script>
 // Edit these two when publishing: GitHub owner (lowercase) and current release tag.
 const OWNER = "Null0Grid";
-const VERSION = "5.0.0";
+const VERSION = "5.1.0";
 
 const repo = `https://github.com/${OWNER}/null-drive`;
 const dl = name => `${repo}/releases/download/${VERSION}/${name.replace("{v}", VERSION)}`;
