@@ -27,6 +27,7 @@ h1{margin:0;font:400 clamp(72px,20vw,168px)/.95 Silkscreen,monospace;letter-spac
 h1 .sl{color:var(--cyan);text-shadow:0 0 22px rgba(255,46,136,.6)}
 .term{position:relative;margin-top:34px}
 .bot{position:absolute;right:-18px;top:-60px;width:84px;height:78px;pointer-events:none;filter:drop-shadow(0 0 8px rgba(0,229,255,.4))}
+.bot .ang{opacity:0}
 .bot svg{width:84px;height:78px;display:block;transform:scaleX(-1)}
 @media (max-width:700px){.bot{right:10px}}
 .g4{position:relative;display:inline-block;text-shadow:-3px 0 rgba(255,46,136,.75),3px 0 rgba(0,229,255,.6)}
@@ -55,6 +56,14 @@ h1::after{color:#5b1cff;transform:translate(4px,0)}
   @keyframes eyes{0%,92%,100%{opacity:1}93%,96%{opacity:0}}
   .bot .swing{animation:swing 1.4s steps(2) infinite}
   @keyframes swing{0%,100%{transform:translateX(0)}50%{transform:translateX(1px)}}
+  .bot{animation:shake 4s steps(1) infinite}
+  .bot .ang{animation:ang 4s steps(1) infinite}
+  .bot .calm{animation:calm 4s steps(1) infinite}
+  .bot .puff{animation:puff .5s steps(1) infinite}
+  @keyframes ang{0%,64%{opacity:0}65%,94%{opacity:1}95%,100%{opacity:0}}
+  @keyframes calm{0%,64%{opacity:1}65%,94%{opacity:0}95%,100%{opacity:1}}
+  @keyframes puff{0%{transform:translateY(0)}50%{transform:translateY(-1px)}}
+  @keyframes shake{0%,64%,95%,100%{translate:0 0}65%,71%,77%,83%,89%{translate:-2px 0}68%,74%,80%,86%,92%{translate:2px 0}}
   .bot .hand-r{animation:type .4s steps(1) infinite}
   @keyframes type{0%{transform:translateY(0)}50%{transform:translateY(.25px)}}
   .cur{animation:blink 1s steps(1) infinite}
@@ -88,7 +97,11 @@ footer{padding:16px 24px;font:13px "JetBrains Mono",monospace;color:var(--muted)
         <polygon points="2.9,8.5 2.2,5.2 6.4,4.4 7.2,7.4" fill="#00e5ff" opacity=".12"/>
         <rect class="led" x="9" y="0" width="1.5" height="1" fill="#ff2e88"/><rect x="9.5" y="1" width="0.5" height="1" fill="#8b92a8"/>
         <rect x="6" y="2" width="6" height="5" fill="#323c54"/><rect x="6" y="2" width="6" height="1" fill="#4a5677"/>
-        <rect x="6" y="3" width="3" height="3" fill="#0b0e15"/><g class="eye"><rect x="6.5" y="4.5" width="1" height="0.5" fill="#00e5ff"/></g>
+        <rect x="6" y="3" width="3" height="3" fill="#0b0e15"/><g class="calm"><g class="eye"><rect x="6.5" y="4.5" width="1" height="0.5" fill="#00e5ff"/></g></g>
+        <g class="ang"><rect x="6.5" y="4.5" width="1" height="0.5" fill="#ff2e88"/><rect x="6.25" y="4" width="0.5" height="0.5" fill="#ff2e88"/><rect x="6.75" y="3.75" width="0.5" height="0.5" fill="#ff2e88"/><rect x="7.25" y="3.5" width="0.5" height="0.5" fill="#ff2e88"/>
+          <rect x="9" y="0" width="1.5" height="1" fill="#ff3b4e"/>
+          <g class="puff"><rect x="7" y="0.5" width="0.5" height="0.5" fill="#8b92a8"/><rect x="11.5" y="0.5" width="0.5" height="0.5" fill="#8b92a8"/><rect x="7.5" y="0" width="0.5" height="0.5" fill="#8b92a8"/><rect x="11" y="0" width="0.5" height="0.5" fill="#8b92a8"/></g>
+          <rect x="13" y="0.5" width="0.5" height="1.5" fill="#ff2e88"/><rect x="13" y="2.5" width="0.5" height="0.5" fill="#ff2e88"/></g>
         <rect x="12" y="4" width="1" height="2" fill="#4a5677"/>
         <rect x="7" y="7" width="4" height="3" fill="#323c54"/><rect x="10" y="8" width="0.5" height="0.5" fill="#39ff88"/>
         <rect x="3.5" y="9" width="4.5" height="1" fill="#4a5677"/>
