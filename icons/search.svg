@@ -15,10 +15,18 @@
     <clipPath id="tile1024"><rect width="1024" height="1024" rx="224"/></clipPath>
     <filter id="sc-wave" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="6"/><feFlood flood-color="#ff2e88" flood-opacity=".55"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <filter id="sc-led" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  </defs>
-    <rect width="1024" height="1024" rx="110" fill="#080b0c"/>
-    <g fill="#ff2e88" fill-opacity="0.59" filter="url(#s-pink)"><polygon points="389.1,81.9 583.7,81.9 435.2,916.5 240.6,916.5"/><polygon points="629.8,81.9 824.3,81.9 675.8,916.5 481.3,916.5"/></g>
-    <g fill="#6e123a" filter="url(#s-edge)"><polygon points="417.3,87.0 555.5,87.0 407.0,911.4 268.8,911.4"/><polygon points="657.9,87.0 796.2,87.0 647.7,911.4 509.4,911.4"/></g>
-    <g fill="#00e8ff" fill-opacity="0.67" filter="url(#s-cyan)"><polygon points="430.1,102.4 542.7,102.4 394.2,896.0 281.6,896.0"/><polygon points="670.7,102.4 783.4,102.4 634.9,896.0 522.2,896.0"/></g>
-    <g fill="#00e8ff"><polygon points="442.9,102.4 529.9,102.4 381.4,896.0 294.4,896.0"/><polygon points="683.5,102.4 770.6,102.4 622.1,896.0 535.0,896.0"/></g>
+  
+
+<filter id="lg-sl" x="-100%" y="-30%" width="300%" height="160%">
+<feGaussianBlur in="SourceAlpha" stdDeviation="20" result="b3"/><feFlood flood-color="#8c1446" flood-opacity=".65"/><feComposite operator="in" in2="b3" result="g3"/>
+<feGaussianBlur in="SourceAlpha" stdDeviation="11" result="b2"/><feFlood flood-color="#ff2e88" flood-opacity=".75"/><feComposite operator="in" in2="b2" result="g2"/>
+<feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="b1"/><feFlood flood-color="#96beff" flood-opacity=".9"/><feComposite operator="in" in2="b1" result="g1"/>
+<feMerge><feMergeNode in="g3"/><feMergeNode in="g2"/><feMergeNode in="g1"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="lg-sq" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="8"/><feFlood flood-color="#00e5ff" flood-opacity=".75"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="lg-pk" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceAlpha" stdDeviation="10"/><feFlood flood-color="#ff2e88" flood-opacity=".7"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="lg-gn" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="lg-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+
+</defs>
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><polyline points="176,352 336,512 176,672" fill="none" stroke="#39ff88" stroke-width="58" stroke-linecap="round" stroke-linejoin="round" filter="url(#lg-gn)"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="482,312 548,312 472,712 406,712"/><polygon points="632,312 698,312 622,712 556,712"/></g><rect x="740" y="660" width="112" height="52" rx="6" fill="#ff2e88" filter="url(#lg-pk)"/></g>
   </svg>
