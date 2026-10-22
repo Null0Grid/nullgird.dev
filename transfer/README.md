@@ -34,5 +34,5 @@ After a file is on the site, mark it **used** in the log (or delete it from this
 
 | Date | App | Files | For | Status |
 |---|---|---|---|---|
-| 2026-10-22 | Null Scribe | `null-scribe/null-scribe-demo.mp4`, `.webm`, `-poster.jpg` | Demo video for `scribe.html` | new |
-| 2026-10-22 | Null Drive | `null-drive/null-drive-feature-demo.mp4`, `null-drive/null-drive-server-setup.mp4` | Feature tour and server setup videos for `drive.html` (see `null-drive/NOTES.md`) | new |
+| 2026-10-22 | Null Scribe | `null-scribe/null-scribe-demo.mp4`, `.webm`, `-poster.jpg` | Demo video for `scribe.html` | **used** (live 2026-10-22) |
+| 2026-10-22 | Null Drive | `null-drive/null-drive-feature-demo.mp4`, `null-drive/null-drive-server-setup.mp4` | Feature tour and server setup videos for `drive.html` (see `null-drive/NOTES.md`) | **used** (live 2026-10-22) |
