@@ -667,7 +667,7 @@ footer a { color: var(--muted); }
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">&gt; transcripts and summaries <span class="status live">v5.1.0</span></div>
+      <div class="eyebrow">&gt; transcripts and summaries <span class="status live">v5.1.1</span></div>
       <h1>NULL<span class="sl">//</span>SCRIBE</h1>
       <p class="tagline">Your conversations, transcribed and summarized on your own machine.</p>
       <p class="lede">Record a call or import a recording. Null Scribe transcribes it on your computer, then a built-in AI model writes the summary: key points, decisions and action items. Nothing goes to the cloud unless you send it.</p>
@@ -722,7 +722,7 @@ footer a { color: var(--muted); }
 <section class="sec dl-merged" id="download">
   <div class="wrap">
     <div class="dm-head">
-      <div class="kick">version 5.1.0 · <a href="https://github.com/Null0Grid/null-scribe/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
+      <div class="kick">version 5.1.1 · <a href="https://github.com/Null0Grid/null-scribe/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
       <h2>Download <span>Null Scribe</span></h2>
       <p>Null Scribe for Windows and Linux. Transcripts and summaries are made on your own computer.</p>
       <p class="dl-note" style="margin-top:12px">The speech and summary models (about 2.2 GB) download on first launch. <strong>Tell people when you record them:</strong> recording without consent is illegal in many places. Built with Llama. Source: <a href="https://github.com/Null0Grid/null-scribe">github.com/Null0Grid/null-scribe</a></p>
@@ -732,8 +732,8 @@ footer a { color: var(--muted); }
     <h2><svg class="os-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-winhead"/></svg>Windows<small>Windows 10 (2004+) and 11</small></h2>
     <div class="fl">
         <div class="fl-row" data-os="win">
-          <div><h3>Windows installer<span class="tag">x64</span></h3><p>Download and run the installer.</p><div class="meta">NullScribe-5.1.0-Setup.exe · 105.6 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/NullScribe-5.1.0-Setup.exe" data-file="NullScribe-5.1.0-Setup.exe"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div><h3>Windows installer<span class="tag">x64</span></h3><p>Download and run the installer.</p><div class="meta">NullScribe-5.1.1-Setup.exe · 105.5 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/NullScribe-5.1.1-Setup.exe" data-file="NullScribe-5.1.1-Setup.exe"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
           
         </div>
         <div class="fl-row">
@@ -743,41 +743,86 @@ footer a { color: var(--muted); }
     </div>
   </div>
   <div class="ub-row" id="linux">
-    <h2><svg class="os-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tux"/></svg>Linux<small>64-bit x86</small></h2>
+    <h2><svg class="os-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tux"/></svg>Linux<small>x64 and ARM64</small></h2>
     <div class="fl">
         <div class="fl-row" data-os="deb">
-          <div><h3>Ubuntu and Debian (.deb)<span class="tag">x64</span></h3><p>Ubuntu, Debian, Linux Mint, Pop!_OS.</p><div class="meta">null-scribe_5.1.0_amd64.deb · 99.5 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe_5.1.0_amd64.deb" data-file="null-scribe_5.1.0_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo apt install ./null-scribe_5.1.0_amd64.deb</pre><button class="copy" type="button">copy</button></div>
-        </div>
-        <div class="fl-row" data-os="rpm">
-          <div><h3>Fedora and RHEL (.rpm)<span class="tag">x64</span></h3><p>Fedora, RHEL and compatible distributions.</p><div class="meta">null-scribe-5.1.0.x86_64.rpm · 99.8 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe-5.1.0.x86_64.rpm" data-file="null-scribe-5.1.0.x86_64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./null-scribe-5.1.0.x86_64.rpm</pre><button class="copy" type="button">copy</button></div>
-        </div>
-        <div class="fl-row" data-os="lin">
-          <div><h3>AppImage<span class="tag">x64</span></h3><p>Runs on most Linux distributions without installing.</p><div class="meta">NullScribe-5.1.0-x86_64.AppImage · 141.9 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/NullScribe-5.1.0-x86_64.AppImage" data-file="NullScribe-5.1.0-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>chmod +x NullScribe-5.1.0-x86_64.AppImage &amp;&amp; ./NullScribe-5.1.0-x86_64.AppImage</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Ubuntu and Debian (.deb)<span class="tag">x64</span></h3><p>Ubuntu, Debian, Linux Mint, Pop!_OS, Raspberry Pi OS.</p><div class="meta">null-scribe_5.1.1_amd64.deb · 112.3 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_amd64.deb" data-file="null-scribe_5.1.1_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo apt install ./null-scribe_5.1.1_amd64.deb</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Archive (.tar.gz)<span class="tag">x64</span></h3><p>Unpack and run from any folder.</p><div class="meta">null-scribe_5.1.0_x64.tar.gz · 134.7 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe_5.1.0_x64.tar.gz" data-file="null-scribe_5.1.0_x64.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>tar -xzf null-scribe_5.1.0_x64.tar.gz</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Ubuntu and Debian (.deb)<span class="tag">ARM64</span></h3><p>For ARM64 machines such as a Raspberry Pi 5.</p><div class="meta">null-scribe_5.1.1_arm64.deb · 106.9 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_arm64.deb" data-file="null-scribe_5.1.1_arm64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo apt install ./null-scribe_5.1.1_arm64.deb</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row" data-os="rpm">
+          <div><h3>Fedora and RHEL (.rpm)<span class="tag">x64</span></h3><p>Fedora, RHEL, openSUSE and compatible distributions.</p><div class="meta">null-scribe-5.1.1.x86_64.rpm · 99.8 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe-5.1.1.x86_64.rpm" data-file="null-scribe-5.1.1.x86_64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./null-scribe-5.1.1.x86_64.rpm</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Fedora and RHEL (.rpm)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">null-scribe-5.1.1.aarch64.rpm · 91.8 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe-5.1.1.aarch64.rpm" data-file="null-scribe-5.1.1.aarch64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./null-scribe-5.1.1.aarch64.rpm</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>AppImage<span class="tag">x64</span></h3><p>Runs on most distributions without installing.</p><div class="meta">NullScribe-5.1.1-x86_64.AppImage · 141.8 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/NullScribe-5.1.1-x86_64.AppImage" data-file="NullScribe-5.1.1-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>chmod +x NullScribe-5.1.1-x86_64.AppImage &amp;&amp; ./NullScribe-5.1.1-x86_64.AppImage</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>AppImage<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">NullScribe-5.1.1-aarch64.AppImage · 138.0 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/NullScribe-5.1.1-aarch64.AppImage" data-file="NullScribe-5.1.1-aarch64.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>chmod +x NullScribe-5.1.1-aarch64.AppImage &amp;&amp; ./NullScribe-5.1.1-aarch64.AppImage</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Flatpak<span class="tag">x64</span></h3><p>Sandboxed. Needs the Flathub remote for its runtime.</p><div class="meta">null-scribe_5.1.1_x86_64.flatpak · 102.2 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_x86_64.flatpak" data-file="null-scribe_5.1.1_x86_64.flatpak"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>flatpak install --user ./null-scribe_5.1.1_x86_64.flatpak</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Flatpak<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">null-scribe_5.1.1_aarch64.flatpak · 93.8 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_aarch64.flatpak" data-file="null-scribe_5.1.1_aarch64.flatpak"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>flatpak install --user ./null-scribe_5.1.1_aarch64.flatpak</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Snap<span class="tag">x64</span></h3><p>For any distribution with snapd.</p><div class="meta">null-scribe_5.1.1_amd64.snap · 134.7 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_amd64.snap" data-file="null-scribe_5.1.1_amd64.snap"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo snap install --dangerous ./null-scribe_5.1.1_amd64.snap</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Snap<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">null-scribe_5.1.1_arm64.snap · 124.5 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_arm64.snap" data-file="null-scribe_5.1.1_arm64.snap"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo snap install --dangerous ./null-scribe_5.1.1_arm64.snap</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Archive (.tar.gz)<span class="tag">x64</span></h3><p>Unpack and run from any folder.</p><div class="meta">null-scribe_5.1.1_x64.tar.gz · 134.7 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_x64.tar.gz" data-file="null-scribe_5.1.1_x64.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>tar -xzf null-scribe_5.1.1_x64.tar.gz</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Archive (.tar.gz)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">null-scribe_5.1.1_arm64.tar.gz · 135.0 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_arm64.tar.gz" data-file="null-scribe_5.1.1_arm64.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>tar -xzf null-scribe_5.1.1_arm64.tar.gz</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Arch Linux (PKGBUILD)<span class="tag">x64</span><span class="tag">ARM64</span></h3><p>Download it into an empty folder, then build the null-scribe-bin package.</p><div class="meta">null-scribe-bin.PKGBUILD · 0.0 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe-bin.PKGBUILD" data-file="null-scribe-bin.PKGBUILD"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>cp null-scribe-bin.PKGBUILD PKGBUILD &amp;&amp; makepkg -si</pre><button class="copy" type="button">copy</button></div>
         </div>
     </div>
   </div>
 
   <div class="ub-row" id="requirements">
     <h2>System requirements</h2>
-    <ul class="dp-req"><li>Windows 10 version 2004 or newer, or Windows 11</li><li>64-bit Linux</li><li>A 64-bit CPU with AVX2</li></ul>
+    <ul class="dp-req"><li>Windows 10 version 2004 or newer, or Windows 11</li><li>64-bit Linux, x64 or ARM64</li><li>A 64-bit CPU with AVX2 (x64)</li></ul>
   </div>
 
   <div class="ub-row" id="verify">
-    <h2>Verify your download<small>SHA-256, release 5.1.0</small></h2>
+    <h2>Verify your download<small>SHA-256, release 5.1.1</small></h2>
     <div>
       <p class="dl-note" style="margin:0 0 14px">Check a file before you run it: <code>sha256sum &lt;file&gt;</code> on Linux and macOS, <code>Get-FileHash &lt;file&gt;</code> in PowerShell.</p>
-      <div class="dp-sums" id="checksums"><table><tbody><tr><td>NullScribe-5.1.0-Setup.exe</td><td>Windows installer</td><td class="hash">0556f9a51622453f2b7f64f764d403a9cd31896770194c8236103a9c6e9ae155</td></tr><tr><td>null-scribe_5.1.0_amd64.deb</td><td>Debian/Ubuntu · x64</td><td class="hash">a12b171586e221d471cd970a6640c768362160615d47928eae2b26f8bd7b004c</td></tr><tr><td>null-scribe-5.1.0.x86_64.rpm</td><td>Fedora/RHEL · x64</td><td class="hash">c869920090ba848c13f96c8d65106f9272a96a25307907b668e0e8911871c5a2</td></tr><tr><td>NullScribe-5.1.0-x86_64.AppImage</td><td>Any Linux · x64</td><td class="hash">a44ca19e35f144b2f263485d7131ceb2cbaa63d147360fa1184c1b2522d7b9a0</td></tr><tr><td>null-scribe_5.1.0_x64.tar.gz</td><td>Linux archive · x64</td><td class="hash">f0f6b67e53635f3329d051507bfd2e558a3b39329eb62b8d2e0452682c28cf32</td></tr></tbody></table></div>
+      <div class="dp-sums" id="checksums"><table><tbody><tr><td>null-scribe-5.1.1.aarch64.rpm</td><td>Fedora/RHEL · ARM64</td><td class="hash">aa1d348c3ef1c06e7d125a41e835ab9a1b2ce3f4076c95b26ac03150247552b9</td></tr><tr><td>null-scribe-5.1.1.x86_64.rpm</td><td>Fedora/RHEL · x64</td><td class="hash">71b015a1b66edfa3ca8000f4fda027960addd0a244a7f488404b82dd25914b24</td></tr><tr><td>null-scribe-bin.PKGBUILD</td><td>Arch Linux PKGBUILD</td><td class="hash">37232cfe4429cb1716548cef77fcdeebbb8b9c34a0463d1f07c7e46e0a804f67</td></tr><tr><td>null-scribe_5.1.1_aarch64.flatpak</td><td>Flatpak · ARM64</td><td class="hash">e0858c7d4e2e8464e5faf62e80e33ce6bdf9bfb8573dbc880035cbb42d643d0d</td></tr><tr><td>null-scribe_5.1.1_amd64.deb</td><td>Debian/Ubuntu · x64</td><td class="hash">8b7e256aa88b9ddb9bbafbda1025b41dda1ac132246f6990aac99c22752d629c</td></tr><tr><td>null-scribe_5.1.1_amd64.snap</td><td>Snap · x64</td><td class="hash">1011bd8076ab358515ea1519bc71f2d7fbc5461bb8caf89eef0e0c21daa122da</td></tr><tr><td>null-scribe_5.1.1_arm64.deb</td><td>Debian/Ubuntu · ARM64</td><td class="hash">8c45cddf6c38210afe2b7001e1f7af238da37461a695d28367922ae166ccb976</td></tr><tr><td>null-scribe_5.1.1_arm64.snap</td><td>Snap · ARM64</td><td class="hash">d8a94bc4d31a623b3f0347ee647b072cdc8b5288029321723f4fb1cb497c1c68</td></tr><tr><td>null-scribe_5.1.1_arm64.tar.gz</td><td>Linux archive · ARM64</td><td class="hash">529c63c8158aaf09e0b86b158b49e7bb1f53d67b6c43ab550b88fe571930ac28</td></tr><tr><td>null-scribe_5.1.1_x64.tar.gz</td><td>Linux archive · x64</td><td class="hash">ce1fe480d85203e5103540b958f853dc686eb07ee96f5ee7dd91c5a571d3f835</td></tr><tr><td>null-scribe_5.1.1_x86_64.flatpak</td><td>Flatpak · x64</td><td class="hash">3c1d4c51e26e9a4e6ea84edab91d70deb09e9e4c35df3666a9542ef3486f88ae</td></tr><tr><td>NullScribe-5.1.1-aarch64.AppImage</td><td>Any Linux · ARM64</td><td class="hash">2bdcbdb729834e2a2ac1d346c06c581044eb680220cb377dd431031ad3af009c</td></tr><tr><td>NullScribe-5.1.1-Setup.exe</td><td>Windows installer</td><td class="hash">5007391b56253229980640b5a315e3d65efcaaef82747fb05e5ad6faf86641ba</td></tr><tr><td>NullScribe-5.1.1-x86_64.AppImage</td><td>Any Linux · x64</td><td class="hash">0aa0ee2683819aeb16ca9365c83c092b856355b9916bf2f79e626b98feba3d51</td></tr></tbody></table></div>
     </div>
   </div>
 
@@ -808,29 +853,29 @@ const LINKS = {
   gridDeb:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser_5.1.1_amd64.deb",
   gridRpm:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser-5.1.1.x86_64.rpm",
   notesStore: "https://apps.microsoft.com/detail/9NW82T0G35QF",
-  notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.0/null-notes_5.1.0_amd64.deb",
-  notesRpm:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.0/null-notes-5.1.0-1.x86_64.rpm",
+  notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes_5.1.1_amd64.deb",
+  notesRpm:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes-5.1.1-1.x86_64.rpm",
   notesWin:   "",
-  driveWin: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/NullDrive-5.1.0-Setup.exe",
-  driveWinZip: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/NullDrive-5.1.0-portable.zip",
-  driveSrvDeb: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_amd64.deb",
-  driveSrvTar: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_linux_amd64.tar.gz",
-  driveSrvWin: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_windows_amd64.zip",
-  driveSrvMac: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_darwin_arm64.tar.gz",
-  driveSrvMacIntel: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_darwin_amd64.tar.gz",
-  driveDocker: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_docker_amd64.tar",
-  driveDeskDeb: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop_5.1.0_amd64.deb",
-  driveDeskRpm: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop-5.1.0-1.x86_64.rpm",
-  driveDeskAppImage: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/NullDrive-5.1.0-x86_64.AppImage",
-  driveDeskTar: "https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop_5.1.0_linux_amd64.tar.gz",
+  driveWin: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/NullDrive-5.1.1-Setup.exe",
+  driveWinZip: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/NullDrive-5.1.1-portable.zip",
+  driveSrvDeb: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive_5.1.1_amd64.deb",
+  driveSrvTar: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive_5.1.1_linux_amd64.tar.gz",
+  driveSrvWin: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive_5.1.1_windows_amd64.zip",
+  driveSrvMac: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive_5.1.1_darwin_arm64.tar.gz",
+  driveSrvMacIntel: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive_5.1.1_darwin_amd64.tar.gz",
+  driveDocker: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive_5.1.1_docker_amd64.tar",
+  driveDeskDeb: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive-desktop_5.1.1_amd64.deb",
+  driveDeskRpm: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive-desktop-5.1.1-1.x86_64.rpm",
+  driveDeskAppImage: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/NullDrive-5.1.1-x86_64.AppImage",
+  driveDeskTar: "https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive-desktop_5.1.1_linux_amd64.tar.gz",
   gridZip:    "",
   driveStore: "https://apps.microsoft.com/detail/9P3NQGJ8ZZMG",
   scribeStore: "https://apps.microsoft.com/detail/9P2FHWTQPN6G",
-  scribeWin:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/NullScribe-5.1.0-Setup.exe",
-  scribeDeb:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe_5.1.0_amd64.deb",
-  scribeRpm:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe-5.1.0.x86_64.rpm",
-  scribeAppImage: "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/NullScribe-5.1.0-x86_64.AppImage",
-  scribeTar:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe_5.1.0_x64.tar.gz",
+  scribeWin:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/NullScribe-5.1.1-Setup.exe",
+  scribeDeb:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_amd64.deb",
+  scribeRpm:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe-5.1.1.x86_64.rpm",
+  scribeAppImage: "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/NullScribe-5.1.1-x86_64.AppImage",
+  scribeTar:  "https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_x64.tar.gz",
 };
 document.querySelectorAll("[data-link]").forEach(a => { const u = LINKS[a.dataset.link]; if (u) a.href = u; else if (u === "") a.hidden = true; });
 document.querySelectorAll(".lx").forEach(box => {
