@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Null Grid · terminal downloads</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#0a0a0f;--panel:#0e1016;--line:#262a3a;--fg:#e4e8f2;--muted:#8b92a8;--cyan:#00e5ff;--pink:#ff2e88;--green:#39ff88;--amber:#ffb547;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 "JetBrains Mono",ui-monospace,Consolas,monospace;display:flex;justify-content:center;padding:24px 16px}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+.win{width:min(980px,100%);height:calc(100vh - 48px);display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 0 40px rgba(0,229,255,.08);overflow:hidden}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px}
+.bar i{width:11px;height:11px;border-radius:50%;background:#2b3446}.bar i:first-child{background:var(--pink)}
+.bar span{margin-left:8px}
+.bar a{margin-left:auto;color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+.bar a:hover{color:var(--cyan);border-color:var(--cyan)}
+#out{flex:1;overflow-y:auto;padding:16px 18px 8px;white-space:pre-wrap;overflow-wrap:anywhere}
+#out .ln{min-height:1.6em}
+.big{font:400 clamp(28px,6vw,52px)/1.1 Silkscreen,monospace;letter-spacing:.04em;margin:6px 0}
+.big b{font-weight:400;color:var(--cyan);text-shadow:0 0 16px rgba(255,46,136,.6)}
+.c{color:var(--cyan)} .p{color:var(--pink)} .g{color:var(--green)} .m{color:var(--muted)} .a{color:var(--amber)} .w{color:var(--fg);font-weight:700}
+button.opt{all:unset;cursor:pointer;display:inline}
+button.opt:hover .k,button.opt:focus-visible .k{background:var(--cyan);color:#06080d}
+button.opt:focus-visible{outline:1px dashed var(--cyan)}
+.k{color:var(--cyan)}
+.boot{display:flex;gap:16px;align-items:center}
+.boot svg{width:56px;height:64px;flex:none;filter:drop-shadow(0 0 8px rgba(0,229,255,.4))}
+.greet{display:flex;align-items:flex-end;gap:14px;margin:10px 0 4px}
+.gbot{width:70px;height:80px;flex:none;filter:drop-shadow(0 0 8px rgba(0,229,255,.45))}
+.gbot svg{width:70px;height:80px;display:block}
+.bubble{position:relative;max-width:46ch;margin-bottom:34px;padding:10px 14px;border:1px solid var(--cyan);border-radius:10px;background:#12141c;white-space:normal}
+.bubble::before{content:"";position:absolute;left:-7px;bottom:12px;width:12px;height:12px;background:#12141c;border-left:1px solid var(--cyan);border-bottom:1px solid var(--cyan);transform:rotate(45deg)}
+.bubble b{display:block;color:var(--pink);font-weight:700;margin-bottom:2px}
+@media (prefers-reduced-motion:no-preference){
+  .gbot{animation:pop .5s steps(3) both}
+  @keyframes pop{0%{transform:translateY(24px);opacity:0}60%{transform:translateY(-6px);opacity:1}100%{transform:none}}
+  .gbot .arm{animation:wave .5s steps(1) 4;transform-box:fill-box;transform-origin:bottom}
+  @keyframes wave{0%{transform:rotate(0)}50%{transform:rotate(18deg)}}
+  .bubble{animation:fadein .3s .35s both}
+  @keyframes fadein{from{opacity:0;transform:translateY(4px)}}
+}
+.inrow{display:flex;align-items:center;gap:8px;padding:10px 18px 14px;border-top:1px solid var(--line)}
+.ps{white-space:nowrap}
+#cmd{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--fg);font:inherit;caret-color:var(--cyan)}
+.hint{padding:0 18px 12px;color:var(--muted);font-size:12px}
+@media (max-width:560px){body{padding:0}.win{height:100vh;border-radius:0;border:0}#out{padding:12px}.inrow{padding:10px 12px}.hint{padding:0 12px 10px}}
+</style>
+</head>
+<body>
+<div class="win" role="application" aria-label="Null Grid downloads terminal">
+  <div class="bar"><i></i><i></i><i></i><span>packet@nullgrid: ~/downloads</span><a href="/downloads.html">GUI</a></div>
+  <div id="out" aria-live="polite"></div>
+  <div class="inrow" id="f"><label class="ps" for="cmd"><span class="g">packet@nullgrid</span><span class="m">:</span><span class="c" id="cwd">~</span><span class="m">$</span></label><input id="cmd" spellcheck="false" autocapitalize="off" aria-label="Type a number or a command, then press Enter" autocomplete="off" enterkeyhint="go"></div>
+  <div class="hint">type a number + Enter · <b>b</b> back · <b>m</b> menu · <b>help</b> · arrows for history</div>
+</div>
+<script>
+const APPS = [{"key":"search","name":"Null Search","what":"search engine \u00b7 web","ver":"live","desc":"Runs in your browser. Nothing to install.","web":"https://search.nullgrid.dev"},{"key":"grid","name":"Null Grid","what":"web browser","ver":"5.1.0","desc":"The browser of the Null Grid family. Burner tabs, loadouts, AI side panel.","groups":[{"name":"Windows","items":[{"label":"Portable .zip (x64)","file":"NODE_GRID-5.1.0-win32-x64.zip","url":"https://github.com/Null0Grid/node-grid/releases/download/5.1.0/NODE_GRID-5.1.0-win32-x64.zip","size":131333977,"sha":"b970e4cf7281aaaaf2309395ea343e4cf1ca052a541351913473722c6c00fff9","cmd":"unzip NODE_GRID-5.1.0-win32-x64.zip","missing":false},{"label":"Microsoft Store","store":"https://apps.microsoft.com/detail/9PL3D6SNHMLS"}]},{"name":"Linux","items":[{"label":"Ubuntu / Debian .deb (x64)","file":"nullgrid-browser_5.1.0_amd64.deb","url":"https://github.com/Null0Grid/node-grid/releases/download/5.1.0/nullgrid-browser_5.1.0_amd64.deb","size":97366128,"sha":"55b475c5bf45a2f80fa2f68c8be01a8d2389609ed44f78375428971e1e72c487","cmd":"sudo apt install ./nullgrid-browser_5.1.0_amd64.deb","missing":false},{"label":"Fedora / RHEL .rpm (x64)","file":"nullgrid-browser-5.1.0.x86_64.rpm","url":"https://github.com/Null0Grid/node-grid/releases/download/5.1.0/nullgrid-browser-5.1.0.x86_64.rpm","size":87126477,"sha":"937d45556ff60baa01e28ae247628c1786c2e5fba0acd5c1329a42107f08be3c","cmd":"sudo dnf install ./nullgrid-browser-5.1.0.x86_64.rpm","missing":false},{"label":"AppImage (x64)","file":"NODE_GRID-5.1.0.AppImage","url":"https://github.com/Null0Grid/node-grid/releases/download/5.1.0/NODE_GRID-5.1.0.AppImage","size":120767167,"sha":"b4a8389595434fbd9567aa6433f8ace91592c7a18905d4bc4e237eb041179bd9","cmd":"chmod +x NODE_GRID-5.1.0.AppImage && ./NODE_GRID-5.1.0.AppImage","missing":false},{"label":"Archive .tar.gz (x64)","file":"nullgrid-browser-5.1.0.tar.gz","url":"https://github.com/Null0Grid/node-grid/releases/download/5.1.0/nullgrid-browser-5.1.0.tar.gz","size":114874655,"sha":"f1f8b3e5c6ab5751b58e159577a50110d1bd91f0cff26cfcd7ed79acff2f33b3","cmd":"tar -xzf nullgrid-browser-5.1.0.tar.gz","missing":false}]}]},{"key":"notes","name":"Null Notes","what":"notes app","ver":"5.1.0","desc":"Markdown notes as plain files on your disk. Sync through Null Drive.","groups":[{"name":"Windows","items":[{"label":"Installer .exe (x64)","file":"Null.Notes_5.1.0_x64-setup.exe","url":"https://github.com/Null0Grid/null-notes/releases/download/5.1.0/Null.Notes_5.1.0_x64-setup.exe","size":2912002,"sha":"d6efd1c6f1e7851df78a2e4686cb3653cca57837785d01082be30ed4a4c74144","cmd":"","missing":false},{"label":"Installer .msi (x64)","file":"Null.Notes_5.1.0_x64_en-US.msi","url":"https://github.com/Null0Grid/null-notes/releases/download/5.1.0/Null.Notes_5.1.0_x64_en-US.msi","size":3690496,"sha":"e292603a173e99ca50b18a8162c07bbc1d563b0fce9ea53437ded9455b8a90da","cmd":"","missing":false},{"label":"Microsoft Store","store":"https://apps.microsoft.com/detail/9NW82T0G35QF"}]},{"name":"Linux","items":[{"label":"Ubuntu / Debian .deb (x64)","file":"null-notes_5.1.0_amd64.deb","url":"https://github.com/Null0Grid/null-notes/releases/download/5.1.0/null-notes_5.1.0_amd64.deb","size":3408244,"sha":"32890ba8281dca89095efcf01e2e54936a2bc37123f7369d99831520248e49d9","cmd":"sudo apt install ./null-notes_5.1.0_amd64.deb","missing":false},{"label":"Fedora / openSUSE .rpm (x64)","file":"null-notes-5.1.0-1.x86_64.rpm","url":"https://github.com/Null0Grid/null-notes/releases/download/5.1.0/null-notes-5.1.0-1.x86_64.rpm","size":4053598,"sha":"acebb0d289ef4a637b053c01268df957267e7cfc77bcde6c4dbb553204ee7432","cmd":"sudo dnf install ./null-notes-5.1.0-1.x86_64.rpm","missing":false},{"label":"AppImage (x64)","file":"Null-Notes-5.1.0-x86_64.AppImage","url":"https://github.com/Null0Grid/null-notes/releases/download/5.1.0/Null-Notes-5.1.0-x86_64.AppImage","size":84470264,"sha":"324021896c5a0f61f369ef5084400ae196e627e7155d00bce2aad2e4142a2ee6","cmd":"chmod +x Null-Notes-5.1.0-x86_64.AppImage && ./Null-Notes-5.1.0-x86_64.AppImage","missing":false},{"label":"Archive .tar.gz (x64)","file":"null-notes-5.1.0-linux-x86_64.tar.gz","url":"https://github.com/Null0Grid/null-notes/releases/download/5.1.0/null-notes-5.1.0-linux-x86_64.tar.gz","size":3959588,"sha":"61b59311034719117eebf476819a13b20ac241eab66b85c568f97dc0364798e2","cmd":"tar -xzf null-notes-5.1.0-linux-x86_64.tar.gz","missing":false}]}]},{"key":"drive","name":"Null Drive","what":"self-hosted file sync","ver":"5.1.0","desc":"Run the server once, then install the desktop app on every computer that syncs.","groups":[{"name":"Desktop app \u00b7 Windows","items":[{"label":"Installer .exe (x64)","file":"NullDrive-5.1.0-Setup.exe","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/NullDrive-5.1.0-Setup.exe","size":5862719,"sha":"a7aaa7ad75742b5f7a4a467059b18de48a39a7e6fc66d79e843773b0dd14be0e","cmd":"","missing":false},{"label":"Portable .zip (x64)","file":"NullDrive-5.1.0-portable.zip","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/NullDrive-5.1.0-portable.zip","size":7193769,"sha":"c01e5dcb2a5fd2855101156fb76b4dc283aeb77c0d3ee00c253530c0773e4ac9","cmd":"unzip NullDrive-5.1.0-portable.zip","missing":false},{"label":"Microsoft Store","store":"https://apps.microsoft.com/detail/9P3NQGJ8ZZMG"}]},{"name":"Desktop app \u00b7 Linux","items":[{"label":"Ubuntu / Debian .deb (x64)","file":"nulldrive-desktop_5.1.0_amd64.deb","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop_5.1.0_amd64.deb","size":7128572,"sha":"0a84cd6828fce6b3a6f746ab11a23c677094a7e1f7e385031100d2d5ed194573","cmd":"sudo apt install ./nulldrive-desktop_5.1.0_amd64.deb","missing":false},{"label":"Ubuntu / Debian .deb (ARM64)","file":"nulldrive-desktop_5.1.0_arm64.deb","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop_5.1.0_arm64.deb","size":6680108,"sha":"cb2c0c21a6c80edc31fca8723b9e9ccc2ee6a4328aff9f9fd33bbc39653178da","cmd":"sudo apt install ./nulldrive-desktop_5.1.0_arm64.deb","missing":false},{"label":"Fedora / RHEL .rpm (x64)","file":"nulldrive-desktop-5.1.0-1.x86_64.rpm","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop-5.1.0-1.x86_64.rpm","size":9,"sha":"2ff4521d13ddf3befb2e425ab321e96eb65e2d0775d01dd0267c45429dcefbf4","cmd":"sudo dnf install ./nulldrive-desktop-5.1.0-1.x86_64.rpm","missing":true},{"label":"Fedora / RHEL .rpm (ARM64)","file":"nulldrive-desktop-5.1.0-1.aarch64.rpm","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop-5.1.0-1.aarch64.rpm","size":9,"sha":"f637b60e7778793d9d0e9cf3498cd63025c7dbafd3c0bf61e433a08568cca225","cmd":"sudo dnf install ./nulldrive-desktop-5.1.0-1.aarch64.rpm","missing":true},{"label":"AppImage (x64)","file":"NullDrive-5.1.0-x86_64.AppImage","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/NullDrive-5.1.0-x86_64.AppImage","size":9,"sha":"9c043345b8adb3485b2a6842a396022ef0ccc3f311862ccf35608457e23aa3a5","cmd":"chmod +x NullDrive-5.1.0-x86_64.AppImage && ./NullDrive-5.1.0-x86_64.AppImage","missing":true},{"label":"AppImage (ARM64)","file":"NullDrive-5.1.0-aarch64.AppImage","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/NullDrive-5.1.0-aarch64.AppImage","size":9,"sha":"4c0ac9f371ed442517d61667f16d69dac18ddec1443aa25a4cc0965a6e049acc","cmd":"chmod +x NullDrive-5.1.0-aarch64.AppImage && ./NullDrive-5.1.0-aarch64.AppImage","missing":true},{"label":"Archive .tar.gz (x64)","file":"nulldrive-desktop_5.1.0_linux_amd64.tar.gz","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop_5.1.0_linux_amd64.tar.gz","size":7002038,"sha":"726909f0722f698e76b4561126b5fa8e2ca8ee746d951c478c76fd20a8c35cb9","cmd":"tar -xzf nulldrive-desktop_5.1.0_linux_amd64.tar.gz","missing":false},{"label":"Archive .tar.gz (ARM64)","file":"nulldrive-desktop_5.1.0_linux_arm64.tar.gz","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive-desktop_5.1.0_linux_arm64.tar.gz","size":6502831,"sha":"e0e60604c03b2af9f748819a986bb13b0fea1b54bc2b6781804a9c19eccbfafb","cmd":"tar -xzf nulldrive-desktop_5.1.0_linux_arm64.tar.gz","missing":false}]},{"name":"Server","items":[{"label":"Quick start with Docker (command only)","cmd":"docker run -d --name nulldrive -p 8080:8080 -v nulldrive-data:/data --restart unless-stopped ghcr.io/null0grid/null-drive:latest"},{"label":"Docker image (x64)","file":"nulldrive_5.1.0_docker_amd64.tar","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_docker_amd64.tar","size":16786944,"sha":"8880f99e29d88694bd1e51395bbd7fee427ef264f830bb8200276feccdce9ee0","cmd":"docker load -i nulldrive_5.1.0_docker_amd64.tar","missing":false},{"label":"Docker image (ARM64)","file":"nulldrive_5.1.0_docker_arm64.tar","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_docker_arm64.tar","size":16061952,"sha":"12383437fd1cc34bf47c94f5ca126d94342240785454f60e5fdf1d8c5f84cb80","cmd":"docker load -i nulldrive_5.1.0_docker_arm64.tar","missing":false},{"label":"Debian / Ubuntu .deb (x64)","file":"nulldrive_5.1.0_amd64.deb","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_amd64.deb","size":4660880,"sha":"71bf89c7f55c270722becb4e1e4ffce0207d12686c662182e9a37779f2842bfd","cmd":"sudo apt install ./nulldrive_5.1.0_amd64.deb","missing":false},{"label":"Debian / Ubuntu .deb (ARM64)","file":"nulldrive_5.1.0_arm64.deb","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_arm64.deb","size":4118636,"sha":"3d9c2a3eb43059f17c81e03dc0ac808866811cd0e343f8ba67d610470e189c32","cmd":"sudo apt install ./nulldrive_5.1.0_arm64.deb","missing":false},{"label":"Linux binary (x64)","file":"nulldrive_5.1.0_linux_amd64.tar.gz","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_linux_amd64.tar.gz","size":5877754,"sha":"7b54998a54793d97684516913e8ea09051c5998ab87e0b1528eb0eb6f2b400e2","cmd":"tar -xzf nulldrive_5.1.0_linux_amd64.tar.gz","missing":false},{"label":"Linux binary (ARM64)","file":"nulldrive_5.1.0_linux_arm64.tar.gz","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_linux_arm64.tar.gz","size":5476522,"sha":"8d565eb38fbe6f266fa05f109955f3925066478ab669a5c4009ac36f60d29b56","cmd":"tar -xzf nulldrive_5.1.0_linux_arm64.tar.gz","missing":false},{"label":"Windows (x64)","file":"nulldrive_5.1.0_windows_amd64.zip","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_windows_amd64.zip","size":5869892,"sha":"f8ad9efc9acfc094836a86abf71bc46076b8c4f7115589783c46a0e40ad05171","cmd":"unzip nulldrive_5.1.0_windows_amd64.zip","missing":false},{"label":"Windows (ARM64)","file":"nulldrive_5.1.0_windows_arm64.zip","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_windows_arm64.zip","size":5413093,"sha":"2df21f4dbbd5ec53932bb5ab025adce3ba6dc13de5a9ccf3bf082bf0639a32a8","cmd":"unzip nulldrive_5.1.0_windows_arm64.zip","missing":false},{"label":"macOS (Apple silicon)","file":"nulldrive_5.1.0_darwin_arm64.tar.gz","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_darwin_arm64.tar.gz","size":5566711,"sha":"78f9b7fad84c495365629864330ec929f60758f965bc6f4a25c88044663b705e","cmd":"tar -xzf nulldrive_5.1.0_darwin_arm64.tar.gz","missing":false},{"label":"macOS (Intel)","file":"nulldrive_5.1.0_darwin_amd64.tar.gz","url":"https://github.com/Null0Grid/null-drive/releases/download/5.1.0/nulldrive_5.1.0_darwin_amd64.tar.gz","size":5853227,"sha":"0e5aa994a4427ac0447dfcb3db11e26be22057b7916d4635f8adcaafe22c952a","cmd":"tar -xzf nulldrive_5.1.0_darwin_amd64.tar.gz","missing":false}]}]},{"key":"scribe","name":"Null Scribe","what":"transcripts and summaries","ver":"5.1.0","desc":"Transcribes and summarizes recordings on your own computer. Needs a 64-bit CPU with AVX2.","groups":[{"name":"Windows","items":[{"label":"Installer .exe (x64)","file":"NullScribe-5.1.0-Setup.exe","url":"https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/NullScribe-5.1.0-Setup.exe","size":110690188,"sha":"0556f9a51622453f2b7f64f764d403a9cd31896770194c8236103a9c6e9ae155","cmd":"","missing":false},{"label":"Microsoft Store","store":"https://apps.microsoft.com/detail/9P2FHWTQPN6G"}]},{"name":"Linux","items":[{"label":"Ubuntu / Debian .deb (x64)","file":"null-scribe_5.1.0_amd64.deb","url":"https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe_5.1.0_amd64.deb","size":104334672,"sha":"a12b171586e221d471cd970a6640c768362160615d47928eae2b26f8bd7b004c","cmd":"sudo apt install ./null-scribe_5.1.0_amd64.deb","missing":false},{"label":"Fedora / RHEL .rpm (x64)","file":"null-scribe-5.1.0.x86_64.rpm","url":"https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe-5.1.0.x86_64.rpm","size":104665341,"sha":"c869920090ba848c13f96c8d65106f9272a96a25307907b668e0e8911871c5a2","cmd":"sudo dnf install ./null-scribe-5.1.0.x86_64.rpm","missing":false},{"label":"AppImage (x64)","file":"NullScribe-5.1.0-x86_64.AppImage","url":"https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/NullScribe-5.1.0-x86_64.AppImage","size":148743285,"sha":"a44ca19e35f144b2f263485d7131ceb2cbaa63d147360fa1184c1b2522d7b9a0","cmd":"chmod +x NullScribe-5.1.0-x86_64.AppImage && ./NullScribe-5.1.0-x86_64.AppImage","missing":false},{"label":"Archive .tar.gz (x64)","file":"null-scribe_5.1.0_x64.tar.gz","url":"https://github.com/Null0Grid/null-scribe/releases/download/v5.1.0/null-scribe_5.1.0_x64.tar.gz","size":141241705,"sha":"f0f6b67e53635f3329d051507bfd2e558a3b39329eb62b8d2e0452682c28cf32","cmd":"tar -xzf null-scribe_5.1.0_x64.tar.gz","missing":false}]}]}];
+const out = document.getElementById("out"), cmd = document.getElementById("cmd"), cwd = document.getElementById("cwd");
+const PACKET = '<svg viewBox="-1 -1 14 16" shape-rendering="crispEdges" aria-hidden="true"><rect x="5" y="0" width="2" height="1" fill="#ff2e88"/><rect x="5.5" y="1" width="1" height="1" fill="#8b92a8"/><rect x="2" y="2" width="8" height="5" fill="#323c54"/><rect x="2" y="2" width="8" height="1" fill="#4a5677"/><rect x="3" y="3" width="6" height="3" fill="#0b0e15"/><rect x="1" y="4" width="1" height="2" fill="#4a5677"/><rect x="10" y="4" width="1" height="2" fill="#4a5677"/><rect x="4" y="4" width="1" height="1" fill="#00e5ff"/><rect x="7" y="4" width="1" height="1" fill="#00e5ff"/><rect x="3" y="7" width="6" height="4" fill="#323c54"/><rect x="4" y="8" width="1" height="2" fill="#00e5ff"/><rect x="5" y="8" width="1" height="2" fill="#00e5ff"/><rect x="6" y="9" width="1" height="1" fill="#39ff88"/><rect x="2" y="8" width="1" height="2" fill="#4a5677"/><rect x="9" y="8" width="1" height="2" fill="#4a5677"/><rect x="4" y="11" width="1" height="2" fill="#4a5677"/><rect x="7" y="11" width="1" height="2" fill="#4a5677"/><rect x="3" y="13" width="2" height="1" fill="#00e5ff"/><rect x="7" y="13" width="2" height="1" fill="#00e5ff"/></svg>';
+const WAVE = '<svg viewBox="-1 -1 14 16" shape-rendering="crispEdges" aria-hidden="true"><rect x="5" y="0" width="2" height="1" fill="#ff2e88"/><rect x="5.5" y="1" width="1" height="1" fill="#8b92a8"/><rect x="2" y="2" width="8" height="5" fill="#323c54"/><rect x="2" y="2" width="8" height="1" fill="#4a5677"/><rect x="3" y="3" width="6" height="3" fill="#0b0e15"/><rect x="1" y="4" width="1" height="2" fill="#4a5677"/><rect x="10" y="4" width="1" height="2" fill="#4a5677"/><rect x="3.5" y="4.5" width="0.5" height="0.5" fill="#00e5ff"/><rect x="4" y="4" width="0.5" height="0.5" fill="#00e5ff"/><rect x="4.5" y="4" width="0.5" height="0.5" fill="#00e5ff"/><rect x="5" y="4.5" width="0.5" height="0.5" fill="#00e5ff"/><rect x="6.5" y="4.5" width="0.5" height="0.5" fill="#00e5ff"/><rect x="7" y="4" width="0.5" height="0.5" fill="#00e5ff"/><rect x="7.5" y="4" width="0.5" height="0.5" fill="#00e5ff"/><rect x="8" y="4.5" width="0.5" height="0.5" fill="#00e5ff"/><rect x="3" y="7" width="6" height="4" fill="#323c54"/><rect x="4" y="8" width="1" height="2" fill="#00e5ff"/><rect x="5" y="8" width="1" height="2" fill="#00e5ff"/><rect x="6" y="9" width="1" height="1" fill="#39ff88"/><rect x="2" y="8" width="1" height="2" fill="#4a5677"/><g class="arm"><rect x="9.5" y="4.5" width="1" height="3" fill="#4a5677"/><rect x="9.5" y="3.5" width="1" height="1" fill="#00e5ff"/></g><rect x="4" y="11" width="1" height="2" fill="#4a5677"/><rect x="7" y="11" width="1" height="2" fill="#4a5677"/><rect x="3" y="13" width="2" height="1" fill="#00e5ff"/><rect x="7" y="13" width="2" height="1" fill="#00e5ff"/></svg>';
+let st = { view: "home" }, hist = [], hi = 0;
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function line(parts) {
+  const d = el("div", "ln");
+  (Array.isArray(parts) ? parts : [parts]).forEach(p => { if (p == null) return; if (typeof p === "string") d.append(p); else if (p instanceof Node) d.append(p); else d.append(el("span", p.c, p.t)); });
+  out.append(d); out.scrollTop = out.scrollHeight; return d;
+}
+function blank() { line(""); }
+function opt(n, label, rest) {
+  const b = el("button", "opt"); b.type = "button";
+  const key = "[" + n + "]"; b.append(el("span", "k", key), " ".repeat(Math.max(1, 5 - key.length)) + label);
+  b.addEventListener("click", () => run(String(n)));
+  return line([b, rest ? { c: "m", t: "  " + rest } : null]);
+}
+function mb(n) { return n ? (n / 1048576).toFixed(1) + " MB" : ""; }
+function path() { return st.view === "home" ? "~" : "~/" + [st.app && st.app.key, st.group != null ? st.app.groups[st.group].name.toLowerCase().replace(/[^a-z0-9]+/g, "-") : null].filter(Boolean).join("/"); }
+function setCwd() { cwd.textContent = path(); }
+
+function home() {
+  st = { view: "home" }; setCwd();
+  blank(); line({ c: "w", t: "What program are you looking for?" });
+  APPS.forEach((a, i) => opt(i + 1, a.name.padEnd(13), a.what + (a.ver === "live" ? "  · live" : "  · v" + a.ver)));
+  line({ c: "m", t: "Type a number and press Enter." });
+}
+function showApp(i) {
+  const a = APPS[i]; st = { view: "app", app: a, ai: i }; setCwd();
+  blank(); line([{ c: "c", t: a.name }, { c: "m", t: "  " + a.what + (a.ver !== "live" ? "  v" + a.ver : "") }]);
+  line({ c: "m", t: a.desc });
+  if (a.web) { blank(); opt(1, "Open " + a.web.replace("https://", "")); line({ c: "m", t: "[b] back" }); return; }
+  blank(); line({ c: "w", t: "Which version?" });
+  a.groups.forEach((g, gi) => opt(gi + 1, g.name.padEnd(22), g.items.length + (g.items.length === 1 ? " option" : " options")));
+  line({ c: "m", t: "[b] back" });
+}
+function showGroup(gi) {
+  const g = st.app.groups[gi]; st.view = "group"; st.group = gi; st.file = null; setCwd();
+  blank(); line([{ c: "c", t: st.app.name + " · " + g.name }]);
+  g.items.forEach((it, ii) => {
+    const rest = it.store ? "opens the Microsoft Store" : it.file ? (it.missing ? "not on the release yet" : it.file + "  " + mb(it.size)) : "shows the command";
+    opt(ii + 1, it.label.padEnd(34), rest);
+  });
+  line({ c: "m", t: "[b] back" });
+}
+function showFile(ii) {
+  const it = st.app.groups[st.group].items[ii]; st.view = "file"; st.file = it; setCwd();
+  blank(); line({ c: "c", t: it.label });
+  if (it.store) { line({ c: "m", t: "Installs and updates through the Microsoft Store." }); blank(); opt("d", "Open the Microsoft Store"); line({ c: "m", t: "[b] back" }); return; }
+  if (it.file) {
+    line([{ c: "m", t: "file    " }, it.file]);
+    if (it.size) line([{ c: "m", t: "size    " }, mb(it.size)]);
+    if (it.sha) line([{ c: "m", t: "sha256  " }, { c: "g", t: it.sha }]);
+  }
+  if (it.missing) { line({ c: "a", t: "This file isn't on the GitHub release yet." }); line({ c: "m", t: "[b] back" }); return; }
+  if (it.cmd) { blank(); line({ c: "m", t: it.file ? "# after it downloads:" : "# run this on your server:" }); line([{ c: "g", t: "$ " }, it.cmd]); }
+  blank();
+  if (it.file) opt("d", "Download");
+  if (it.cmd) opt("c", "Copy the command");
+  line({ c: "m", t: "[b] back · [m] menu" });
+}
+function back() {
+  if (st.view === "file") showGroup(st.group);
+  else if (st.view === "group") showApp(st.ai);
+  else home();
+}
+function copy(t) {
+  const ok = () => line({ c: "g", t: "copied to clipboard" });
+  try { navigator.clipboard.writeText(t).then(ok, () => line({ c: "a", t: "couldn't copy. Select the command above instead." })); } catch (e) { line({ c: "a", t: "couldn't copy. Select the command above instead." }); }
+}
+const HELLOS = ["Hi! I'm Packet. I keep your data on your grid.", "Hey there. Need a download? Type m for the menu.", "Hi! Everything here runs on hardware you own. Not on my grid otherwise.", "Oh, hello. I was just checking your files. They're fine."];
+let hello = 0;
+function greet() {
+  const g = el("div", "greet"); const bot = el("div", "gbot"); bot.innerHTML = WAVE;
+  const bub = el("div", "bubble"); bub.append(el("b", null, "Packet"), el("span", null, HELLOS[hello++ % HELLOS.length]));
+  g.append(bot, bub); out.append(g); out.scrollTop = out.scrollHeight;
+}
+function help() {
+  blank(); line({ c: "w", t: "commands" });
+  [["<number>", "pick an option"], ["b, back", "go up one level"], ["m, menu, home", "back to the program list"], ["d", "download the file you're looking at"], ["c", "copy its command"], ["ls", "list options again"], ["clear", "clear the screen"], ["gui", "open the normal downloads page"], ["hi, packet", "say hi to Packet"]]
+    .forEach(([a, b]) => line([{ c: "c", t: a.padEnd(16) }, { c: "m", t: b }]));
+}
+function relist() {
+  if (st.view === "home") home(); else if (st.view === "app") showApp(st.ai); else if (st.view === "group") showGroup(st.group); else showFile(st.app.groups[st.group].items.indexOf(st.file));
+}
+function run(raw) {
+  const v = raw.trim(); const low = v.toLowerCase();
+  line([{ c: "g", t: "packet@nullgrid" }, { c: "m", t: ":" }, { c: "c", t: path() }, { c: "m", t: "$ " }, v]);
+  if (v) { hist.push(v); hi = hist.length; }
+  if (!v) return;
+  if (["b", "back", "..", "cd .."].includes(low)) return back();
+  if (["m", "menu", "home", "~", "cd", "cd ~"].includes(low)) return home();
+  if (["help", "?", "h"].includes(low)) return help();
+  if (low === "clear" || low === "cls") { out.textContent = ""; return relist(); }
+  if (low === "ls" || low === "dir") return relist();
+  if (low === "gui" || low === "exit" || low === "q") { location.href = "/downloads.html"; return; }
+  if (["packet", "hi", "hello", "hey", "hi packet", "hey packet", "hello packet"].includes(low)) return greet();
+  if (low === "sudo" || low.startsWith("sudo ")) { line({ c: "p", t: "Nice try. You're already in charge here." }); return; }
+  const n = parseInt(v, 10);
+  if (st.view === "home" && n >= 1 && n <= APPS.length) return showApp(n - 1);
+  if (st.view === "app") {
+    if (st.app.web && n === 1) { line({ c: "m", t: "opening " + st.app.web + " ..." }); window.open(st.app.web, "_blank", "noopener"); return; }
+    if (st.app.groups && n >= 1 && n <= st.app.groups.length) return showGroup(n - 1);
+  }
+  if (st.view === "group") { const items = st.app.groups[st.group].items; if (n >= 1 && n <= items.length) return showFile(n - 1); }
+  if (st.view === "file") {
+    const it = st.file;
+    if (low === "d" || low === "download") {
+      if (it.store) { line({ c: "m", t: "opening the Microsoft Store ..." }); window.open(it.store, "_blank", "noopener"); return; }
+      if (it.file && !it.missing) { line({ c: "g", t: "downloading " + it.file + " ..." }); const a = document.createElement("a"); a.href = it.url; a.rel = "noopener"; document.body.append(a); a.click(); a.remove(); return; }
+    }
+    if ((low === "c" || low === "copy") && it.cmd) return copy(it.cmd);
+  }
+  line({ c: "a", t: "command not found: " + v + "  (type help)" });
+}
+cmd.addEventListener("keydown", e => {
+  if (e.key === "Enter" && !e.isComposing) { e.preventDefault(); const v = cmd.value; cmd.value = ""; run(v); }
+  else if (e.key === "ArrowUp" && hist.length) { e.preventDefault(); hi = Math.max(0, hi - 1); cmd.value = hist[hi]; }
+  else if (e.key === "ArrowDown") { e.preventDefault(); hi = Math.min(hist.length, hi + 1); cmd.value = hist[hi] || ""; }
+  else if (e.key === "Escape") { e.preventDefault(); cmd.value = ""; back(); }
+});
+out.addEventListener("click", e => { if (!e.target.closest("button") && !getSelection().toString()) cmd.focus(); });
+
+(function boot() {
+  const b = el("div", "boot"); b.innerHTML = PACKET;
+  const t = el("div"); const h = el("div", "big"); h.innerHTML = "NULL<b>//</b>GRID"; t.append(h, el("div", "m", "downloads terminal · release 5.1.0"));
+  b.append(t); out.append(b);
+  const msgs = [["g", "[ ok ] network up"], ["g", "[ ok ] mounted ~/downloads"], ["g", "[ ok ] 5 programs found"]];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let i = 0;
+  (function next() {
+    if (i < msgs.length) { line({ c: msgs[i][0], t: msgs[i][1] }); i++; setTimeout(next, reduce ? 0 : 160); }
+    else { home(); cmd.focus(); }
+  })();
+})();
+</script>
+</body>
+</html>
