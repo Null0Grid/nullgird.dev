@@ -989,11 +989,6 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
     walk(PROMO, "Terminal downloads page", false, 9000);
   };
   if (!seen && (/downloads\.html$|\/downloads$/.test(location.pathname) || document.querySelector(".hero:not(.slim) .glitch, .grid4"))) setTimeout(promo, 4000);
-  const dl = document.getElementById("download");
-  if (!seen && dl && "IntersectionObserver" in window) {
-    const io = new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) { io.disconnect(); setTimeout(promo, 1200); } }, { threshold: 0.15 });
-    io.observe(dl);
-  }
 })();
 (() => {
   document.querySelectorAll("a.btn, a.get, a.nav-dl").forEach(el => {
