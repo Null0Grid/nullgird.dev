@@ -667,7 +667,7 @@ footer a { color: var(--muted); }
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">&gt; desktop web browser <span class="status live">v5.1.1</span></div>
+      <div class="eyebrow">&gt; desktop web browser <span class="status live">v5.1.4</span></div>
       <h1>NULL<span class="sl">//</span>GRID</h1>
       <p class="tagline">The browser of the Null Grid family, our take on Chrome.</p>
       <p class="lede">Vertical tabs, burner tabs that wipe themselves, and a history that only keeps site names. Searches go through Null Search, and your own pages and files can show up right beside the web.</p>
@@ -699,7 +699,9 @@ footer a { color: var(--muted); }
       <div class="feat"><h3>Login vault</h3><p>Saved logins are encrypted with your system's secure storage.</p></div>
       <div class="feat"><h3>Loadouts</h3><p>Save a whole set of open tabs by name, then deploy it or swap it back in later.</p></div>
       <div class="feat"><h3>Masking <span class="tag new">new in 5.1.1</span></h3><p>Right-click a tab and choose Masking, and sites see it as Google Chrome. For sites like WhatsApp Web that turn away browsers they don't know. Other tabs stay as they are.</p></div>
-      <div class="feat"><h3>Packet brings updates <span class="tag new">new in 5.1.1</span></h3><p>Null Grid checks for a new version at launch and once a day. When there is one, Packet, the Null Grid mascot, walks in with Get it, What's new and Later. Store copies update through the Store.</p></div>
+      <div class="feat"><h3>Updates install themselves <span class="tag new">new in 5.1.4</span></h3><p>Null Grid checks for a new version at launch and once a day. When there is one, Packet, the Null Grid mascot, walks in with Get it, What's new and Later, and the update installs itself for the portable .zip, AppImage, .tar.gz, .deb and .rpm. Store copies update through the Store.</p></div>
+      <div class="feat"><h3>Your default browser <span class="tag new">new in 5.1.2</span></h3><p>Set Null Grid as your default browser on Windows or Linux, and links from other apps open in it.</p></div>
+      <div class="feat"><h3>Downloads button <span class="tag new">new in 5.1.4</span></h3><p>A download button in the toolbar keeps a list of everything you've downloaded.</p></div>
       <div class="feat"><h3>Vault Matches</h3><p>The start page searches through Null Search. Switch on Vault and your saved pages, Null Notes and Null Drive files merge right into the web results.</p></div>
       <div class="feat"><h3>Your Null Drive</h3><p>Add your Drive's address and token in Settings. The browser connects to it directly, on the same PC or a server on your network, never through the search server.</p></div>
       <div class="feat"><h3>AI side panel</h3><p>Claude by default, or ChatGPT, Gemini, Grok, or a local model through Ollama or LM Studio.</p></div>
@@ -710,17 +712,17 @@ footer a { color: var(--muted); }
 <section class="sec dl-merged" id="download">
   <div class="wrap">
     <div class="dm-head">
-      <div class="kick">version 5.1.1 · <a href="https://github.com/Null0Grid/node-grid/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
+      <div class="kick">version 5.1.4 · <a href="https://github.com/Null0Grid/node-grid/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
       <h2>Download <span>Null Grid</span></h2>
-      <p>Pick the build for your computer. Every download comes straight from the 5.1.1 release.</p>
+      <p>Pick the build for your computer. Every download comes straight from the 5.1.4 release.</p>
       <div class="dp-rec" id="dp-rec" hidden><span></span><small></small></div>
     </div>
   <div class="ub-row" id="windows">
     <h2><svg class="os-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-winhead"/></svg>Windows<small>Windows 10 and 11</small></h2>
     <div class="fl">
         <div class="fl-row" data-os="win">
-          <div><h3>Portable .zip<span class="tag">x64</span></h3><p>No installer. Unzip it anywhere and run NODE_GRID.exe.</p><div class="meta">NODE_GRID-5.1.1-win32-x64.zip · 167.1 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/NODE_GRID-5.1.1-win32-x64.zip" data-file="NODE_GRID-5.1.1-win32-x64.zip"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div><h3>Portable .zip<span class="tag">x64</span></h3><p>No installer. Unzip it anywhere and run NODE_GRID.exe. Updates install themselves.</p><div class="meta">NODE_GRID-5.1.4-win32-x64.zip · 167.2 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/NODE_GRID-5.1.4-win32-x64.zip" data-file="NODE_GRID-5.1.4-win32-x64.zip"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
           
         </div>
         <div class="fl-row">
@@ -733,44 +735,54 @@ footer a { color: var(--muted); }
     <h2><svg class="os-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tux"/></svg>Linux<small>x64 and ARM64</small></h2>
     <div class="fl">
         <div class="fl-row" data-os="deb">
-          <div><h3>Ubuntu and Debian (.deb)<span class="tag">x64</span></h3><p>Ubuntu 24.04 or newer, Debian 13 or newer, Linux Mint, Pop!_OS.</p><div class="meta">nullgrid-browser_5.1.1_amd64.deb · 108.0 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser_5.1.1_amd64.deb" data-file="nullgrid-browser_5.1.1_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nullgrid-browser_5.1.1_amd64.deb</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Ubuntu and Debian (.deb)<span class="tag">x64</span></h3><p>Ubuntu 24.04 or newer, Debian 13 or newer, Linux Mint, Pop!_OS.</p><div class="meta">nullgrid-browser_5.1.4_amd64.deb · 108.0 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_amd64.deb" data-file="nullgrid-browser_5.1.4_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nullgrid-browser_5.1.4_amd64.deb</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Ubuntu and Debian (.deb)<span class="tag">ARM64</span></h3><p>For ARM64 machines such as a Raspberry Pi 5.</p><div class="meta">nullgrid-browser_5.1.1_arm64.deb · 103.2 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser_5.1.1_arm64.deb" data-file="nullgrid-browser_5.1.1_arm64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nullgrid-browser_5.1.1_arm64.deb</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Ubuntu and Debian (.deb)<span class="tag">ARM64</span></h3><p>For ARM64 machines such as a Raspberry Pi 5.</p><div class="meta">nullgrid-browser_5.1.4_arm64.deb · 103.2 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_arm64.deb" data-file="nullgrid-browser_5.1.4_arm64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nullgrid-browser_5.1.4_arm64.deb</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row" data-os="rpm">
-          <div><h3>Fedora and RHEL (.rpm)<span class="tag">x64</span></h3><p>Fedora, RHEL, openSUSE and compatible distributions.</p><div class="meta">nullgrid-browser-5.1.1.x86_64.rpm · 96.9 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser-5.1.1.x86_64.rpm" data-file="nullgrid-browser-5.1.1.x86_64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nullgrid-browser-5.1.1.x86_64.rpm</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Fedora and RHEL (.rpm)<span class="tag">x64</span></h3><p>Fedora, RHEL, openSUSE and compatible distributions.</p><div class="meta">nullgrid-browser-5.1.4.x86_64.rpm · 97.0 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.x86_64.rpm" data-file="nullgrid-browser-5.1.4.x86_64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nullgrid-browser-5.1.4.x86_64.rpm</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Fedora and RHEL (.rpm)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">nullgrid-browser-5.1.1.aarch64.rpm · 92.5 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser-5.1.1.aarch64.rpm" data-file="nullgrid-browser-5.1.1.aarch64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nullgrid-browser-5.1.1.aarch64.rpm</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Fedora and RHEL (.rpm)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">nullgrid-browser-5.1.4.aarch64.rpm · 92.5 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.aarch64.rpm" data-file="nullgrid-browser-5.1.4.aarch64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nullgrid-browser-5.1.4.aarch64.rpm</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>AppImage<span class="tag">x64</span></h3><p>Runs on most distributions without installing.</p><div class="meta">NODE_GRID-5.1.1.AppImage · 132.0 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/NODE_GRID-5.1.1.AppImage" data-file="NODE_GRID-5.1.1.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>chmod +x NODE_GRID-5.1.1.AppImage &amp;&amp; ./NODE_GRID-5.1.1.AppImage</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>AppImage<span class="tag">x64</span></h3><p>Runs on most distributions without installing.</p><div class="meta">NODE_GRID-5.1.4.AppImage · 132.0 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/NODE_GRID-5.1.4.AppImage" data-file="NODE_GRID-5.1.4.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>chmod +x NODE_GRID-5.1.4.AppImage &amp;&amp; ./NODE_GRID-5.1.4.AppImage</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>AppImage<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">NODE_GRID-5.1.1-arm64.AppImage · 133.2 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/NODE_GRID-5.1.1-arm64.AppImage" data-file="NODE_GRID-5.1.1-arm64.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>chmod +x NODE_GRID-5.1.1-arm64.AppImage &amp;&amp; ./NODE_GRID-5.1.1-arm64.AppImage</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>AppImage<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">NODE_GRID-5.1.4-arm64.AppImage · 133.3 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/NODE_GRID-5.1.4-arm64.AppImage" data-file="NODE_GRID-5.1.4-arm64.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>chmod +x NODE_GRID-5.1.4-arm64.AppImage &amp;&amp; ./NODE_GRID-5.1.4-arm64.AppImage</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Archive (.tar.gz)<span class="tag">x64</span></h3><p>Unpack and run from any folder.</p><div class="meta">nullgrid-browser-5.1.1.tar.gz · 126.2 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser-5.1.1.tar.gz" data-file="nullgrid-browser-5.1.1.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>tar -xzf nullgrid-browser-5.1.1.tar.gz</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Archive (.tar.gz)<span class="tag">x64</span></h3><p>Unpack and run from any folder.</p><div class="meta">nullgrid-browser-5.1.4.tar.gz · 126.3 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.tar.gz" data-file="nullgrid-browser-5.1.4.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>tar -xzf nullgrid-browser-5.1.4.tar.gz</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Archive (.tar.gz)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">nullgrid-browser-5.1.1-arm64.tar.gz · 127.2 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser-5.1.1-arm64.tar.gz" data-file="nullgrid-browser-5.1.1-arm64.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>tar -xzf nullgrid-browser-5.1.1-arm64.tar.gz</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Archive (.tar.gz)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">nullgrid-browser-5.1.4-arm64.tar.gz · 127.2 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4-arm64.tar.gz" data-file="nullgrid-browser-5.1.4-arm64.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>tar -xzf nullgrid-browser-5.1.4-arm64.tar.gz</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Flatpak<span class="tag">x64</span></h3><p>Sandboxed. Needs the Flathub remote for its runtime.</p><div class="meta">NODE_GRID-5.1.4-x86_64.flatpak · 99.7 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/NODE_GRID-5.1.4-x86_64.flatpak" data-file="NODE_GRID-5.1.4-x86_64.flatpak"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>flatpak install --user ./NODE_GRID-5.1.4-x86_64.flatpak</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Snap<span class="tag">x64</span></h3><p>For any distribution with snapd.</p><div class="meta">nullgrid-browser_5.1.4_amd64.snap · 115.8 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_amd64.snap" data-file="nullgrid-browser_5.1.4_amd64.snap"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo snap install --dangerous ./nullgrid-browser_5.1.4_amd64.snap</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
           <div><h3>Arch Linux (PKGBUILD)<span class="tag">x64</span><span class="tag">ARM64</span></h3><p>Builds the nullgrid-browser-bin package from the release files.</p></div>
@@ -786,10 +798,10 @@ footer a { color: var(--muted); }
   </div>
 
   <div class="ub-row" id="verify">
-    <h2>Verify your download<small>SHA-256, release 5.1.1</small></h2>
+    <h2>Verify your download<small>SHA-256, release 5.1.4</small></h2>
     <div>
       <p class="dl-note" style="margin:0 0 14px">Check a file before you run it: <code>sha256sum &lt;file&gt;</code> on Linux and macOS, <code>Get-FileHash &lt;file&gt;</code> in PowerShell.</p>
-      <div class="dp-sums" id="checksums"><table><tbody><tr><td>NODE_GRID-5.1.1-arm64.AppImage</td><td>Any Linux · ARM64</td><td class="hash">8ed767cf959b56fb89283baabdcbda7c116c533c2db80f186d2500f5cd96990a</td></tr><tr><td>NODE_GRID-5.1.1-win32-x64.zip</td><td>Windows portable · x64</td><td class="hash">c81a2d2aa39806a55d23ab2fb5239753dce2e2faafe11495ee8f49a8fe1a1d8f</td></tr><tr><td>NODE_GRID-5.1.1.AppImage</td><td>Any Linux · x64</td><td class="hash">265b3f3a42d3f1daf99c37c0e8afde9e7622bbc03270ee3f73c66d80e2e3c55d</td></tr><tr><td>nullgrid-browser-5.1.1-arm64.tar.gz</td><td>Linux archive · ARM64</td><td class="hash">2e56ce200c86d29943d2f3fe554f65c0b0578a9dfdc88d1aaedb45e44f405b1f</td></tr><tr><td>nullgrid-browser-5.1.1.aarch64.rpm</td><td>Fedora/RHEL · ARM64</td><td class="hash">48d0c2f765f1dd32657bf6430b78a1d7e233a0c51727535e19559868e346230e</td></tr><tr><td>nullgrid-browser-5.1.1.tar.gz</td><td>Linux archive · x64</td><td class="hash">6cfd228e2f2b92042602a65203679f7aa71bf3b55e672722dcef9ce91829de58</td></tr><tr><td>nullgrid-browser-5.1.1.x86_64.rpm</td><td>Fedora/RHEL · x64</td><td class="hash">c224ed0c8b6a98b1acb0e79e281ca2cb03b03e83dc178a650fd03fa0c3e6d93e</td></tr><tr><td>nullgrid-browser_5.1.1_amd64.deb</td><td>Debian/Ubuntu · x64</td><td class="hash">9f6c9d0f57861a54f924d4504d4f3376095c60d3b318740827d94de9d68d1d35</td></tr><tr><td>nullgrid-browser_5.1.1_arm64.deb</td><td>Debian/Ubuntu · ARM64</td><td class="hash">53f00c1bd6a23ec76d820aa7f01a2a945be60ede25128b170a354f7e8eb26d48</td></tr></tbody></table></div>
+      <div class="dp-sums" id="checksums"><table><tbody><tr><td>NODE_GRID-5.1.4-arm64.AppImage</td><td>Any Linux · ARM64</td><td class="hash">d1c1845f7d812dca8201ac3aafa5976e7f6844d5d78c427e409cefd62a6b0d4a</td></tr><tr><td>NODE_GRID-5.1.4-win32-x64.zip</td><td>Windows portable · x64</td><td class="hash">bccfe0dd12b98758815befd4e190beec067f414e605f1eebbceca8a436a71614</td></tr><tr><td>NODE_GRID-5.1.4-x86_64.flatpak</td><td>Flatpak · x64</td><td class="hash">0b8243c18a010308b00266d4ff49a53e101ebd73b314a8e8865bc98c0afcc485</td></tr><tr><td>NODE_GRID-5.1.4.AppImage</td><td>Any Linux · x64</td><td class="hash">d9b89eadc63d78fd347e6b1bbba6d2867439b3f01ab4bea0d1463617f54f8495</td></tr><tr><td>nullgrid-browser-5.1.4-arm64.tar.gz</td><td>Linux archive · ARM64</td><td class="hash">c8d564c702586ebeaf48f12ddcd7517906e6e9ced61a02e7a0734f5851af83e5</td></tr><tr><td>nullgrid-browser-5.1.4.aarch64.rpm</td><td>Fedora/RHEL · ARM64</td><td class="hash">ca9aed8a6ee5ff84d4f7c68cfdd4a952e7ae3b34f4b09edffb601e1e1c3dff0a</td></tr><tr><td>nullgrid-browser-5.1.4.tar.gz</td><td>Linux archive · x64</td><td class="hash">8e2dcdccdeb6f12468f5dfc6c8fed71458b04298b6f0d5f95f6555b8e938a7da</td></tr><tr><td>nullgrid-browser-5.1.4.x86_64.rpm</td><td>Fedora/RHEL · x64</td><td class="hash">1670d0682b449e5426ea0ff8c3427b71d0ddb72a0fdc7f84765cb7b8cf01b8b1</td></tr><tr><td>nullgrid-browser_5.1.4_amd64.deb</td><td>Debian/Ubuntu · x64</td><td class="hash">e722eb0749cfdaf694d9380dfc26cf233cad8ddd39c24fb6282f520f6a561994</td></tr><tr><td>nullgrid-browser_5.1.4_amd64.snap</td><td>Snap · x64</td><td class="hash">0e1db46db1ed4fc13beef0b8533f2f945c142c5dcdfb2349906461723b533611</td></tr><tr><td>nullgrid-browser_5.1.4_arm64.deb</td><td>Debian/Ubuntu · ARM64</td><td class="hash">4a54881f44bb56a299fa96c8e9ed152dd2d62eaeb3c628be1db04d47ad7f3bf0</td></tr></tbody></table></div>
     </div>
   </div>
 
@@ -817,8 +829,8 @@ footer a { color: var(--muted); }
 const LINKS = {
   search:     "https://search.nullgrid.dev",
   gridStore:  "https://apps.microsoft.com/detail/9PL3D6SNHMLS",
-  gridDeb:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser_5.1.1_amd64.deb",
-  gridRpm:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.1/nullgrid-browser-5.1.1.x86_64.rpm",
+  gridDeb:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_amd64.deb",
+  gridRpm:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.x86_64.rpm",
   notesStore: "https://apps.microsoft.com/detail/9NW82T0G35QF",
   notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes_5.1.1_amd64.deb",
   notesRpm:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes-5.1.1-1.x86_64.rpm",
