@@ -179,7 +179,14 @@ h2 { margin: 0; font: 400 clamp(22px, 3vw, 28px) var(--f-display); letter-spacin
 .screen-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
 .screen-bar i:first-child { background: var(--pink); }
 .screen-bar span { margin-left: 6px; }
-.screen video { display: block; width: 100%; height: auto; background: #08090c; }
+.screen video, .screen img { display: block; width: 100%; height: auto; background: #08090c; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 22px; }
+.shots .tour:first-child:nth-last-child(odd) { grid-column: 1 / -1; }
+.soon-band { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 24px; align-items: center; padding: 26px 28px; background: var(--panel); border: 1px dashed var(--amber); border-radius: 12px; }
+.soon-band svg { width: 64px; height: 64px; }
+.soon-band h2 { margin: 0 0 4px; font: 400 22px var(--f-head); }
+.soon-band p { margin: 0; color: var(--muted); }
+.soon-btn, .soon-btn:hover { color: var(--amber) !important; border-color: var(--amber) !important; cursor: default; }
 .tour figcaption { font-size: 14px; color: var(--muted); }
 
 /* Get it */
@@ -458,6 +465,28 @@ footer a { color: var(--muted); }
 .ub-sub a { display: inline-flex; align-items: center; gap: 8px; padding: 14px 12px; color: var(--fg); text-decoration: none; font: 500 14px var(--f-body); white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .ub-sub a svg { width: 18px; height: 18px; }
 .ub-sub a:hover, .ub-sub a.on { border-bottom-color: var(--cyan); color: var(--cyan); }
+/* Home spotlight: the newest release */
+.spot { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px; align-items: center; padding: 34px; border-radius: 16px; background: radial-gradient(120% 140% at 100% 0%, rgba(0, 229, 255, .14), transparent 55%), radial-gradient(90% 120% at 0% 100%, rgba(255, 46, 136, .12), transparent 60%), var(--panel); border: 1px solid transparent; background-clip: padding-box; isolation: isolate; }
+.spot::before { content: ""; position: absolute; inset: -1px; border-radius: 17px; padding: 1px; background: linear-gradient(135deg, var(--cyan), var(--pink) 55%, var(--green)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1; }
+.spot .badge { display: inline-flex; align-items: center; gap: 8px; font: 400 12px var(--f-display); letter-spacing: .08em; color: var(--on-accent); background: var(--pink); padding: 4px 9px; border-radius: 4px; box-shadow: 0 0 18px rgba(255, 46, 136, .55); animation: spot-pulse 2.4s ease-in-out infinite; }
+@keyframes spot-pulse { 50% { box-shadow: 0 0 4px rgba(255, 46, 136, .3); } }
+@media (prefers-reduced-motion: reduce) { .spot .badge { animation: none; } }
+.spot .kick { margin-top: 14px; font: 13px var(--f-mono); color: var(--muted); }
+.spot h2 { margin: 6px 0 10px; font: 400 clamp(38px, 6vw, 64px)/1 var(--f-display); letter-spacing: .02em; display: flex; align-items: center; gap: 14px; }
+.spot h2 svg { width: .9em; height: .9em; flex: none; }
+.spot h2 .sl { color: var(--cyan); text-shadow: 0 0 14px var(--pink); }
+.spot p { margin: 0 0 18px; color: var(--muted); font-size: 16px; max-width: 46ch; }
+.spot .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+.spot .chips span { font: 12px var(--f-mono); padding: 3px 8px; border: 1px solid var(--line); border-radius: 4px; color: var(--fg); background: var(--panel-2); }
+.spot .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.spot .screen { transform: perspective(1400px) rotateY(-7deg) rotateX(2deg); box-shadow: 0 0 0 1px rgba(0,229,255,.25), 0 0 50px rgba(0,229,255,.18), 0 30px 70px rgba(0,0,0,.45); }
+.spot .screen { display: block; text-decoration: none; color: inherit; }
+.new-pill { display: inline-flex; width: fit-content; max-width: 100%; align-self: flex-start; align-items: center; gap: 10px; margin-bottom: 18px; padding: 5px 14px 5px 5px; border-radius: 999px; border: 1px solid rgba(255, 46, 136, .55); background: rgba(255, 46, 136, .08); color: var(--fg); text-decoration: none; font-size: 14px; box-shadow: 0 0 22px rgba(255, 46, 136, .18); }
+.new-pill b { font: 400 11px var(--f-display); letter-spacing: .08em; color: var(--on-accent); background: var(--pink); padding: 3px 8px; border-radius: 999px; }
+.new-pill:hover { border-color: var(--pink); }
+#new { scroll-margin-top: 70px; }
+.spot .screen img { aspect-ratio: 16 / 10; object-fit: cover; }
+@media (max-width: 860px) { .spot { grid-template-columns: minmax(0, 1fr); padding: 24px; } .spot .screen { transform: none; } }
 .ub-note { background: var(--panel-2); border-bottom: 1px solid var(--line); font-size: 14px; }
 .ub-note .wrap { padding-top: 10px; padding-bottom: 10px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
 .ub-note b { font: 400 12px var(--f-display); letter-spacing: .06em; color: var(--on-accent); background: var(--green); padding: 2px 6px; border-radius: 3px; }
@@ -641,6 +670,12 @@ footer a { color: var(--muted); }
   <symbol id="logo-scribe" viewBox="0 0 1024 1024">
     <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><path d="M240 200 H784 Q874 200 874 290 V610 Q874 700 784 700 H420 L280 830 V700 H240 Q150 700 150 610 V290 Q150 200 240 200 Z" fill="none" stroke="#00e5ff" stroke-width="24" stroke-linejoin="round" filter="url(#lg-sq)"/><polyline points="226,450 296,450 330,366 372,538 414,326 456,574 494,402 528,450 566,450" fill="none" stroke="#ff2e88" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" filter="url(#lg-pk)"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="652,330 700,330 652,570 604,570"/><polygon points="750,330 798,330 750,570 702,570"/></g></g>
   </symbol>
+  <symbol id="logo-file" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><path d="M208 300 Q208 256 252 256 H412 Q436 256 452 276 L492 324 H772 Q816 324 816 368 V724 Q816 768 772 768 H252 Q208 768 208 724 Z" fill="none" stroke="#00e5ff" stroke-width="26" stroke-linejoin="round" filter="url(#lg-sq)"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="392,472 456,472 408,692 344,692"/><polygon points="520,472 584,472 536,692 472,692"/></g><g fill="#2f5b66"><circle cx="648" cy="524" r="18"/><circle cx="704" cy="600" r="18"/><circle cx="648" cy="676" r="18"/><path d="M648 524 L704 600 L648 676" stroke="#2f5b66" stroke-width="10" fill="none"/></g></g>
+  </symbol>
+  <symbol id="logo-os" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><circle cx="512" cy="512" r="262" fill="none" stroke="#00e5ff" stroke-width="46" filter="url(#lg-sq)"/><g fill="#00e8ff" filter="url(#lg-sl)" transform="translate(512 512) rotate(32)"><rect x="-82" y="-372" width="54" height="744" rx="6"/><rect x="28" y="-372" width="54" height="744" rx="6"/></g><circle cx="742" cy="810" r="22" fill="#39ff88" filter="url(#lg-gn)"/></g>
+  </symbol>
   <symbol id="suite-mark" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="7" fill="#08090c"/>
     <path d="M14.5 6h3l-4 20h-3zM21.5 6h3l-4 20h-3z" fill="#00e8ff" style="filter: drop-shadow(0 0 2px #ff2e88)"/>
@@ -666,7 +701,7 @@ footer a { color: var(--muted); }
 <section class="hero slim">
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow">&gt; privacy <span>· last updated October 20, 2026</span></div>
+    <div class="eyebrow">&gt; privacy <span>· last updated October 27, 2026</span></div>
     <h1>PRIVACY</h1>
     <p class="lede">The short version: no accounts with us, no ads, no analytics, no tracking. Nothing you write, sync or browse is sent to us. What the apps keep, they keep on your own devices or on a server you run.</p>
   </div>
@@ -675,7 +710,7 @@ footer a { color: var(--muted); }
 <section class="sec">
   <div class="wrap policy">
     <nav class="toc" aria-label="On this page">
-      <a href="#site">This website</a><a href="#search">Null Search</a><a href="#grid">Null Grid</a><a href="#notes">Null Notes</a><a href="#drive">Null Drive</a><a href="#scribe">Null Scribe</a><a href="#stores">Downloads and stores</a><a href="#contact">Contact</a>
+      <a href="#site">This website</a><a href="#search">Null Search</a><a href="#grid">Null Grid</a><a href="#notes">Null Notes</a><a href="#drive">Null Drive</a><a href="#scribe">Null Scribe</a><a href="#file">Null File</a><a href="#os">Null OS</a><a href="#stores">Downloads and stores</a><a href="#contact">Contact</a>
     </nav>
 
     <div class="prose">
@@ -695,7 +730,7 @@ footer a { color: var(--muted); }
       <ul>
         <li><strong>History:</strong> only the names of sites you visit (like "example.com"), never full addresses, pages or searches. At most 100 sites, deleted after 7 days.</li>
         <li><strong>Saved logins and your Null Drive token</strong> are encrypted by Windows for your user account.</li>
-        <li><strong>Cookies and site data</strong> are kept in memory and erased when you close the browser. Burner tabs erase theirs sooner.</li>
+        <li><strong>Cookies and site data</strong> are erased when you close the browser, except for sites you choose to stay signed in to. Burner tabs erase theirs sooner.</li>
         <li>Favorites, loadouts, settings and pages you save to the Vault stay on your PC.</li>
       </ul>
       <p>It connects to other services only when a feature needs it: websites you visit, the search engine you pick, your own Null Drive if you connect one, Ghostery's servers for public ad-block lists, Google Translate when you press translate, radio stations when you play one, and the AI service you choose for the side panel. The full list is in <a href="https://github.com/Null0Grid/node-grid/blob/main/privacy-policy.html">Null Grid's own privacy policy</a>.</p>
@@ -735,6 +770,23 @@ footer a { color: var(--muted); }
       </ul>
       <p>The full version is in <a href="https://github.com/Null0Grid/null-scribe/blob/main/PRIVACY.md">Null Scribe's own privacy policy</a>.</p>
 
+      <h2 id="file">Null File</h2>
+      <p>Null File has no accounts, analytics or telemetry, and it never sends your files or file names anywhere.</p>
+      <ul>
+        <li><strong>Update checks:</strong> the AppImage and .tar.gz ask GitHub for the latest release, which sees your IP address. The .deb and .rpm add the Null Grid package repository (hosted on GitHub Pages), so updates come through your normal system updates.</li>
+        <li><strong>The Vault</strong> is encrypted on your computer with your PIN. We never see the PIN, the recovery key or the files. If you lose both, nobody can open it.</li>
+        <li><strong>Stored on your computer:</strong> your settings, pinned folders and open tabs, in <code>~/.config/dev.nullgrid.file/settings.json</code>. Delete that file to reset it.</li>
+        <li><strong>Moved to Trash, not deleted:</strong> Null File moves files to your system Trash. Only Empty Trash deletes them for good.</li>
+      </ul>
+
+      <h2 id="os">Null OS</h2>
+      <p>Null OS has no accounts, analytics or telemetry of its own, and it doesn't send anything to us. It's Debian underneath, so it talks to the same servers any Debian system does:</p>
+      <ul>
+        <li><strong>Security updates</strong> install themselves from Debian's servers, which see your IP address.</li>
+        <li><strong>Discover</strong> connects to Debian and Flathub when you browse or install apps.</li>
+        <li>The apps that come with it, like Null Grid and Null File, follow their own sections above.</li>
+      </ul>
+
       <h2 id="stores">Downloads and app stores</h2>
       <p>Downloads come from <strong>GitHub</strong> releases and container images, and from the <strong>Microsoft Store</strong>. Each handles your download under its own privacy policy. We don't receive personal information from them.</p>
 
@@ -755,7 +807,7 @@ footer a { color: var(--muted); }
 <footer>
   <div class="wrap">
     <span>Null Grid · <b class="foot-motto">Your data. Your grid.</b> · nullgrid.dev</span>
-    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
+    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="file.html">File</a> · <a href="os.html">OS</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
   </div>
 </footer>
 <script>
@@ -763,8 +815,8 @@ footer a { color: var(--muted); }
 const LINKS = {
   search:     "https://search.nullgrid.dev",
   gridStore:  "https://apps.microsoft.com/detail/9PL3D6SNHMLS",
-  gridDeb:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_amd64.deb",
-  gridRpm:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.x86_64.rpm",
+  gridDeb:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser_5.1.7_amd64.deb",
+  gridRpm:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser-5.1.7.x86_64.rpm",
   notesStore: "https://apps.microsoft.com/detail/9NW82T0G35QF",
   notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes_5.1.1_amd64.deb",
   notesRpm:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes-5.1.1-1.x86_64.rpm",

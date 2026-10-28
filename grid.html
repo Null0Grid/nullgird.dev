@@ -179,7 +179,14 @@ h2 { margin: 0; font: 400 clamp(22px, 3vw, 28px) var(--f-display); letter-spacin
 .screen-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
 .screen-bar i:first-child { background: var(--pink); }
 .screen-bar span { margin-left: 6px; }
-.screen video { display: block; width: 100%; height: auto; background: #08090c; }
+.screen video, .screen img { display: block; width: 100%; height: auto; background: #08090c; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 22px; }
+.shots .tour:first-child:nth-last-child(odd) { grid-column: 1 / -1; }
+.soon-band { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 24px; align-items: center; padding: 26px 28px; background: var(--panel); border: 1px dashed var(--amber); border-radius: 12px; }
+.soon-band svg { width: 64px; height: 64px; }
+.soon-band h2 { margin: 0 0 4px; font: 400 22px var(--f-head); }
+.soon-band p { margin: 0; color: var(--muted); }
+.soon-btn, .soon-btn:hover { color: var(--amber) !important; border-color: var(--amber) !important; cursor: default; }
 .tour figcaption { font-size: 14px; color: var(--muted); }
 
 /* Get it */
@@ -458,6 +465,28 @@ footer a { color: var(--muted); }
 .ub-sub a { display: inline-flex; align-items: center; gap: 8px; padding: 14px 12px; color: var(--fg); text-decoration: none; font: 500 14px var(--f-body); white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .ub-sub a svg { width: 18px; height: 18px; }
 .ub-sub a:hover, .ub-sub a.on { border-bottom-color: var(--cyan); color: var(--cyan); }
+/* Home spotlight: the newest release */
+.spot { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px; align-items: center; padding: 34px; border-radius: 16px; background: radial-gradient(120% 140% at 100% 0%, rgba(0, 229, 255, .14), transparent 55%), radial-gradient(90% 120% at 0% 100%, rgba(255, 46, 136, .12), transparent 60%), var(--panel); border: 1px solid transparent; background-clip: padding-box; isolation: isolate; }
+.spot::before { content: ""; position: absolute; inset: -1px; border-radius: 17px; padding: 1px; background: linear-gradient(135deg, var(--cyan), var(--pink) 55%, var(--green)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1; }
+.spot .badge { display: inline-flex; align-items: center; gap: 8px; font: 400 12px var(--f-display); letter-spacing: .08em; color: var(--on-accent); background: var(--pink); padding: 4px 9px; border-radius: 4px; box-shadow: 0 0 18px rgba(255, 46, 136, .55); animation: spot-pulse 2.4s ease-in-out infinite; }
+@keyframes spot-pulse { 50% { box-shadow: 0 0 4px rgba(255, 46, 136, .3); } }
+@media (prefers-reduced-motion: reduce) { .spot .badge { animation: none; } }
+.spot .kick { margin-top: 14px; font: 13px var(--f-mono); color: var(--muted); }
+.spot h2 { margin: 6px 0 10px; font: 400 clamp(38px, 6vw, 64px)/1 var(--f-display); letter-spacing: .02em; display: flex; align-items: center; gap: 14px; }
+.spot h2 svg { width: .9em; height: .9em; flex: none; }
+.spot h2 .sl { color: var(--cyan); text-shadow: 0 0 14px var(--pink); }
+.spot p { margin: 0 0 18px; color: var(--muted); font-size: 16px; max-width: 46ch; }
+.spot .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+.spot .chips span { font: 12px var(--f-mono); padding: 3px 8px; border: 1px solid var(--line); border-radius: 4px; color: var(--fg); background: var(--panel-2); }
+.spot .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.spot .screen { transform: perspective(1400px) rotateY(-7deg) rotateX(2deg); box-shadow: 0 0 0 1px rgba(0,229,255,.25), 0 0 50px rgba(0,229,255,.18), 0 30px 70px rgba(0,0,0,.45); }
+.spot .screen { display: block; text-decoration: none; color: inherit; }
+.new-pill { display: inline-flex; width: fit-content; max-width: 100%; align-self: flex-start; align-items: center; gap: 10px; margin-bottom: 18px; padding: 5px 14px 5px 5px; border-radius: 999px; border: 1px solid rgba(255, 46, 136, .55); background: rgba(255, 46, 136, .08); color: var(--fg); text-decoration: none; font-size: 14px; box-shadow: 0 0 22px rgba(255, 46, 136, .18); }
+.new-pill b { font: 400 11px var(--f-display); letter-spacing: .08em; color: var(--on-accent); background: var(--pink); padding: 3px 8px; border-radius: 999px; }
+.new-pill:hover { border-color: var(--pink); }
+#new { scroll-margin-top: 70px; }
+.spot .screen img { aspect-ratio: 16 / 10; object-fit: cover; }
+@media (max-width: 860px) { .spot { grid-template-columns: minmax(0, 1fr); padding: 24px; } .spot .screen { transform: none; } }
 .ub-note { background: var(--panel-2); border-bottom: 1px solid var(--line); font-size: 14px; }
 .ub-note .wrap { padding-top: 10px; padding-bottom: 10px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
 .ub-note b { font: 400 12px var(--f-display); letter-spacing: .06em; color: var(--on-accent); background: var(--green); padding: 2px 6px; border-radius: 3px; }
@@ -641,6 +670,12 @@ footer a { color: var(--muted); }
   <symbol id="logo-scribe" viewBox="0 0 1024 1024">
     <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><path d="M240 200 H784 Q874 200 874 290 V610 Q874 700 784 700 H420 L280 830 V700 H240 Q150 700 150 610 V290 Q150 200 240 200 Z" fill="none" stroke="#00e5ff" stroke-width="24" stroke-linejoin="round" filter="url(#lg-sq)"/><polyline points="226,450 296,450 330,366 372,538 414,326 456,574 494,402 528,450 566,450" fill="none" stroke="#ff2e88" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" filter="url(#lg-pk)"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="652,330 700,330 652,570 604,570"/><polygon points="750,330 798,330 750,570 702,570"/></g></g>
   </symbol>
+  <symbol id="logo-file" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><path d="M208 300 Q208 256 252 256 H412 Q436 256 452 276 L492 324 H772 Q816 324 816 368 V724 Q816 768 772 768 H252 Q208 768 208 724 Z" fill="none" stroke="#00e5ff" stroke-width="26" stroke-linejoin="round" filter="url(#lg-sq)"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="392,472 456,472 408,692 344,692"/><polygon points="520,472 584,472 536,692 472,692"/></g><g fill="#2f5b66"><circle cx="648" cy="524" r="18"/><circle cx="704" cy="600" r="18"/><circle cx="648" cy="676" r="18"/><path d="M648 524 L704 600 L648 676" stroke="#2f5b66" stroke-width="10" fill="none"/></g></g>
+  </symbol>
+  <symbol id="logo-os" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><circle cx="512" cy="512" r="262" fill="none" stroke="#00e5ff" stroke-width="46" filter="url(#lg-sq)"/><g fill="#00e8ff" filter="url(#lg-sl)" transform="translate(512 512) rotate(32)"><rect x="-82" y="-372" width="54" height="744" rx="6"/><rect x="28" y="-372" width="54" height="744" rx="6"/></g><circle cx="742" cy="810" r="22" fill="#39ff88" filter="url(#lg-gn)"/></g>
+  </symbol>
   <symbol id="suite-mark" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="7" fill="#08090c"/>
     <path d="M14.5 6h3l-4 20h-3zM21.5 6h3l-4 20h-3z" fill="#00e8ff" style="filter: drop-shadow(0 0 2px #ff2e88)"/>
@@ -667,10 +702,10 @@ footer a { color: var(--muted); }
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">&gt; desktop web browser <span class="status live">v5.1.4</span></div>
+      <div class="eyebrow">&gt; desktop web browser <span class="status live">v5.1.7</span></div>
       <h1>NULL<span class="sl">//</span>GRID</h1>
       <p class="tagline">The browser of the Null Grid family, our take on Chrome.</p>
-      <p class="lede">Vertical tabs, burner tabs that wipe themselves, and a history that only keeps site names. Searches go through Null Search, and your own pages and files can show up right beside the web.</p>
+      <p class="lede">Tabs on the side or across the top, burner tabs that wipe themselves, and a history that only keeps site names. Searches go through Null Search, and your own pages and files can show up right beside the web.</p>
       <div class="ctas"><a class="btn primary" href="grid.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a></div>
     </div>
     <div class="hero-logo"><svg class="" viewBox="0 0 1024 1024" role="img" aria-label="Null Grid logo"><use href="#logo-grid"/></svg></div>
@@ -696,8 +731,11 @@ footer a { color: var(--muted); }
       <div class="feat"><h3>Burner tabs</h3><p>A burner tab gets its own throwaway storage that wipes itself. Nothing it touches is kept.</p></div>
       <div class="feat"><h3>Short memory</h3><p>History keeps only site names, never full pages or searches: the last 100 sites, for 7 days.</p></div>
       <div class="feat"><h3>Ad and tracker blocking</h3><p>Built in, and pausable per site when a page needs it.</p></div>
-      <div class="feat"><h3>Login vault</h3><p>Saved logins are encrypted with your system's secure storage.</p></div>
       <div class="feat"><h3>Loadouts</h3><p>Save a whole set of open tabs by name, then deploy it or swap it back in later.</p></div>
+      <div class="feat"><h3>Tabs across the top <span class="tag new">new in 5.1.7</span></h3><p>Keep your tabs in the sidebar, or move them into a strip above the toolbar in Settings → Appearance. The sidebar then shrinks to a rail of icons that opens when you need it.</p></div>
+      <div class="feat"><h3>Light, dark or automatic <span class="tag new">new in 5.1.5</span></h3><p>Pick a dark or light theme, or let Null Grid match your computer. You can also make the sidebar larger.</p></div>
+      <div class="feat"><h3>Stay signed in where you choose <span class="tag new">new in 5.1.5</span></h3><p>Everything is still wiped when you close Null Grid, except the sites you tick Keep me signed in on. Saved logins are offered as you sign in and filled in for you next time.</p></div>
+      <div class="feat"><h3>Safer on plain http <span class="tag new">new in 5.1.6</span></h3><p>Sites without https get a warning first. Logins are only saved and filled on https, or on an http site you've chosen to trust.</p></div>
       <div class="feat"><h3>Masking <span class="tag new">new in 5.1.1</span></h3><p>Right-click a tab and choose Masking, and sites see it as Google Chrome. For sites like WhatsApp Web that turn away browsers they don't know. Other tabs stay as they are.</p></div>
       <div class="feat"><h3>Updates install themselves <span class="tag new">new in 5.1.4</span></h3><p>Null Grid checks for a new version at launch and once a day. When there is one, Packet, the Null Grid mascot, walks in with Get it, What's new and Later, and the update installs itself for the portable .zip, AppImage, .tar.gz, .deb and .rpm. Store copies update through the Store.</p></div>
       <div class="feat"><h3>Your default browser <span class="tag new">new in 5.1.2</span></h3><p>Set Null Grid as your default browser on Windows or Linux, and links from other apps open in it.</p></div>
@@ -712,17 +750,17 @@ footer a { color: var(--muted); }
 <section class="sec dl-merged" id="download">
   <div class="wrap">
     <div class="dm-head">
-      <div class="kick">version 5.1.4 · <a href="https://github.com/Null0Grid/node-grid/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
+      <div class="kick">version 5.1.7 · <a href="https://github.com/Null0Grid/node-grid/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
       <h2>Download <span>Null Grid</span></h2>
-      <p>Pick the build for your computer. Every download comes straight from the 5.1.4 release.</p>
+      <p>Pick the build for your computer. Every download comes straight from the 5.1.7 release.</p>
       <div class="dp-rec" id="dp-rec" hidden><span></span><small></small></div>
     </div>
   <div class="ub-row" id="windows">
     <h2><svg class="os-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-winhead"/></svg>Windows<small>Windows 10 and 11</small></h2>
     <div class="fl">
         <div class="fl-row" data-os="win">
-          <div><h3>Portable .zip<span class="tag">x64</span></h3><p>No installer. Unzip it anywhere and run NODE_GRID.exe. Updates install themselves.</p><div class="meta">NODE_GRID-5.1.4-win32-x64.zip · 167.2 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/NODE_GRID-5.1.4-win32-x64.zip" data-file="NODE_GRID-5.1.4-win32-x64.zip"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div><h3>Portable .zip<span class="tag">x64</span></h3><p>No installer. Unzip it anywhere and run NODE_GRID.exe. Updates install themselves.</p><div class="meta">NODE_GRID-5.1.7-win32-x64.zip · 169.6 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/NODE_GRID-5.1.7-win32-x64.zip" data-file="NODE_GRID-5.1.7-win32-x64.zip"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
           
         </div>
         <div class="fl-row">
@@ -735,54 +773,54 @@ footer a { color: var(--muted); }
     <h2><svg class="os-ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tux"/></svg>Linux<small>x64 and ARM64</small></h2>
     <div class="fl">
         <div class="fl-row" data-os="deb">
-          <div><h3>Ubuntu and Debian (.deb)<span class="tag">x64</span></h3><p>Ubuntu 24.04 or newer, Debian 13 or newer, Linux Mint, Pop!_OS.</p><div class="meta">nullgrid-browser_5.1.4_amd64.deb · 108.0 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_amd64.deb" data-file="nullgrid-browser_5.1.4_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nullgrid-browser_5.1.4_amd64.deb</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Ubuntu and Debian (.deb)<span class="tag">x64</span></h3><p>Ubuntu 24.04 or newer, Debian 13 or newer, Linux Mint, Pop!_OS.</p><div class="meta">nullgrid-browser_5.1.7_amd64.deb · 110.4 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser_5.1.7_amd64.deb" data-file="nullgrid-browser_5.1.7_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nullgrid-browser_5.1.7_amd64.deb</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Ubuntu and Debian (.deb)<span class="tag">ARM64</span></h3><p>For ARM64 machines such as a Raspberry Pi 5.</p><div class="meta">nullgrid-browser_5.1.4_arm64.deb · 103.2 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_arm64.deb" data-file="nullgrid-browser_5.1.4_arm64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nullgrid-browser_5.1.4_arm64.deb</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Ubuntu and Debian (.deb)<span class="tag">ARM64</span></h3><p>For ARM64 machines such as a Raspberry Pi 5.</p><div class="meta">nullgrid-browser_5.1.7_arm64.deb · 105.6 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser_5.1.7_arm64.deb" data-file="nullgrid-browser_5.1.7_arm64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo apt install ./nullgrid-browser_5.1.7_arm64.deb</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row" data-os="rpm">
-          <div><h3>Fedora and RHEL (.rpm)<span class="tag">x64</span></h3><p>Fedora, RHEL, openSUSE and compatible distributions.</p><div class="meta">nullgrid-browser-5.1.4.x86_64.rpm · 97.0 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.x86_64.rpm" data-file="nullgrid-browser-5.1.4.x86_64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nullgrid-browser-5.1.4.x86_64.rpm</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Fedora and RHEL (.rpm)<span class="tag">x64</span></h3><p>Fedora, RHEL, openSUSE and compatible distributions.</p><div class="meta">nullgrid-browser-5.1.7.x86_64.rpm · 99.3 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser-5.1.7.x86_64.rpm" data-file="nullgrid-browser-5.1.7.x86_64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nullgrid-browser-5.1.7.x86_64.rpm</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Fedora and RHEL (.rpm)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">nullgrid-browser-5.1.4.aarch64.rpm · 92.5 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.aarch64.rpm" data-file="nullgrid-browser-5.1.4.aarch64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nullgrid-browser-5.1.4.aarch64.rpm</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Fedora and RHEL (.rpm)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">nullgrid-browser-5.1.7.aarch64.rpm · 94.9 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser-5.1.7.aarch64.rpm" data-file="nullgrid-browser-5.1.7.aarch64.rpm"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo dnf install ./nullgrid-browser-5.1.7.aarch64.rpm</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>AppImage<span class="tag">x64</span></h3><p>Runs on most distributions without installing.</p><div class="meta">NODE_GRID-5.1.4.AppImage · 132.0 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/NODE_GRID-5.1.4.AppImage" data-file="NODE_GRID-5.1.4.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>chmod +x NODE_GRID-5.1.4.AppImage &amp;&amp; ./NODE_GRID-5.1.4.AppImage</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>AppImage<span class="tag">x64</span></h3><p>Runs on most distributions without installing.</p><div class="meta">NODE_GRID-5.1.7.AppImage · 134.4 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/NODE_GRID-5.1.7.AppImage" data-file="NODE_GRID-5.1.7.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>chmod +x NODE_GRID-5.1.7.AppImage &amp;&amp; ./NODE_GRID-5.1.7.AppImage</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>AppImage<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">NODE_GRID-5.1.4-arm64.AppImage · 133.3 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/NODE_GRID-5.1.4-arm64.AppImage" data-file="NODE_GRID-5.1.4-arm64.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>chmod +x NODE_GRID-5.1.4-arm64.AppImage &amp;&amp; ./NODE_GRID-5.1.4-arm64.AppImage</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>AppImage<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">NODE_GRID-5.1.7-arm64.AppImage · 135.7 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/NODE_GRID-5.1.7-arm64.AppImage" data-file="NODE_GRID-5.1.7-arm64.AppImage"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>chmod +x NODE_GRID-5.1.7-arm64.AppImage &amp;&amp; ./NODE_GRID-5.1.7-arm64.AppImage</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Archive (.tar.gz)<span class="tag">x64</span></h3><p>Unpack and run from any folder.</p><div class="meta">nullgrid-browser-5.1.4.tar.gz · 126.3 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.tar.gz" data-file="nullgrid-browser-5.1.4.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>tar -xzf nullgrid-browser-5.1.4.tar.gz</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Archive (.tar.gz)<span class="tag">x64</span></h3><p>Unpack and run from any folder.</p><div class="meta">nullgrid-browser-5.1.7.tar.gz · 128.6 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser-5.1.7.tar.gz" data-file="nullgrid-browser-5.1.7.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>tar -xzf nullgrid-browser-5.1.7.tar.gz</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Archive (.tar.gz)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">nullgrid-browser-5.1.4-arm64.tar.gz · 127.2 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4-arm64.tar.gz" data-file="nullgrid-browser-5.1.4-arm64.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>tar -xzf nullgrid-browser-5.1.4-arm64.tar.gz</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Archive (.tar.gz)<span class="tag">ARM64</span></h3><p>For ARM64 machines.</p><div class="meta">nullgrid-browser-5.1.7-arm64.tar.gz · 129.6 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser-5.1.7-arm64.tar.gz" data-file="nullgrid-browser-5.1.7-arm64.tar.gz"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>tar -xzf nullgrid-browser-5.1.7-arm64.tar.gz</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Flatpak<span class="tag">x64</span></h3><p>Sandboxed. Needs the Flathub remote for its runtime.</p><div class="meta">NODE_GRID-5.1.4-x86_64.flatpak · 99.7 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/NODE_GRID-5.1.4-x86_64.flatpak" data-file="NODE_GRID-5.1.4-x86_64.flatpak"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>flatpak install --user ./NODE_GRID-5.1.4-x86_64.flatpak</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Flatpak<span class="tag">x64</span></h3><p>Sandboxed. Needs the Flathub remote for its runtime.</p><div class="meta">NODE_GRID-5.1.7-x86_64.flatpak · 102.4 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/NODE_GRID-5.1.7-x86_64.flatpak" data-file="NODE_GRID-5.1.7-x86_64.flatpak"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>flatpak install --user ./NODE_GRID-5.1.7-x86_64.flatpak</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
-          <div><h3>Snap<span class="tag">x64</span></h3><p>For any distribution with snapd.</p><div class="meta">nullgrid-browser_5.1.4_amd64.snap · 115.8 MB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_amd64.snap" data-file="nullgrid-browser_5.1.4_amd64.snap"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sudo snap install --dangerous ./nullgrid-browser_5.1.4_amd64.snap</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Snap<span class="tag">x64</span></h3><p>For any distribution with snapd.</p><div class="meta">nullgrid-browser_5.1.7_amd64.snap · 118.2 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser_5.1.7_amd64.snap" data-file="nullgrid-browser_5.1.7_amd64.snap"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sudo snap install --dangerous ./nullgrid-browser_5.1.7_amd64.snap</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
           <div><h3>Arch Linux (PKGBUILD)<span class="tag">x64</span><span class="tag">ARM64</span></h3><p>Builds the nullgrid-browser-bin package from the release files.</p></div>
@@ -798,10 +836,10 @@ footer a { color: var(--muted); }
   </div>
 
   <div class="ub-row" id="verify">
-    <h2>Verify your download<small>SHA-256, release 5.1.4</small></h2>
+    <h2>Verify your download<small>SHA-256, release 5.1.7</small></h2>
     <div>
       <p class="dl-note" style="margin:0 0 14px">Check a file before you run it: <code>sha256sum &lt;file&gt;</code> on Linux and macOS, <code>Get-FileHash &lt;file&gt;</code> in PowerShell.</p>
-      <div class="dp-sums" id="checksums"><table><tbody><tr><td>NODE_GRID-5.1.4-arm64.AppImage</td><td>Any Linux · ARM64</td><td class="hash">d1c1845f7d812dca8201ac3aafa5976e7f6844d5d78c427e409cefd62a6b0d4a</td></tr><tr><td>NODE_GRID-5.1.4-win32-x64.zip</td><td>Windows portable · x64</td><td class="hash">bccfe0dd12b98758815befd4e190beec067f414e605f1eebbceca8a436a71614</td></tr><tr><td>NODE_GRID-5.1.4-x86_64.flatpak</td><td>Flatpak · x64</td><td class="hash">0b8243c18a010308b00266d4ff49a53e101ebd73b314a8e8865bc98c0afcc485</td></tr><tr><td>NODE_GRID-5.1.4.AppImage</td><td>Any Linux · x64</td><td class="hash">d9b89eadc63d78fd347e6b1bbba6d2867439b3f01ab4bea0d1463617f54f8495</td></tr><tr><td>nullgrid-browser-5.1.4-arm64.tar.gz</td><td>Linux archive · ARM64</td><td class="hash">c8d564c702586ebeaf48f12ddcd7517906e6e9ced61a02e7a0734f5851af83e5</td></tr><tr><td>nullgrid-browser-5.1.4.aarch64.rpm</td><td>Fedora/RHEL · ARM64</td><td class="hash">ca9aed8a6ee5ff84d4f7c68cfdd4a952e7ae3b34f4b09edffb601e1e1c3dff0a</td></tr><tr><td>nullgrid-browser-5.1.4.tar.gz</td><td>Linux archive · x64</td><td class="hash">8e2dcdccdeb6f12468f5dfc6c8fed71458b04298b6f0d5f95f6555b8e938a7da</td></tr><tr><td>nullgrid-browser-5.1.4.x86_64.rpm</td><td>Fedora/RHEL · x64</td><td class="hash">1670d0682b449e5426ea0ff8c3427b71d0ddb72a0fdc7f84765cb7b8cf01b8b1</td></tr><tr><td>nullgrid-browser_5.1.4_amd64.deb</td><td>Debian/Ubuntu · x64</td><td class="hash">e722eb0749cfdaf694d9380dfc26cf233cad8ddd39c24fb6282f520f6a561994</td></tr><tr><td>nullgrid-browser_5.1.4_amd64.snap</td><td>Snap · x64</td><td class="hash">0e1db46db1ed4fc13beef0b8533f2f945c142c5dcdfb2349906461723b533611</td></tr><tr><td>nullgrid-browser_5.1.4_arm64.deb</td><td>Debian/Ubuntu · ARM64</td><td class="hash">4a54881f44bb56a299fa96c8e9ed152dd2d62eaeb3c628be1db04d47ad7f3bf0</td></tr></tbody></table></div>
+      <div class="dp-sums" id="checksums"><table><tbody><tr><td>NODE_GRID-5.1.7-arm64.AppImage</td><td>Any Linux · ARM64</td><td class="hash">5bc6bdf72020c2567cce1036cf2e009091658817808dc6c53df8adc8b16beda0</td></tr><tr><td>NODE_GRID-5.1.7-win32-x64.zip</td><td>Windows portable · x64</td><td class="hash">81dd1323653d1fc866450bcc21b90f262c9955dcb0d346e98ed5ef01b4f83312</td></tr><tr><td>NODE_GRID-5.1.7-x86_64.flatpak</td><td>Flatpak · x64</td><td class="hash">4e3d07caedb6b163c24a5ce3979e904abdb8490f06fde9ccfd1db0aa0fa8bd2e</td></tr><tr><td>NODE_GRID-5.1.7.AppImage</td><td>Any Linux · x64</td><td class="hash">a75f14962e7539cd592ef9375066631aba13969bdf71f1d0ae9209b43bfdbcc2</td></tr><tr><td>nullgrid-browser-5.1.7-arm64.tar.gz</td><td>Linux archive · ARM64</td><td class="hash">90e53173da7245c933fd04ea740be32769eb78e831d7d1ff8894010ce4adafcc</td></tr><tr><td>nullgrid-browser-5.1.7.aarch64.rpm</td><td>Fedora/RHEL · ARM64</td><td class="hash">065a56884287515e5470ac7423b50aeae552523b4b9eb82f0f94db40348ceada</td></tr><tr><td>nullgrid-browser-5.1.7.tar.gz</td><td>Linux archive · x64</td><td class="hash">d0e4c13a627858c47e30a786dd64bade0b0a802c0b878234b2dfa29f7de3a509</td></tr><tr><td>nullgrid-browser-5.1.7.x86_64.rpm</td><td>Fedora/RHEL · x64</td><td class="hash">4eaacad88e75cdb01d61c464d1fa5af86c2a03c674a24b7162504fc838dd3d8e</td></tr><tr><td>nullgrid-browser_5.1.7_amd64.deb</td><td>Debian/Ubuntu · x64</td><td class="hash">ef0715f94f224cddbb4b226dc7e0d82dcbb68e5326b561b0a091275047b059aa</td></tr><tr><td>nullgrid-browser_5.1.7_amd64.snap</td><td>Snap · x64</td><td class="hash">a1c369344d96a1c2cdbd4864ac066cd90d10bfdd2c88a128829fe7e2449f39a2</td></tr><tr><td>nullgrid-browser_5.1.7_arm64.deb</td><td>Debian/Ubuntu · ARM64</td><td class="hash">f2f0371ca6f9b46cf4572a457b3e4f5c1e6e0450cd6dd9e2ed520b06369dc79d</td></tr></tbody></table></div>
     </div>
   </div>
 
@@ -809,19 +847,21 @@ footer a { color: var(--muted); }
 </section>
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head"><h2>The rest of the family</h2></div>
+    <div class="sec-head"><h2>The rest of the family</h2><p>The Null Suite (Notes, Scribe and Drive), the Null Grid browser, Null Search, Null File and Null OS.</p></div>
     <div class="suite">
       <a href="search.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-search"/></svg><div><b>Null Search</b><span>Search the web</span></div></a>
       <a href="notes.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-notes"/></svg><div><b>Null Notes</b><span>Local Markdown notes</span></div></a>
       <a href="drive.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-drive"/></svg><div><b>Null Drive</b><span>Self-hosted sync</span></div></a>
       <a href="scribe.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-scribe"/></svg><div><b>Null Scribe</b><span>Transcripts and summaries</span></div></a>
+      <a href="file.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-file"/></svg><div><b>Null File</b><span>File manager for Linux</span></div></a>
+      <a href="os.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-os"/></svg><div><b>Null OS</b><span>The operating system</span></div></a>
     </div>
   </div>
 </section>
 <footer>
   <div class="wrap">
     <span>Null Grid · <b class="foot-motto">Your data. Your grid.</b> · nullgrid.dev</span>
-    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
+    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="file.html">File</a> · <a href="os.html">OS</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
   </div>
 </footer>
 <script>
@@ -829,8 +869,8 @@ footer a { color: var(--muted); }
 const LINKS = {
   search:     "https://search.nullgrid.dev",
   gridStore:  "https://apps.microsoft.com/detail/9PL3D6SNHMLS",
-  gridDeb:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser_5.1.4_amd64.deb",
-  gridRpm:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.4/nullgrid-browser-5.1.4.x86_64.rpm",
+  gridDeb:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser_5.1.7_amd64.deb",
+  gridRpm:    "https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser-5.1.7.x86_64.rpm",
   notesStore: "https://apps.microsoft.com/detail/9NW82T0G35QF",
   notesDeb:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes_5.1.1_amd64.deb",
   notesRpm:   "https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes-5.1.1-1.x86_64.rpm",
