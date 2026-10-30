@@ -702,10 +702,10 @@ footer a { color: var(--muted); }
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">&gt; operating system <span class="status live">v1.1.0</span></div>
+      <div class="eyebrow">&gt; operating system <span class="status live">v1.2.1</span></div>
       <h1>NULL<span class="sl">//</span>OS</h1>
       <p class="tagline">A Debian desktop in the Neon Lab look, built for homelabs and network work.</p>
-      <p class="lede">Null OS is Debian 13 underneath, with no modified packages, so security updates come straight from Debian. On top: KDE Plasma in the Null Grid style, the Null Grid browser, Null File, zsh with a two-line prompt, and a network engineer's toolkit ready to go. Run it from a USB stick or install it to a disk.</p>
+      <p class="lede">Null OS is Debian 13 underneath, with no modified packages, so security updates come straight from Debian. On top: KDE Plasma in the Null Grid style, the Null Grid browser, Null File and zsh with a two-line prompt. Install it Minimal, or Full with a network engineer's toolkit, homelab and dev tools, and everyday apps.</p>
       <div class="ctas"><a class="btn primary" href="os.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download the ISO</a><a class="btn ghost" href="file.html">Meet Null File</a></div>
     </div>
     <div class="hero-logo"><svg class="" viewBox="0 0 1024 1024" role="img" aria-label="Null OS logo"><use href="#logo-os"/></svg></div>
@@ -715,7 +715,7 @@ footer a { color: var(--muted); }
   <div class="wrap">
     <figure class="tour">
       <div class="screen">
-        <div class="screen-bar"><i></i><i></i><i></i><span>null os 1.1.0</span></div>
+        <div class="screen-bar"><i></i><i></i><i></i><span>null os 1.1</span></div>
         <video controls preload="metadata" playsinline poster="null-os-tour-poster.jpg" aria-label="A tour of Null OS: boot menu, glitch startup, the start menu, Null Grid, the two-line prompt, root mode, Discover and Null File">
           <source src="null-os-tour.mp4" type="video/mp4">
         </video>
@@ -726,7 +726,7 @@ footer a { color: var(--muted); }
 </section>
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head"><h2>Screenshots</h2><p>From the 1.1.0 build.</p></div>
+    <div class="sec-head"><h2>Screenshots</h2><p>From the 1.2.1 build.</p></div>
     <div class="shots">
     <figure class="tour">
       <div class="screen">
@@ -749,15 +749,17 @@ footer a { color: var(--muted); }
   <div class="wrap">
     <div class="sec-head"><h2>What's in it</h2><p>Debian underneath, Null Grid on top.</p></div>
     <div class="feats">
-      <div class="feat"><h3>KDE Plasma 6</h3><p>A Windows-style taskbar, the Null Lab color scheme, white line icons, and Silkscreen titles.</p></div>
-      <div class="feat"><h3>Null Grid apps</h3><p>The Null Grid browser and Null File come installed. Discover with Flathub gets you everything else.</p></div>
+      <div class="feat"><h3>Minimal or Full</h3><p>The installer asks, like Ubuntu. Minimal is just the Null OS desktop. Full adds everything below, or tick only the parts you want. Full downloads during install, so it needs internet.</p></div>
+      <div class="feat"><h3>Null OS Extras</h3><p>Changed your mind? The Extras app in the start menu adds any part of Full later, with progress and a summary. In the terminal: <code>null-extras list</code> and <code>null-extras install &lt;group&gt;</code>.</p></div>
+      <div class="feat"><h3>KDE Plasma 6</h3><p>A Windows-style taskbar pinned with Settings, Null File, Null Grid and Konsole, the Null Lab color scheme, white line icons, and Silkscreen titles.</p></div>
+      <div class="feat"><h3>Null Grid apps</h3><p>The Null Grid browser and Null File come with every install, Minimal included.</p></div>
       <div class="feat"><h3>A terminal you'll like</h3><p>zsh with autosuggestions and syntax highlighting, a two-line prompt, and the Null Mono font in Konsole.</p></div>
-      <div class="feat"><h3>Network toolkit</h3><p>nmap, tcpdump, Wireshark, iperf3, mtr, dnsutils, lldpd, ethtool, nftables, WireGuard tools, arp-scan, ipcalc, SNMP tools, minicom, picocom and Remmina.</p></div>
-      <div class="feat"><h3>Ready for work</h3><p>VSCodium, VLC, Gwenview for images and Okular for PDFs.</p></div>
-      <div class="feat"><h3>Safe by default</h3><p>The firewall is on and blocks incoming connections except SSH. Security updates install themselves.</p></div>
-      <div class="feat"><h3>USB or disk</h3><p>Run it live from a USB stick with your changes kept between boots, or install it with the graphical installer.</p></div>
+      <div class="feat"><h3>Network toolkit</h3><p>Part of Full: Wireshark, nmap, tcpdump, mtr, iperf3, dig, WireGuard, LLDP, minicom and more, plus Remmina for RDP and VNC.</p></div>
+      <div class="feat"><h3>Homelab and dev</h3><p>Part of Full: Docker and Podman, QEMU/KVM with virt-manager, VirtualBox, Ansible, kubectl and Terraform, VS Code or VSCodium, and Python, Node.js, Go, Rust and Java.</p></div>
+      <div class="feat"><h3>Everyday apps</h3><p>Part of Full: VLC, Gwenview, Okular, LibreOffice, Discover with Flathub, and the Claude desktop app with Claude Code.</p></div>
+      <div class="feat"><h3>Safe by default</h3><p>Security updates install themselves. Full adds a firewall that blocks incoming connections except SSH, with its own page in System Settings.</p></div>
+      <div class="feat"><h3>USB or disk</h3><p>Run it live from a USB stick with your changes kept between boots, or install it with the graphical installer. Packet sees you off on the last page.</p></div>
       <div class="feat"><h3>Root mode</h3><p>Switch to root and the terminal frame turns red, so you always know.</p></div>
-      <div class="feat"><h3>Pin new apps</h3><p>Every time you install an app, Null OS asks whether to put it on your desktop.</p></div>
       <div class="feat"><h3>Glitchy startup</h3><p>A glitch startup screen and a CRT power-off when you shut down.</p></div>
     </div>
   </div>
@@ -765,7 +767,7 @@ footer a { color: var(--muted); }
 <section class="sec dl-merged" id="download">
   <div class="wrap">
     <div class="dm-head">
-      <div class="kick">version 1.1.0 · <a href="https://github.com/Null0Grid/null-os/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
+      <div class="kick">version 1.2.1 · <a href="https://github.com/Null0Grid/null-os/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
       <h2>Download <span>Null OS</span></h2>
       <p>Download the ISO, put it on a USB stick and boot from it. Try it live, then install it from the desktop.</p>
       <p class="dl-note" style="margin-top:12px">Live session login: <code>user</code> / <code>live</code>. Installed systems use the account you create in the installer.</p>
@@ -775,14 +777,19 @@ footer a { color: var(--muted); }
     <h2>ISO image<small>Debian 13 (trixie) · x64</small></h2>
     <div class="fl">
         <div class="fl-row">
-          <div><h3>Null OS 1.1.0<span class="tag">x64</span></h3><p>Boot it from a USB stick to try it live, then install it from the desktop with the graphical installer.</p><div class="meta">nullos-1.1.0-trixie-amd64.iso · 1.9 GB</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/null-os/releases/download/1.1.0/nullos-1.1.0-trixie-amd64.iso" data-file="nullos-1.1.0-trixie-amd64.iso"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div><h3>Null OS 1.2.1<span class="tag">x64</span></h3><p>One ISO for Minimal and Full. Boot it from a USB stick to try it live, then install it and pick Minimal or Full in the installer.</p><div class="meta">nullos-1.2.1-trixie-amd64.iso · 1.8 GB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-os/releases/download/1.2.1/nullos-1.2.1-trixie-amd64.iso" data-file="nullos-1.2.1-trixie-amd64.iso"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
           
         </div>
         <div class="fl-row">
-          <div><h3>Checksum file</h3><p>Save it next to the ISO, then check the download.</p><div class="meta">nullos-1.1.0-trixie-amd64.iso.sha256</div></div>
-          <a class="get main" href="https://github.com/Null0Grid/null-os/releases/download/1.1.0/nullos-1.1.0-trixie-amd64.iso.sha256" data-file="nullos-1.1.0-trixie-amd64.iso.sha256"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
-          <div class="code"><pre><span class="p">$ </span>sha256sum -c nullos-1.1.0-trixie-amd64.iso.sha256</pre><button class="copy" type="button">copy</button></div>
+          <div><h3>Checksum file</h3><p>Save it next to the ISO, then check the download.</p><div class="meta">nullos-1.2.1-trixie-amd64.iso.sha256</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-os/releases/download/1.2.1/nullos-1.2.1-trixie-amd64.iso.sha256" data-file="nullos-1.2.1-trixie-amd64.iso.sha256"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sha256sum -c nullos-1.2.1-trixie-amd64.iso.sha256</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Source code list</h3><p>Where to get the source of every package in this ISO.</p><div class="meta">nullos-1.2.1-SOURCES.md · 1.2 KB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-os/releases/download/1.2.1/nullos-1.2.1-SOURCES.md" data-file="nullos-1.2.1-SOURCES.md"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          
         </div>
     </div>
   </div>
@@ -793,26 +800,26 @@ footer a { color: var(--muted); }
           <div><h3>With persistence (recommended)</h3><p>Writes the ISO and keeps your files and settings between boots in the space left over. Replace /dev/sdX with your USB stick (check with lsblk).</p></div>
           <span></span>
           <div class="code"><pre><span class="p">$ </span>git clone --depth 1 https://github.com/Null0Grid/null-os &amp;&amp; \
-  sudo null-os/tools/make-usb.sh nullos-1.1.0-trixie-amd64.iso /dev/sdX</pre><button class="copy" type="button">copy</button></div>
+  sudo null-os/tools/make-usb.sh nullos-1.2.1-trixie-amd64.iso /dev/sdX</pre><button class="copy" type="button">copy</button></div>
         </div>
         <div class="fl-row">
           <div><h3>With dd</h3><p>A plain copy, without persistence. balenaEtcher or Rufus on Windows also work.</p></div>
           <span></span>
-          <div class="code"><pre><span class="p">$ </span>sudo dd if=nullos-1.1.0-trixie-amd64.iso of=/dev/sdX bs=4M status=progress conv=fsync</pre><button class="copy" type="button">copy</button></div>
+          <div class="code"><pre><span class="p">$ </span>sudo dd if=nullos-1.2.1-trixie-amd64.iso of=/dev/sdX bs=4M status=progress conv=fsync</pre><button class="copy" type="button">copy</button></div>
         </div>
     </div>
   </div>
 
   <div class="ub-row" id="requirements">
     <h2>System requirements</h2>
-    <ul class="dp-req"><li>A 64-bit PC (x86-64). There's no ARM64 build yet</li><li>4 GB of RAM and 2 or more CPU cores</li><li>A USB stick of 4 GB or more to run it live, or 25 GB of disk to install it</li><li>In VirtualBox: Linux / Debian (64-bit), VMSVGA graphics with 128 MB video memory, 3D acceleration off</li></ul>
+    <ul class="dp-req"><li>A 64-bit PC (x86-64). There's no ARM64 build yet</li><li>4 GB of RAM and 2 or more CPU cores</li><li>A USB stick of 4 GB or more to run it live, or 25 GB of disk to install it</li><li>An internet connection during install if you choose Full</li><li>In VirtualBox: Linux / Debian (64-bit), VBoxSVGA graphics with 128 MB video memory, 3D acceleration off</li></ul>
   </div>
 
   <div class="ub-row" id="verify">
-    <h2>Verify your download<small>SHA-256, release 1.1.0</small></h2>
+    <h2>Verify your download<small>SHA-256, release 1.2.1</small></h2>
     <div>
       <p class="dl-note" style="margin:0 0 14px">Check a file before you run it: <code>sha256sum &lt;file&gt;</code> on Linux and macOS, <code>Get-FileHash &lt;file&gt;</code> in PowerShell.</p>
-      <div class="dp-sums" id="checksums"><table><tbody><tr><td>nullos-1.1.0-trixie-amd64.iso</td><td>ISO image · x64</td><td class="hash">60bebe5014c79d6cf318f12b4b84d22f515a7716e3962ae958a339e4edd1c866</td></tr><tr><td>nullos-1.1.0-trixie-amd64.iso.sha256</td><td>Checksum file</td><td class="hash">99043a82432d2550ed9ebae906e85736e9cccca001c02a834a530e29fbcdb367</td></tr></tbody></table></div>
+      <div class="dp-sums" id="checksums"><table><tbody><tr><td>nullos-1.2.1-SOURCES.md</td><td>Source code list</td><td class="hash">bd14d5076f0b2bb2d88f4a10bdda295f2aefe4d3a85892ddc96e6e2fad468736</td></tr><tr><td>nullos-1.2.1-trixie-amd64.iso</td><td>ISO image · x64</td><td class="hash">c9cbb88e209b1c87bc8f49e02db88e3dc1dc94062a52740684d3e8133adc358a</td></tr><tr><td>nullos-1.2.1-trixie-amd64.iso.sha256</td><td>Checksum file</td><td class="hash">11476bba884d7c8c3d100a0ff57a1903aca8a22bcec3188f7286b94eb435f5e7</td></tr></tbody></table></div>
     </div>
   </div>
 
