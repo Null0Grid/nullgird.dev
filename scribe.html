@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
 <title>Null Scribe</title>
-<link rel="icon" href="icons/scribe.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0a0a0f">
+<meta property="og:image" content="https://nullgrid.dev/og-share.png">
+<meta property="og:site_name" content="Null">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -28,18 +32,6 @@ img, video { max-width: 100%; }
   --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
   color-scheme: dark;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #eef1f6; --panel: #ffffff; --panel-2: #f5f7fb; --line: #d5dae6; --grid: rgba(0, 110, 140, .14);
-    --fg: #121624; --muted: #5a6178; --cyan: #007f99; --pink: #c4126a; --red: #d01f34; --green: #128a4a;
-    --amber: #a86300; --on-accent: #ffffff; --scan: rgba(0,0,0,0); color-scheme: light;
-  }
-}
-:root[data-theme="light"] {
-  --bg: #eef1f6; --panel: #ffffff; --panel-2: #f5f7fb; --line: #d5dae6; --grid: rgba(0, 110, 140, .14);
-  --fg: #121624; --muted: #5a6178; --cyan: #007f99; --pink: #c4126a; --red: #d01f34; --green: #128a4a;
-  --amber: #a86300; --on-accent: #ffffff; --scan: rgba(0,0,0,0); color-scheme: light;
 }
 * { box-sizing: border-box; }
 body {
@@ -291,8 +283,6 @@ footer a { color: var(--muted); }
 
 /* Git-graph journey (home) */
 :root { --ln-notes: #00e5ff; --ln-drive: #39ff88; --ln-grid: #ff2e88; --ln-search: #b38cff; }
-@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --ln-notes: #007f99; --ln-drive: #128a4a; --ln-grid: #c4126a; --ln-search: #6b3fd1; } }
-:root[data-theme="light"] { --ln-notes: #007f99; --ln-drive: #128a4a; --ln-grid: #c4126a; --ln-search: #6b3fd1; }
 .ggraph { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; }
 .g-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: var(--panel-2); font: 13px var(--f-mono); }
 .g-repo { color: var(--fg); font-weight: 500; }
@@ -618,6 +608,111 @@ footer a { color: var(--muted); }
 .dp-more h3 a::after { content: " \203A"; color: var(--cyan); }
 .dp-more h3 a:hover { color: var(--cyan); }
 .dp-more p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* ---- v2 ---- */
+:root { --panel: #12121a; --fg: #ffffff; --suite: #00e5ff; --systems: #ff2e88; --labs: #39ff88; }
+.site-brand .nav-lockup { height: 26px !important; width: auto !important; max-width: 140px; display: block; flex: none; }
+.site-brand > svg:not(.nav-lockup) { display: none; }
+.site-nav a.f-suite { color: var(--suite); } .site-nav a.f-systems { color: var(--systems); } .site-nav a.f-labs { color: var(--labs); }
+.site-nav a.f-suite[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--suite); }
+.site-nav a.f-systems[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--systems); }
+.site-nav a.f-labs[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--labs); }
+.site-nav a.fam { font-family: var(--f-display); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.lockwrap { display: grid; justify-items: center; text-align: center; gap: 6px; }
+.hero-lockup { width: min(100%, 560px); height: auto; display: block; }
+.slogan { margin: 14px 0 0; font: 400 clamp(20px, 3.4vw, 32px)/1.2 var(--f-display); letter-spacing: .06em; text-transform: uppercase; }
+.slogan .a { color: var(--pink); } .slogan .b { color: var(--cyan); }
+.slogan-sub { margin: 4px 0 0; color: var(--muted); font-size: 16px; max-width: 60ch; }
+.fam-block { display: grid; gap: 18px; }
+.fam-title { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.fam-title h2 { margin: 0; font: 400 clamp(24px, 3.4vw, 34px) var(--f-display); letter-spacing: .1em; text-transform: uppercase; }
+.fam-title p { margin: 0; color: var(--muted); }
+.fam-title a { font-size: 14px; margin-left: auto; }
+.t-suite { color: var(--suite); } .t-systems { color: var(--systems); } .t-labs { color: var(--labs); }
+.pcs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.pcs.big { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.pc { min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--fc); border-radius: 10px; }
+.pc.fam-suite { --fc: var(--suite); } .pc.fam-systems { --fc: var(--systems); } .pc.fam-labs { --fc: var(--labs); }
+.pc-top { display: flex; align-items: center; gap: 14px; }
+.pc-top svg { width: 46px; height: 46px; border-radius: 11px; flex: none; }
+.pc-top div { min-width: 0; flex: 1; }
+.pc h3 { margin: 0; font: 400 19px var(--f-display); letter-spacing: .03em; }
+.pc h3 a { color: var(--fg); text-decoration: none; } .pc h3 a:hover { color: var(--fc); }
+.pc .v { font: 12px var(--f-mono); color: var(--muted); }
+.pc .v.soon { color: var(--amber); }
+.pc p { margin: 0; color: var(--muted); flex: 1; }
+.pc .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.fam-badge { display: inline-flex; justify-self: start; width: fit-content; align-self: flex-start; align-items: center; gap: 8px; padding: 3px 12px; border-radius: 999px; border: 1px solid currentColor; font: 400 12px var(--f-display); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+.fam-badge.f-suite { color: var(--suite); background: rgba(0, 229, 255, .08); }
+.fam-badge.f-systems { color: var(--systems); background: rgba(255, 46, 136, .08); }
+.fam-badge.f-labs { color: var(--labs); background: rgba(57, 255, 136, .08); }
+.p-hero .hero-copy { gap: 14px; }
+.site-brand { font-size: 20px; letter-spacing: .14em; }
+.site-nav a.fam[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--pink); }
+.front .wrap { padding-block: 72px 64px; }
+.front h1 { margin: 0; font: 400 clamp(40px, 8vw, 92px)/1 var(--f-display); letter-spacing: .02em; text-transform: uppercase; }
+.front h1 .a { color: var(--pink); text-shadow: 0 0 22px rgba(255, 46, 136, .55); }
+.front h1 .b { color: var(--cyan); text-shadow: 0 0 22px rgba(0, 229, 255, .45); display: block; }
+.paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; margin-top: 18px; }
+.path { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 22px; background: rgba(18, 20, 28, .86); border: 1px solid var(--line); border-radius: 12px; backdrop-filter: blur(2px); }
+.path .n { font: 400 12px var(--f-display); letter-spacing: .1em; color: var(--muted); }
+.path h2 { margin: 0; font: 400 22px var(--f-display); letter-spacing: .03em; }
+.path p { margin: 0; color: var(--muted); font-size: 15px; flex: 1; }
+.path .btn { align-self: flex-start; }
+.path:nth-child(1) { border-top: 2px solid var(--green); }
+.path:nth-child(2) { border-top: 2px solid var(--cyan); }
+.path:nth-child(3) { border-top: 2px solid var(--pink); }
+.labs-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; }
+.lab-unused { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 6px 14px; align-items: start; padding: 18px; background: var(--panel); border: 1px dashed #343a50; border-radius: 12px; text-decoration: none; color: var(--fg); }
+.lab:hover { border-color: var(--cyan); }
+.lab svg { width: 48px; height: 48px; border-radius: 11px; grid-row: span 2; }
+.lab b { font: 400 17px var(--f-display); letter-spacing: .03em; }
+.lab b .status { margin-left: 8px; font-size: 10px; vertical-align: 2px; }
+.lab span { color: var(--muted); font-size: 14px; }
+.p-hero h1 { margin: 0; font: 400 clamp(40px, 7vw, 76px)/1.02 var(--f-display); letter-spacing: .02em; }
+.p-hero .fam { font: 13px var(--f-mono); color: var(--green); letter-spacing: .06em; text-decoration: none; }
+.p-hero .fam:hover { color: var(--cyan); }
+.p-hero .sub { font-size: 14px; color: var(--muted); margin: 0; }
+.p-hero .sub a { color: var(--muted); }
+.lockup { font: 400 clamp(40px, 7vw, 76px)/1.02 var(--f-display); letter-spacing: .04em; margin: 0; }
+.lockup .sl { color: var(--cyan); text-shadow: 0 0 14px var(--pink); }
+.verline { font: 14px var(--f-mono); color: var(--muted); padding: 12px 16px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--green); border-radius: 8px; }
+.verline b { color: var(--fg); font-weight: 500; }
+.verline .pend { color: var(--amber); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.facts div { padding: 18px 20px 20px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.facts h3 { margin: 0 0 6px; font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); }
+.facts p { margin: 0; font-size: 16px; }
+.works { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.works > span { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.works a { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); text-decoration: none; font-size: 14px; background: var(--panel); }
+.works a:hover { border-color: var(--cyan); }
+.works svg { width: 26px; height: 26px; border-radius: 7px; }
+.plinks { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
+.vmsg { margin: 0; padding: 14px 18px; border: 1px solid rgba(255, 46, 136, .45); background: rgba(255, 46, 136, .06); border-radius: 10px; font-size: 15px; }
+.stance { width: 100%; border-collapse: collapse; font-size: 15px; }
+.stance th, .stance td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.stance th { font: 500 12px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); background: var(--panel-2); }
+.stance { min-width: 760px; }
+.stance td { white-space: normal; }
+.stance td:first-child { white-space: nowrap; font-weight: 600; }
+.stance td.no { color: var(--green); }
+.stance .grp td { font: 400 13px var(--f-display); letter-spacing: .08em; color: var(--muted); background: var(--bg); }
+@media (max-width: 720px) {
+  .stance { min-width: 0; }
+  .stance thead { display: none; }
+  .stance tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .stance td { display: block; border: 0; padding: 4px 14px; white-space: normal !important; }
+  .stance td[data-h]::before { content: attr(data-h); display: block; font: 500 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); }
+}
+.docs-tbl td, .docs-tbl th { white-space: nowrap; }
+.docs-tbl td:first-child a { display: inline-flex; align-items: center; gap: 10px; color: var(--fg); text-decoration: none; font-weight: 600; }
+.docs-tbl td:first-child svg { width: 28px; height: 28px; border-radius: 7px; }
+.fam-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.fam-head h2 { margin: 0; }
+.fam-head a { font-size: 14px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.foot-copy { font: 400 12px var(--f-display); letter-spacing: .08em; color: var(--fg); }
 </style>
 </head>
 <body>
@@ -676,6 +771,12 @@ footer a { color: var(--muted); }
   <symbol id="logo-os" viewBox="0 0 1024 1024">
     <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><circle cx="512" cy="512" r="262" fill="none" stroke="#00e5ff" stroke-width="46" filter="url(#lg-sq)"/><g fill="#00e8ff" filter="url(#lg-sl)" transform="translate(512 512) rotate(32)"><rect x="-82" y="-372" width="54" height="744" rx="6"/><rect x="28" y="-372" width="54" height="744" rx="6"/></g><circle cx="742" cy="810" r="22" fill="#39ff88" filter="url(#lg-gn)"/></g>
   </symbol>
+  <symbol id="logo-play" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><rect x="96" y="96" width="832" height="832" rx="150" fill="none" stroke="#1f6f80" stroke-width="20"/><path d="M362 286 L362 738 L742 512 Z" fill="#ff2e88" transform="translate(-22 0)" opacity=".85"/><path d="M362 286 L362 738 L742 512 Z" fill="#00e5ff" transform="translate(22 0)" opacity=".85"/><path d="M362 286 L362 738 L742 512 Z" fill="#eef6ff"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="736,760 774,760 734,850 696,850"/><polygon points="812,760 850,760 810,850 772,850"/></g></g>
+  </symbol>
+  <symbol id="logo-short" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><g fill="none" stroke-width="22" stroke-linejoin="round"><rect x="152" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/><rect x="404" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/><rect x="656" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/></g><g fill="none" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"><polyline points="214,532 260,456 306,532" stroke="#39ff88" filter="url(#lg-gn)"/><polyline points="476,446 552,500 476,554" stroke="#39ff88" filter="url(#lg-gn)"/><polyline points="718,532 764,456 810,532" stroke="#39ff88" filter="url(#lg-gn)"/></g><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="440,690 488,690 448,800 400,800"/><polygon points="536,690 584,690 544,800 496,800"/></g></g>
+  </symbol>
   <symbol id="suite-mark" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="7" fill="#08090c"/>
     <path d="M14.5 6h3l-4 20h-3zM21.5 6h3l-4 20h-3z" fill="#00e8ff" style="filter: drop-shadow(0 0 2px #ff2e88)"/>
@@ -691,22 +792,26 @@ footer a { color: var(--muted); }
 </svg>
 <header class="site-top">
   <div class="wrap">
-    <a class="site-brand" href="index.html"><svg aria-hidden="true"><use href="#suite-mark"/></svg>NULL GRID</a>
+    <a class="site-brand" href="index.html" aria-label="Null home"><svg class="nav-lockup" role="img" aria-label="Null" viewBox="0 0 294 40"><g transform="scale(0.078125)"><path fill="#ffffff" fill-rule="evenodd" d="M256 20a236 236 0 1 1 0 472a236 236 0 1 1 0 -472ZM256 50a206 206 0 1 0 0 412a206 206 0 1 0 0 -412ZM248.0 150h38L186.0 362h-38ZM326.0 150h38L264.0 362h-38Z"/></g><g transform="translate(54 0.0)"><g fill="#ffffff"><rect x="0" y="0" width="16" height="8"/><rect x="32" y="0" width="16" height="8"/><rect x="0" y="8" width="24" height="8"/><rect x="32" y="8" width="16" height="8"/><rect x="0" y="16" width="48" height="8"/><rect x="0" y="24" width="16" height="8"/><rect x="24" y="24" width="24" height="8"/><rect x="0" y="32" width="16" height="8"/><rect x="32" y="32" width="16" height="8"/></g><g fill="#ffffff"><rect x="64" y="0" width="16" height="8"/><rect x="96" y="0" width="16" height="8"/><rect x="64" y="8" width="16" height="8"/><rect x="96" y="8" width="16" height="8"/><rect x="64" y="16" width="16" height="8"/><rect x="96" y="16" width="16" height="8"/><rect x="64" y="24" width="16" height="8"/><rect x="96" y="24" width="16" height="8"/><rect x="64" y="32" width="48" height="8"/></g><g fill="#ffffff"><rect x="128" y="0" width="16" height="8"/><rect x="128" y="8" width="16" height="8"/><rect x="128" y="16" width="16" height="8"/><rect x="128" y="24" width="16" height="8"/><rect x="128" y="32" width="40" height="8"/></g><g fill="#ffffff"><rect x="192" y="0" width="16" height="8"/><rect x="192" y="8" width="16" height="8"/><rect x="192" y="16" width="16" height="8"/><rect x="192" y="24" width="16" height="8"/><rect x="192" y="32" width="40" height="8"/></g></g></svg></a>
     <nav class="site-nav" aria-label="Site">
+      <a class="fam f-suite" href="suite.html" aria-current="page">Suite</a>
+      <a class="fam f-systems" href="systems.html">Systems</a>
+      <a class="fam f-labs" href="labs.html">Labs</a>
+      <a class="nav-dl" href="downloads.html"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Download</a>
+      <a href="docs.html">Docs</a>
       <a href="about.html">About</a>
-      <a class="nav-dl" href="downloads.html"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Downloads</a>
     </nav>
   </div>
 </header>
-<section class="hero product">
+<section class="hero product p-hero">
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">&gt; transcripts and summaries <span class="status live">v5.1.1</span></div>
-      <h1>NULL<span class="sl">//</span>SCRIBE</h1>
-      <p class="tagline">Your conversations, transcribed and summarized on your own machine.</p>
-      <p class="lede">Record a call or import a recording. Null Scribe transcribes it on your computer, then a built-in AI model writes the summary: key points, decisions and action items. Nothing goes to the cloud unless you send it.</p>
-      <div class="ctas"><a class="btn primary" href="scribe.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a></div>
+      <h1>Null Scribe</h1>
+      <a class="fam-badge f-suite" href="suite.html">Suite</a>
+      <p class="tagline">Record, transcribe and summarize, all on your machine.</p>
+      <div class="ctas"><a class="btn primary" href="https://apps.microsoft.com/detail/9P2FHWTQPN6G"><svg aria-hidden="true"><use href="#i-store"/></svg>Get it from Microsoft</a><a class="btn ghost" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_amd64.deb" data-file="null-scribe_5.1.1_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download .deb</a></div>
+      <p class="sub">Also: a Windows installer, and .rpm, AppImage, Flatpak, Snap and Arch for Linux. <a href="#download">All downloads</a></p>
     </div>
     <div class="hero-logo"><svg class="" viewBox="0 0 1024 1024" role="img" aria-label="Null Scribe logo"><use href="#logo-scribe"/></svg></div>
   </div>
@@ -716,42 +821,20 @@ footer a { color: var(--muted); }
     <figure class="tour">
       <div class="screen">
         <div class="screen-bar"><i></i><i></i><i></i><span>null scribe · meeting mode</span></div>
-        <video controls preload="metadata" playsinline poster="null-scribe-demo-poster.jpg" aria-label="A walkthrough of Null Scribe 5.1 using the sample Q4 Budget Review meeting: meeting mode, live transcript, summary, templates and Send to Notes">
+        <video controls preload="metadata" playsinline poster="null-scribe-demo-poster.jpg" aria-label="A walkthrough of Null Scribe using the sample Q4 Budget Review meeting: meeting mode, live transcript, summary and Send to Notes">
           <source src="null-scribe-demo.webm" type="video/webm"><source src="null-scribe-demo.mp4" type="video/mp4">
         </video>
       </div>
-      <figcaption>A walkthrough of Null Scribe 5.1 using the sample Q4 Budget Review meeting: meeting mode, live transcript, summary, templates and Send to Notes · 1:34</figcaption>
+      <figcaption>A walkthrough of Null Scribe using the sample Q4 Budget Review meeting: meeting mode, live transcript, summary and Send to Notes · 1:34</figcaption>
     </figure>
   </div>
 </section>
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head"><h2>How it works</h2><p>Everything on this line runs on your computer.</p></div>
-    <div class="flowline">
-      <div class="fl-step"><b>Record or import</b><span>Mic, a meeting, or any audio or video file</span></div>
-      <div class="fl-arrow" aria-hidden="true">→</div>
-      <div class="fl-step"><b>Transcribe</b><span>whisper.cpp, with timestamps and speaker labels</span></div>
-      <div class="fl-arrow" aria-hidden="true">→</div>
-      <div class="fl-step"><b>Summarize</b><span>Built-in Llama 3.2 3B, or your own Ollama server</span></div>
-      <div class="fl-arrow" aria-hidden="true">→</div>
-      <div class="fl-step"><b>Send</b><span>Null Notes, Null Drive, export, or Open in Claude</span></div>
-    </div>
-  </div>
-</section>
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head"><h2>What's inside</h2><p>Built for calls, lectures and voice memos.</p></div>
-    <div class="feats">
-      <div class="feat"><h3>Meeting mode</h3><p>Record Zoom, Discord, Teams or any app plus your own mic, and leave everything else out: Spotify, games, notifications.</p></div>
-      <div class="feat"><h3>Who said what</h3><p>Your mic and each app are recorded as separate tracks, so lines are labeled <kbd>You</kbd> or with the app's name, like <kbd>Discord</kbd>.</p></div>
-      <div class="feat"><h3>Transcribed on your machine</h3><p>whisper.cpp turns speech into text with timestamps. The speech model downloads once, then works offline.</p></div>
-      <div class="feat"><h3>Built-in summaries</h3><p>A built-in Llama 3.2 3B model writes an overview, key points, decisions, action items with owners, and open questions. Long recordings are summarized in chunks and merged.</p></div>
-      <div class="feat"><h3>Bring your own model</h3><p>Prefer a bigger model on your homelab GPU? Point Scribe at your Ollama server in Settings.</p></div>
-      <div class="feat"><h3>Send to Notes</h3><p>Saves the session as a note in your Null Notes vault and opens it there. It's searchable from Null Search within seconds.</p></div>
-      <div class="feat"><h3>Send to Drive</h3><p>Uploads the note, a PDF and the audio into a Null Scribe folder on your Null Drive. Nothing is ever overwritten.</p></div>
-      <div class="feat"><h3>Open in Claude</h3><p>Copies the summary and transcript and opens claude.ai, so you can ask questions about the conversation.</p></div>
-      <div class="feat"><h3>Export anything</h3><p>Download as Markdown, text, PDF or HTML, and the audio as MP3, M4A, WAV, FLAC or OGG.</p></div>
-    </div>
+    <div class="verline">Latest: <b>5.1.1</b> on GitHub · <span class="pend">Microsoft Store version: to be added</span></div>
+    <div class="facts"><div><h3>What it does</h3><p>Record or import a conversation, transcribe it on your own computer and get a summary from a built-in AI model.</p></div><div><h3>Who it's for</h3><p>Anyone who takes meetings and doesn't want recordings in someone else's cloud. A phone app is coming.</p></div><div><h3>Talks to</h3><p>Sends sessions to Null Notes as a note, and to Null Drive as files. Null Search finds them from there.</p></div></div>
+    <div class="works"><span>Works with</span><a href="notes.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-notes"/></svg>Null Notes</a><a href="drive.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-drive"/></svg>Null Drive</a><a href="search.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-search"/></svg>Null Search</a></div>
+    <div class="plinks"><a href="https://github.com/Null0Grid/null-scribe/releases">Changelog (GitHub Releases)</a><a href="data.html">Data stance: what Null Scribe keeps and sends</a><a href="https://github.com/Null0Grid/null-scribe#readme">Docs (README)</a></div>
   </div>
 </section>
 <section class="sec dl-merged" id="download">
@@ -760,7 +843,7 @@ footer a { color: var(--muted); }
       <div class="kick">version 5.1.1 · <a href="https://github.com/Null0Grid/null-scribe/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
       <h2>Download <span>Null Scribe</span></h2>
       <p>Null Scribe for Windows and Linux. Transcripts and summaries are made on your own computer.</p>
-      <p class="dl-note" style="margin-top:12px">The speech and summary models (about 2.2 GB) download on first launch. <strong>Tell people when you record them:</strong> recording without consent is illegal in many places. Built with Llama. Source: <a href="https://github.com/Null0Grid/null-scribe">github.com/Null0Grid/null-scribe</a></p>
+      <p class="dl-note" style="margin-top:12px">The speech and summary models (about 2.2 GB) download on first launch. <strong>Tell people when you record them:</strong> recording without consent is illegal in many places. Built with Llama.</p>
       <div class="dp-rec" id="dp-rec" hidden><span></span><small></small></div>
     </div>
   <div class="ub-row" id="windows">
@@ -863,23 +946,10 @@ footer a { color: var(--muted); }
 
   </div>
 </section>
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head"><h2>The rest of the family</h2><p>The Null Suite (Notes, Scribe and Drive), the Null Grid browser, Null Search, Null File and Null OS.</p></div>
-    <div class="suite">
-      <a href="search.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-search"/></svg><div><b>Null Search</b><span>Search the web</span></div></a>
-      <a href="grid.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-grid"/></svg><div><b>Null Grid</b><span>The browser</span></div></a>
-      <a href="notes.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-notes"/></svg><div><b>Null Notes</b><span>Local Markdown notes</span></div></a>
-      <a href="drive.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-drive"/></svg><div><b>Null Drive</b><span>Self-hosted sync</span></div></a>
-      <a href="file.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-file"/></svg><div><b>Null File</b><span>File manager for Linux</span></div></a>
-      <a href="os.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-os"/></svg><div><b>Null OS</b><span>The operating system</span></div></a>
-    </div>
-  </div>
-</section>
 <footer>
   <div class="wrap">
-    <span>Null Grid · <b class="foot-motto">Your data. Your grid.</b> · nullgrid.dev</span>
-    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="file.html">File</a> · <a href="os.html">OS</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
+    <span class="foot-copy">© NULL LABS. All rights reserved.</span>
+    <span><a href="suite.html">Suite</a> · <a href="systems.html">Systems</a> · <a href="labs.html">Labs</a> · <a href="downloads.html">Download</a> · <a href="docs.html">Docs</a> · <a href="about.html">About</a> · <a href="data.html">Data stance</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
   </div>
 </footer>
 <script>
@@ -1070,7 +1140,6 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
     try { sessionStorage.setItem("ng-term-promo", "1"); } catch (e) {}
     walk(PROMO, "Terminal downloads page", false, 9000);
   };
-  if (!seen && (/downloads\.html$|\/downloads$/.test(location.pathname) || document.querySelector(".hero:not(.slim) .glitch, .grid4"))) setTimeout(promo, 4000);
 })();
 (() => {
   document.querySelectorAll("a.btn, a.get, a.nav-dl").forEach(el => {

@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Null Grid</title>
+<meta name="color-scheme" content="dark">
+<title>Null · Your data. Your grid.</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0a0a0f">
+<meta property="og:image" content="https://nullgrid.dev/og-share.png">
+<meta property="og:site_name" content="Null">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -28,18 +32,6 @@ img, video { max-width: 100%; }
   --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
   color-scheme: dark;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #eef1f6; --panel: #ffffff; --panel-2: #f5f7fb; --line: #d5dae6; --grid: rgba(0, 110, 140, .14);
-    --fg: #121624; --muted: #5a6178; --cyan: #007f99; --pink: #c4126a; --red: #d01f34; --green: #128a4a;
-    --amber: #a86300; --on-accent: #ffffff; --scan: rgba(0,0,0,0); color-scheme: light;
-  }
-}
-:root[data-theme="light"] {
-  --bg: #eef1f6; --panel: #ffffff; --panel-2: #f5f7fb; --line: #d5dae6; --grid: rgba(0, 110, 140, .14);
-  --fg: #121624; --muted: #5a6178; --cyan: #007f99; --pink: #c4126a; --red: #d01f34; --green: #128a4a;
-  --amber: #a86300; --on-accent: #ffffff; --scan: rgba(0,0,0,0); color-scheme: light;
 }
 * { box-sizing: border-box; }
 body {
@@ -291,8 +283,6 @@ footer a { color: var(--muted); }
 
 /* Git-graph journey (home) */
 :root { --ln-notes: #00e5ff; --ln-drive: #39ff88; --ln-grid: #ff2e88; --ln-search: #b38cff; }
-@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --ln-notes: #007f99; --ln-drive: #128a4a; --ln-grid: #c4126a; --ln-search: #6b3fd1; } }
-:root[data-theme="light"] { --ln-notes: #007f99; --ln-drive: #128a4a; --ln-grid: #c4126a; --ln-search: #6b3fd1; }
 .ggraph { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; }
 .g-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: var(--panel-2); font: 13px var(--f-mono); }
 .g-repo { color: var(--fg); font-weight: 500; }
@@ -618,6 +608,111 @@ footer a { color: var(--muted); }
 .dp-more h3 a::after { content: " \203A"; color: var(--cyan); }
 .dp-more h3 a:hover { color: var(--cyan); }
 .dp-more p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* ---- v2 ---- */
+:root { --panel: #12121a; --fg: #ffffff; --suite: #00e5ff; --systems: #ff2e88; --labs: #39ff88; }
+.site-brand .nav-lockup { height: 26px !important; width: auto !important; max-width: 140px; display: block; flex: none; }
+.site-brand > svg:not(.nav-lockup) { display: none; }
+.site-nav a.f-suite { color: var(--suite); } .site-nav a.f-systems { color: var(--systems); } .site-nav a.f-labs { color: var(--labs); }
+.site-nav a.f-suite[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--suite); }
+.site-nav a.f-systems[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--systems); }
+.site-nav a.f-labs[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--labs); }
+.site-nav a.fam { font-family: var(--f-display); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.lockwrap { display: grid; justify-items: center; text-align: center; gap: 6px; }
+.hero-lockup { width: min(100%, 560px); height: auto; display: block; }
+.slogan { margin: 14px 0 0; font: 400 clamp(20px, 3.4vw, 32px)/1.2 var(--f-display); letter-spacing: .06em; text-transform: uppercase; }
+.slogan .a { color: var(--pink); } .slogan .b { color: var(--cyan); }
+.slogan-sub { margin: 4px 0 0; color: var(--muted); font-size: 16px; max-width: 60ch; }
+.fam-block { display: grid; gap: 18px; }
+.fam-title { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.fam-title h2 { margin: 0; font: 400 clamp(24px, 3.4vw, 34px) var(--f-display); letter-spacing: .1em; text-transform: uppercase; }
+.fam-title p { margin: 0; color: var(--muted); }
+.fam-title a { font-size: 14px; margin-left: auto; }
+.t-suite { color: var(--suite); } .t-systems { color: var(--systems); } .t-labs { color: var(--labs); }
+.pcs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.pcs.big { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.pc { min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--fc); border-radius: 10px; }
+.pc.fam-suite { --fc: var(--suite); } .pc.fam-systems { --fc: var(--systems); } .pc.fam-labs { --fc: var(--labs); }
+.pc-top { display: flex; align-items: center; gap: 14px; }
+.pc-top svg { width: 46px; height: 46px; border-radius: 11px; flex: none; }
+.pc-top div { min-width: 0; flex: 1; }
+.pc h3 { margin: 0; font: 400 19px var(--f-display); letter-spacing: .03em; }
+.pc h3 a { color: var(--fg); text-decoration: none; } .pc h3 a:hover { color: var(--fc); }
+.pc .v { font: 12px var(--f-mono); color: var(--muted); }
+.pc .v.soon { color: var(--amber); }
+.pc p { margin: 0; color: var(--muted); flex: 1; }
+.pc .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.fam-badge { display: inline-flex; justify-self: start; width: fit-content; align-self: flex-start; align-items: center; gap: 8px; padding: 3px 12px; border-radius: 999px; border: 1px solid currentColor; font: 400 12px var(--f-display); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+.fam-badge.f-suite { color: var(--suite); background: rgba(0, 229, 255, .08); }
+.fam-badge.f-systems { color: var(--systems); background: rgba(255, 46, 136, .08); }
+.fam-badge.f-labs { color: var(--labs); background: rgba(57, 255, 136, .08); }
+.p-hero .hero-copy { gap: 14px; }
+.site-brand { font-size: 20px; letter-spacing: .14em; }
+.site-nav a.fam[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--pink); }
+.front .wrap { padding-block: 72px 64px; }
+.front h1 { margin: 0; font: 400 clamp(40px, 8vw, 92px)/1 var(--f-display); letter-spacing: .02em; text-transform: uppercase; }
+.front h1 .a { color: var(--pink); text-shadow: 0 0 22px rgba(255, 46, 136, .55); }
+.front h1 .b { color: var(--cyan); text-shadow: 0 0 22px rgba(0, 229, 255, .45); display: block; }
+.paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; margin-top: 18px; }
+.path { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 22px; background: rgba(18, 20, 28, .86); border: 1px solid var(--line); border-radius: 12px; backdrop-filter: blur(2px); }
+.path .n { font: 400 12px var(--f-display); letter-spacing: .1em; color: var(--muted); }
+.path h2 { margin: 0; font: 400 22px var(--f-display); letter-spacing: .03em; }
+.path p { margin: 0; color: var(--muted); font-size: 15px; flex: 1; }
+.path .btn { align-self: flex-start; }
+.path:nth-child(1) { border-top: 2px solid var(--green); }
+.path:nth-child(2) { border-top: 2px solid var(--cyan); }
+.path:nth-child(3) { border-top: 2px solid var(--pink); }
+.labs-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; }
+.lab-unused { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 6px 14px; align-items: start; padding: 18px; background: var(--panel); border: 1px dashed #343a50; border-radius: 12px; text-decoration: none; color: var(--fg); }
+.lab:hover { border-color: var(--cyan); }
+.lab svg { width: 48px; height: 48px; border-radius: 11px; grid-row: span 2; }
+.lab b { font: 400 17px var(--f-display); letter-spacing: .03em; }
+.lab b .status { margin-left: 8px; font-size: 10px; vertical-align: 2px; }
+.lab span { color: var(--muted); font-size: 14px; }
+.p-hero h1 { margin: 0; font: 400 clamp(40px, 7vw, 76px)/1.02 var(--f-display); letter-spacing: .02em; }
+.p-hero .fam { font: 13px var(--f-mono); color: var(--green); letter-spacing: .06em; text-decoration: none; }
+.p-hero .fam:hover { color: var(--cyan); }
+.p-hero .sub { font-size: 14px; color: var(--muted); margin: 0; }
+.p-hero .sub a { color: var(--muted); }
+.lockup { font: 400 clamp(40px, 7vw, 76px)/1.02 var(--f-display); letter-spacing: .04em; margin: 0; }
+.lockup .sl { color: var(--cyan); text-shadow: 0 0 14px var(--pink); }
+.verline { font: 14px var(--f-mono); color: var(--muted); padding: 12px 16px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--green); border-radius: 8px; }
+.verline b { color: var(--fg); font-weight: 500; }
+.verline .pend { color: var(--amber); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.facts div { padding: 18px 20px 20px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.facts h3 { margin: 0 0 6px; font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); }
+.facts p { margin: 0; font-size: 16px; }
+.works { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.works > span { font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.works a { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); text-decoration: none; font-size: 14px; background: var(--panel); }
+.works a:hover { border-color: var(--cyan); }
+.works svg { width: 26px; height: 26px; border-radius: 7px; }
+.plinks { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
+.vmsg { margin: 0; padding: 14px 18px; border: 1px solid rgba(255, 46, 136, .45); background: rgba(255, 46, 136, .06); border-radius: 10px; font-size: 15px; }
+.stance { width: 100%; border-collapse: collapse; font-size: 15px; }
+.stance th, .stance td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.stance th { font: 500 12px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); background: var(--panel-2); }
+.stance { min-width: 760px; }
+.stance td { white-space: normal; }
+.stance td:first-child { white-space: nowrap; font-weight: 600; }
+.stance td.no { color: var(--green); }
+.stance .grp td { font: 400 13px var(--f-display); letter-spacing: .08em; color: var(--muted); background: var(--bg); }
+@media (max-width: 720px) {
+  .stance { min-width: 0; }
+  .stance thead { display: none; }
+  .stance tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .stance td { display: block; border: 0; padding: 4px 14px; white-space: normal !important; }
+  .stance td[data-h]::before { content: attr(data-h); display: block; font: 500 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); }
+}
+.docs-tbl td, .docs-tbl th { white-space: nowrap; }
+.docs-tbl td:first-child a { display: inline-flex; align-items: center; gap: 10px; color: var(--fg); text-decoration: none; font-weight: 600; }
+.docs-tbl td:first-child svg { width: 28px; height: 28px; border-radius: 7px; }
+.fam-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.fam-head h2 { margin: 0; }
+.fam-head a { font-size: 14px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.foot-copy { font: 400 12px var(--f-display); letter-spacing: .08em; color: var(--fg); }
 </style>
 </head>
 <body>
@@ -676,6 +771,12 @@ footer a { color: var(--muted); }
   <symbol id="logo-os" viewBox="0 0 1024 1024">
     <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><circle cx="512" cy="512" r="262" fill="none" stroke="#00e5ff" stroke-width="46" filter="url(#lg-sq)"/><g fill="#00e8ff" filter="url(#lg-sl)" transform="translate(512 512) rotate(32)"><rect x="-82" y="-372" width="54" height="744" rx="6"/><rect x="28" y="-372" width="54" height="744" rx="6"/></g><circle cx="742" cy="810" r="22" fill="#39ff88" filter="url(#lg-gn)"/></g>
   </symbol>
+  <symbol id="logo-play" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><rect x="96" y="96" width="832" height="832" rx="150" fill="none" stroke="#1f6f80" stroke-width="20"/><path d="M362 286 L362 738 L742 512 Z" fill="#ff2e88" transform="translate(-22 0)" opacity=".85"/><path d="M362 286 L362 738 L742 512 Z" fill="#00e5ff" transform="translate(22 0)" opacity=".85"/><path d="M362 286 L362 738 L742 512 Z" fill="#eef6ff"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="736,760 774,760 734,850 696,850"/><polygon points="812,760 850,760 810,850 772,850"/></g></g>
+  </symbol>
+  <symbol id="logo-short" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><g fill="none" stroke-width="22" stroke-linejoin="round"><rect x="152" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/><rect x="404" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/><rect x="656" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/></g><g fill="none" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"><polyline points="214,532 260,456 306,532" stroke="#39ff88" filter="url(#lg-gn)"/><polyline points="476,446 552,500 476,554" stroke="#39ff88" filter="url(#lg-gn)"/><polyline points="718,532 764,456 810,532" stroke="#39ff88" filter="url(#lg-gn)"/></g><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="440,690 488,690 448,800 400,800"/><polygon points="536,690 584,690 544,800 496,800"/></g></g>
+  </symbol>
   <symbol id="suite-mark" viewBox="0 0 32 32">
     <rect width="32" height="32" rx="7" fill="#08090c"/>
     <path d="M14.5 6h3l-4 20h-3zM21.5 6h3l-4 20h-3z" fill="#00e8ff" style="filter: drop-shadow(0 0 2px #ff2e88)"/>
@@ -691,38 +792,76 @@ footer a { color: var(--muted); }
 </svg>
 <header class="site-top">
   <div class="wrap">
-    <a class="site-brand" href="index.html"><svg aria-hidden="true"><use href="#suite-mark"/></svg>NULL GRID</a>
+    <a class="site-brand" href="index.html" aria-label="Null home"><svg class="nav-lockup" role="img" aria-label="Null" viewBox="0 0 294 40"><g transform="scale(0.078125)"><path fill="#ffffff" fill-rule="evenodd" d="M256 20a236 236 0 1 1 0 472a236 236 0 1 1 0 -472ZM256 50a206 206 0 1 0 0 412a206 206 0 1 0 0 -412ZM248.0 150h38L186.0 362h-38ZM326.0 150h38L264.0 362h-38Z"/></g><g transform="translate(54 0.0)"><g fill="#ffffff"><rect x="0" y="0" width="16" height="8"/><rect x="32" y="0" width="16" height="8"/><rect x="0" y="8" width="24" height="8"/><rect x="32" y="8" width="16" height="8"/><rect x="0" y="16" width="48" height="8"/><rect x="0" y="24" width="16" height="8"/><rect x="24" y="24" width="24" height="8"/><rect x="0" y="32" width="16" height="8"/><rect x="32" y="32" width="16" height="8"/></g><g fill="#ffffff"><rect x="64" y="0" width="16" height="8"/><rect x="96" y="0" width="16" height="8"/><rect x="64" y="8" width="16" height="8"/><rect x="96" y="8" width="16" height="8"/><rect x="64" y="16" width="16" height="8"/><rect x="96" y="16" width="16" height="8"/><rect x="64" y="24" width="16" height="8"/><rect x="96" y="24" width="16" height="8"/><rect x="64" y="32" width="48" height="8"/></g><g fill="#ffffff"><rect x="128" y="0" width="16" height="8"/><rect x="128" y="8" width="16" height="8"/><rect x="128" y="16" width="16" height="8"/><rect x="128" y="24" width="16" height="8"/><rect x="128" y="32" width="40" height="8"/></g><g fill="#ffffff"><rect x="192" y="0" width="16" height="8"/><rect x="192" y="8" width="16" height="8"/><rect x="192" y="16" width="16" height="8"/><rect x="192" y="24" width="16" height="8"/><rect x="192" y="32" width="40" height="8"/></g></g></svg></a>
     <nav class="site-nav" aria-label="Site">
+      <a class="fam f-suite" href="suite.html">Suite</a>
+      <a class="fam f-systems" href="systems.html">Systems</a>
+      <a class="fam f-labs" href="labs.html">Labs</a>
+      <a class="nav-dl" href="downloads.html"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Download</a>
+      <a href="docs.html">Docs</a>
       <a href="about.html">About</a>
-      <a class="nav-dl" href="downloads.html"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Downloads</a>
     </nav>
   </div>
 </header>
-<section class="hero home">
+<section class="hero home front">
   <div class="floor" aria-hidden="true"></div>
   <div class="wrap">
-    <a class="new-pill" href="#new"><b>NEW</b>Null OS 1.2.1: Minimal or Full, you choose &rsaquo;</a>
-    <div class="eyebrow">&gt; null grid <span>· suite · browser · search · files · os</span></div>
-    <h1 class="glitch" data-text="NULL//GRID">NULL<span class="sl">//</span>GRID<span class="cur">_</span></h1>
-    <p class="motto"><span class="red">Your data.</span> <span>Your grid.</span></p>
-    <p class="tagline">The Null Suite for notes, transcripts and sync. A web browser, a search page, a file manager and an operating system.</p>
-    <p class="lede">Keep your notes as plain files, transcribe meetings on your own machine and sync it all through a server you run. Browse with Null Grid, search at search.nullgrid.dev, and manage your files on Linux with Null File.</p>
-    <div class="ctas">
-      <a class="btn primary glitchy" data-link="search" href="https://search.nullgrid.dev"><svg aria-hidden="true"><use href="#i-go"/></svg><span class="gl" data-text="Try Null Search">Try Null Search</span></a>
-      <a class="btn ghost" href="os.html#download">Get Null OS</a>
-      <a class="btn ghost" href="downloads.html">Downloads</a>
+    <div class="lockwrap">
+      <h1 class="sr-only">Null</h1>
+      <svg class="hero-lockup" role="img" aria-label="Null: Suite, Systems, Labs" viewBox="340 140 600 460"><g transform="translate(544.0 158) scale(0.375)"><g transform="translate(-7 0)" opacity=".9"><path fill="#ff2e88" fill-rule="evenodd" d="M256 20a236 236 0 1 1 0 472a236 236 0 1 1 0 -472ZM256 50a206 206 0 1 0 0 412a206 206 0 1 0 0 -412ZM248.0 150h38L186.0 362h-38ZM326.0 150h38L264.0 362h-38Z"/></g><g transform="translate(7 0)" opacity=".9"><path fill="#00e5ff" fill-rule="evenodd" d="M256 20a236 236 0 1 1 0 472a236 236 0 1 1 0 -472ZM256 50a206 206 0 1 0 0 412a206 206 0 1 0 0 -412ZM248.0 150h38L186.0 362h-38ZM326.0 150h38L264.0 362h-38Z"/></g><path fill="#ffffff" fill-rule="evenodd" d="M256 20a236 236 0 1 1 0 472a236 236 0 1 1 0 -472ZM256 50a206 206 0 1 0 0 412a206 206 0 1 0 0 -412ZM248.0 150h38L186.0 362h-38ZM326.0 150h38L264.0 362h-38Z"/></g><g transform="translate(370.0 440)"><g transform="translate(-3 0)" opacity=".9"><g fill="#ff2e88"><rect x="0" y="0" width="30" height="15"/><rect x="60" y="0" width="30" height="15"/><rect x="0" y="15" width="45" height="15"/><rect x="60" y="15" width="30" height="15"/><rect x="0" y="30" width="90" height="15"/><rect x="0" y="45" width="30" height="15"/><rect x="45" y="45" width="45" height="15"/><rect x="0" y="60" width="30" height="15"/><rect x="60" y="60" width="30" height="15"/></g><g fill="#ff2e88"><rect x="150" y="0" width="30" height="15"/><rect x="210" y="0" width="30" height="15"/><rect x="150" y="15" width="30" height="15"/><rect x="210" y="15" width="30" height="15"/><rect x="150" y="30" width="30" height="15"/><rect x="210" y="30" width="30" height="15"/><rect x="150" y="45" width="90" height="15"/><rect x="165" y="60" width="60" height="15"/></g><g fill="#ff2e88"><rect x="300" y="0" width="30" height="15"/><rect x="300" y="15" width="30" height="15"/><rect x="300" y="30" width="30" height="15"/><rect x="300" y="45" width="30" height="15"/><rect x="300" y="60" width="75" height="15"/></g><g fill="#ff2e88"><rect x="450" y="0" width="30" height="15"/><rect x="450" y="15" width="30" height="15"/><rect x="450" y="30" width="30" height="15"/><rect x="450" y="45" width="30" height="15"/><rect x="450" y="60" width="75" height="15"/></g></g><g transform="translate(3 0)" opacity=".9"><g fill="#00e5ff"><rect x="0" y="0" width="30" height="15"/><rect x="60" y="0" width="30" height="15"/><rect x="0" y="15" width="45" height="15"/><rect x="60" y="15" width="30" height="15"/><rect x="0" y="30" width="90" height="15"/><rect x="0" y="45" width="30" height="15"/><rect x="45" y="45" width="45" height="15"/><rect x="0" y="60" width="30" height="15"/><rect x="60" y="60" width="30" height="15"/></g><g fill="#00e5ff"><rect x="150" y="0" width="30" height="15"/><rect x="210" y="0" width="30" height="15"/><rect x="150" y="15" width="30" height="15"/><rect x="210" y="15" width="30" height="15"/><rect x="150" y="30" width="30" height="15"/><rect x="210" y="30" width="30" height="15"/><rect x="150" y="45" width="90" height="15"/><rect x="165" y="60" width="60" height="15"/></g><g fill="#00e5ff"><rect x="300" y="0" width="30" height="15"/><rect x="300" y="15" width="30" height="15"/><rect x="300" y="30" width="30" height="15"/><rect x="300" y="45" width="30" height="15"/><rect x="300" y="60" width="75" height="15"/></g><g fill="#00e5ff"><rect x="450" y="0" width="30" height="15"/><rect x="450" y="15" width="30" height="15"/><rect x="450" y="30" width="30" height="15"/><rect x="450" y="45" width="30" height="15"/><rect x="450" y="60" width="75" height="15"/></g></g><g fill="#ffffff"><rect x="0" y="0" width="30" height="15"/><rect x="60" y="0" width="30" height="15"/><rect x="0" y="15" width="45" height="15"/><rect x="60" y="15" width="30" height="15"/><rect x="0" y="30" width="90" height="15"/><rect x="0" y="45" width="30" height="15"/><rect x="45" y="45" width="45" height="15"/><rect x="0" y="60" width="30" height="15"/><rect x="60" y="60" width="30" height="15"/></g><g fill="#ffffff"><rect x="150" y="0" width="30" height="15"/><rect x="210" y="0" width="30" height="15"/><rect x="150" y="15" width="30" height="15"/><rect x="210" y="15" width="30" height="15"/><rect x="150" y="30" width="30" height="15"/><rect x="210" y="30" width="30" height="15"/><rect x="150" y="45" width="90" height="15"/><rect x="165" y="60" width="60" height="15"/></g><g fill="#ffffff"><rect x="300" y="0" width="30" height="15"/><rect x="300" y="15" width="30" height="15"/><rect x="300" y="30" width="30" height="15"/><rect x="300" y="45" width="30" height="15"/><rect x="300" y="60" width="75" height="15"/></g><g fill="#ffffff"><rect x="450" y="0" width="30" height="15"/><rect x="450" y="15" width="30" height="15"/><rect x="450" y="30" width="30" height="15"/><rect x="450" y="45" width="30" height="15"/><rect x="450" y="60" width="75" height="15"/></g></g><g fill="#00e5ff"><rect x="412.0" y="568" width="12" height="4"/><rect x="412.0" y="572" width="4" height="4"/><rect x="412.0" y="576" width="12" height="4"/><rect x="420.0" y="580" width="4" height="4"/><rect x="412.0" y="584" width="12" height="4"/></g><g fill="#00e5ff"><rect x="432.0" y="568" width="4" height="4"/><rect x="440.0" y="568" width="4" height="4"/><rect x="432.0" y="572" width="4" height="4"/><rect x="440.0" y="572" width="4" height="4"/><rect x="432.0" y="576" width="4" height="4"/><rect x="440.0" y="576" width="4" height="4"/><rect x="432.0" y="580" width="4" height="4"/><rect x="440.0" y="580" width="4" height="4"/><rect x="432.0" y="584" width="12" height="4"/></g><g fill="#00e5ff"><rect x="452.0" y="568" width="12" height="4"/><rect x="456.0" y="572" width="4" height="4"/><rect x="456.0" y="576" width="4" height="4"/><rect x="456.0" y="580" width="4" height="4"/><rect x="452.0" y="584" width="12" height="4"/></g><g fill="#00e5ff"><rect x="472.0" y="568" width="12" height="4"/><rect x="476.0" y="572" width="4" height="4"/><rect x="476.0" y="576" width="4" height="4"/><rect x="476.0" y="580" width="4" height="4"/><rect x="476.0" y="584" width="4" height="4"/></g><g fill="#00e5ff"><rect x="492.0" y="568" width="12" height="4"/><rect x="492.0" y="572" width="4" height="4"/><rect x="492.0" y="576" width="8" height="4"/><rect x="492.0" y="580" width="4" height="4"/><rect x="492.0" y="584" width="12" height="4"/></g><rect x="540.0" y="576" width="4" height="4" fill="#4a5677"/><g fill="#ff2e88"><rect x="580.0" y="568" width="12" height="4"/><rect x="580.0" y="572" width="4" height="4"/><rect x="580.0" y="576" width="12" height="4"/><rect x="588.0" y="580" width="4" height="4"/><rect x="580.0" y="584" width="12" height="4"/></g><g fill="#ff2e88"><rect x="600.0" y="568" width="4" height="4"/><rect x="608.0" y="568" width="4" height="4"/><rect x="600.0" y="572" width="4" height="4"/><rect x="608.0" y="572" width="4" height="4"/><rect x="604.0" y="576" width="4" height="4"/><rect x="604.0" y="580" width="4" height="4"/><rect x="604.0" y="584" width="4" height="4"/></g><g fill="#ff2e88"><rect x="620.0" y="568" width="12" height="4"/><rect x="620.0" y="572" width="4" height="4"/><rect x="620.0" y="576" width="12" height="4"/><rect x="628.0" y="580" width="4" height="4"/><rect x="620.0" y="584" width="12" height="4"/></g><g fill="#ff2e88"><rect x="640.0" y="568" width="12" height="4"/><rect x="644.0" y="572" width="4" height="4"/><rect x="644.0" y="576" width="4" height="4"/><rect x="644.0" y="580" width="4" height="4"/><rect x="644.0" y="584" width="4" height="4"/></g><g fill="#ff2e88"><rect x="660.0" y="568" width="12" height="4"/><rect x="660.0" y="572" width="4" height="4"/><rect x="660.0" y="576" width="8" height="4"/><rect x="660.0" y="580" width="4" height="4"/><rect x="660.0" y="584" width="12" height="4"/></g><g fill="#ff2e88"><rect x="680.0" y="568" width="4" height="4"/><rect x="696.0" y="568" width="4" height="4"/><rect x="680.0" y="572" width="8" height="4"/><rect x="692.0" y="572" width="8" height="4"/><rect x="680.0" y="576" width="4" height="4"/><rect x="688.0" y="576" width="4" height="4"/><rect x="696.0" y="576" width="4" height="4"/><rect x="680.0" y="580" width="4" height="4"/><rect x="696.0" y="580" width="4" height="4"/><rect x="680.0" y="584" width="4" height="4"/><rect x="696.0" y="584" width="4" height="4"/></g><g fill="#ff2e88"><rect x="708.0" y="568" width="12" height="4"/><rect x="708.0" y="572" width="4" height="4"/><rect x="708.0" y="576" width="12" height="4"/><rect x="716.0" y="580" width="4" height="4"/><rect x="708.0" y="584" width="12" height="4"/></g><rect x="756.0" y="576" width="4" height="4" fill="#4a5677"/><g fill="#39ff88"><rect x="796.0" y="568" width="4" height="4"/><rect x="796.0" y="572" width="4" height="4"/><rect x="796.0" y="576" width="4" height="4"/><rect x="796.0" y="580" width="4" height="4"/><rect x="796.0" y="584" width="12" height="4"/></g><g fill="#39ff88"><rect x="816.0" y="568" width="12" height="4"/><rect x="816.0" y="572" width="4" height="4"/><rect x="824.0" y="572" width="4" height="4"/><rect x="816.0" y="576" width="12" height="4"/><rect x="816.0" y="580" width="4" height="4"/><rect x="824.0" y="580" width="4" height="4"/><rect x="816.0" y="584" width="4" height="4"/><rect x="824.0" y="584" width="4" height="4"/></g><g fill="#39ff88"><rect x="836.0" y="568" width="8" height="4"/><rect x="836.0" y="572" width="4" height="4"/><rect x="844.0" y="572" width="4" height="4"/><rect x="836.0" y="576" width="8" height="4"/><rect x="836.0" y="580" width="4" height="4"/><rect x="844.0" y="580" width="4" height="4"/><rect x="836.0" y="584" width="8" height="4"/></g><g fill="#39ff88"><rect x="856.0" y="568" width="12" height="4"/><rect x="856.0" y="572" width="4" height="4"/><rect x="856.0" y="576" width="12" height="4"/><rect x="864.0" y="580" width="4" height="4"/><rect x="856.0" y="584" width="12" height="4"/></g></svg>
+      <p class="slogan"><span class="a">Your data.</span> <span class="b">Your grid.</span></p>
+      <p class="slogan-sub">By default. Nothing leaves your machine unless you turn on a feature that needs the internet, and <a href="data.html">here's the list</a>.</p>
+    </div>
+    <div class="paths">
+      <div class="path"><span class="n">PATH 1</span><h2>Try it in two minutes</h2><p>Install Null Notes, or <a href="scribe.html">Null Scribe</a> for meetings. No server, nothing to configure.</p><a class="btn primary" href="notes.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Get Null Notes</a></div>
+      <div class="path"><span class="n">PATH 2</span><h2>I have a server</h2><p>Run Null Drive on it with one command, then use Null Grid and the Drive app on your computers.</p><a class="btn primary" href="drive.html#docker"><svg aria-hidden="true"><use href="#i-go"/></svg>Set up Null Drive</a></div>
+      <div class="path"><span class="n">PATH 3</span><h2>Go all in</h2><p>Null OS: a Debian desktop with Null Grid and Null File built in. Minimal or Full.</p><a class="btn primary" href="os.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Get the Null OS ISO</a></div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="new" aria-label="New: Null OS">
-  <div class="wrap">
+<section class="sec" id="suite">
+  <div class="wrap fam-block">
+    <div class="fam-title"><h2 class="t-suite">Suite</h2><p>The apps that talk to each other.</p><a href="suite.html">More &rsaquo;</a></div>
+    <div class="pcs big">
+      <article class="pc fam-suite">
+        <div class="pc-top"><a href="grid.html" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-grid"/></svg></a><div><h3><a href="grid.html">Null Grid</a></h3><span class="v">v5.1.7</span></div></div>
+        <p>The browser that's a client for your own server.</p>
+        <div class="actions"><a class="get main" href="https://apps.microsoft.com/detail/9PL3D6SNHMLS"><svg aria-hidden="true"><use href="#i-store"/></svg>Microsoft Store</a><a class="get" href="https://github.com/Null0Grid/node-grid/releases/download/5.1.7/nullgrid-browser_5.1.7_amd64.deb" data-file="nullgrid-browser_5.1.7_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>.deb</a><a class="get" href="grid.html#download">All downloads</a></div>
+      </article>
+      <article class="pc fam-suite">
+        <div class="pc-top"><a href="search.html" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-search"/></svg></a><div><h3><a href="search.html">Null Search</a></h3><span class="v">live</span></div></div>
+        <p>Search your grid and the web from one box.</p>
+        <div class="actions"><a class="get main" href="https://search.nullgrid.dev"><svg aria-hidden="true"><use href="#i-go"/></svg>Open it</a><a class="get" href="search.html">How it works</a></div>
+      </article>
+      <article class="pc fam-suite">
+        <div class="pc-top"><a href="notes.html" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-notes"/></svg></a><div><h3><a href="notes.html">Null Notes</a></h3><span class="v">v5.1.1</span></div></div>
+        <p>Local notes that sync through your Drive.</p>
+        <div class="actions"><a class="get main" href="https://apps.microsoft.com/detail/9NW82T0G35QF"><svg aria-hidden="true"><use href="#i-store"/></svg>Microsoft Store</a><a class="get" href="https://github.com/Null0Grid/null-notes/releases/download/5.1.1/null-notes_5.1.1_amd64.deb" data-file="null-notes_5.1.1_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>.deb</a><a class="get" href="notes.html#download">All downloads</a></div>
+      </article>
+      <article class="pc fam-suite">
+        <div class="pc-top"><a href="drive.html" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-drive"/></svg></a><div><h3><a href="drive.html">Null Drive</a></h3><span class="v">v5.1.1</span></div></div>
+        <p>Self-hosted file sync: just you, your devices and your server.</p>
+        <div class="actions"><a class="get main" href="https://apps.microsoft.com/detail/9P3NQGJ8ZZMG"><svg aria-hidden="true"><use href="#i-store"/></svg>Microsoft Store</a><a class="get" href="https://github.com/Null0Grid/null-drive/releases/download/5.1.1/nulldrive-desktop_5.1.1_amd64.deb" data-file="nulldrive-desktop_5.1.1_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>.deb</a><a class="get" href="drive.html#download">All downloads</a></div>
+      </article>
+      <article class="pc fam-suite">
+        <div class="pc-top"><a href="scribe.html" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-scribe"/></svg></a><div><h3><a href="scribe.html">Null Scribe</a></h3><span class="v">v5.1.1</span></div></div>
+        <p>Record, transcribe and summarize, all on your machine.</p>
+        <div class="actions"><a class="get main" href="https://apps.microsoft.com/detail/9P2FHWTQPN6G"><svg aria-hidden="true"><use href="#i-store"/></svg>Microsoft Store</a><a class="get" href="https://github.com/Null0Grid/null-scribe/releases/download/v5.1.1/null-scribe_5.1.1_amd64.deb" data-file="null-scribe_5.1.1_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>.deb</a><a class="get" href="scribe.html#download">All downloads</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="systems">
+  <div class="wrap fam-block">
+    <div class="fam-title"><h2 class="t-systems">Systems</h2><p>The things that make the machine.</p><a href="systems.html">More &rsaquo;</a></div>
     <article class="spot">
       <div>
-        <span class="badge">NEW · JUST RELEASED</span>
-        <div class="kick">version 1.2.1 · Debian 13 · x64 PC</div>
-        <h2><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-os"/></svg><span>NULL<span class="sl">//</span>OS</span></h2>
-        <p>Our own operating system. A Debian desktop in the Neon Lab look, with the Null Grid browser and Null File built in. Install it Minimal, or Full with a network toolkit, homelab and dev tools. Try it live from a USB stick first.</p>
+        <span class="badge">NULL OS 1.2.1</span>
+        <div class="kick">Debian 13 · KDE Plasma 6 · x64 PC</div>
+        <h2><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-os"/></svg><span>Null OS</span></h2>
+        <p>Debian and KDE, set up with Null Grid and Null File. Try it live from a USB stick, then install Minimal or Full.</p>
         <div class="chips"><span>Minimal or Full</span><span>KDE Plasma 6</span><span>Null Grid</span><span>Null File</span><span>Docker · KVM</span><span>nmap · Wireshark</span></div>
         <div class="ctas">
           <a class="btn primary" href="os.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download Null OS</a>
@@ -734,237 +873,37 @@ footer a { color: var(--muted); }
         <img src="os-desktop.png" alt="The Null OS desktop" width="1280" height="800">
       </a>
     </article>
-  </div>
-</section>
-
-<section class="rules" aria-label="Highlights">
-  <div class="wrap">
-    <div class="rule"><b>Nothing to install</b><p>Null Search runs in any browser at search.nullgrid.dev.</p></div>
-    <div class="rule"><b>Windows and Linux</b><p>The Null Suite and the Null Grid browser ship on the Microsoft Store and as Linux packages. Null File is Linux only.</p></div>
-    <div class="rule"><b>Your own server</b><p>Null Drive syncs files through hardware you run, not someone else's cloud.</p></div>
-  </div>
-</section>
-
-<section class="sec" id="products">
-  <div class="wrap">
-    <div class="sec-head"><h2>The Null Suite</h2><p>Notes, Scribe and Drive. Three apps that sync with each other through your own server.</p></div>
-    <div class="grid4">
-      <article class="block">
-        <div class="block-top">
-          <a href="notes.html" tabindex="-1" aria-hidden="true"><svg class="glyph" viewBox="0 0 1024 1024" role="img" aria-label="Null Notes logo"><use href="#logo-notes"/></svg></a>
-          <div class="block-title"><h3><a href="notes.html">Null <span>Notes</span></a></h3><div class="kind">notes app · local vault</div></div>
-          <span class="status live">v5.1.1</span>
-        </div>
-        <p>Markdown notes as plain files on your disk, with [[links]], a graph view, daily notes and locked notes.</p>
-        <div class="actions"><a class="get main" href="notes.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a></div>
+    <div class="pcs">
+      <article class="pc fam-systems">
+        <div class="pc-top"><a href="short.html" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-short"/></svg></a><div><h3><a href="short.html">Null Short</a></h3><span class="v soon">coming soon</span></div></div>
+        <p>Hold a key, tap an arrow code, and the app opens.</p>
+        <div class="actions"><a class="get" href="short.html">Coming soon</a><a class="get" href="https://github.com/Null0Grid/null-short">GitHub</a></div>
       </article>
-      <article class="block">
-        <div class="block-top">
-          <a href="scribe.html" tabindex="-1" aria-hidden="true"><svg class="glyph" viewBox="0 0 1024 1024" role="img" aria-label="Null Scribe logo"><use href="#logo-scribe"/></svg></a>
-          <div class="block-title"><h3><a href="scribe.html">Null <span>Scribe</span></a></h3><div class="kind">transcripts · summaries · on device</div></div>
-          <span class="status live">v5.1.1</span>
-        </div>
-        <p>Record or import a conversation, transcribe it on your own machine and get a summary from a built-in AI model. Send it to Notes or Drive.</p>
-        <div class="actions"><a class="get main" href="scribe.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a></div>
-      </article>
-      <article class="block">
-        <div class="block-top">
-          <a href="drive.html" tabindex="-1" aria-hidden="true"><svg class="glyph" viewBox="0 0 1024 1024" role="img" aria-label="Null Drive logo"><use href="#logo-drive"/></svg></a>
-          <div class="block-title"><h3><a href="drive.html">Null <span>Drive</span></a></h3><div class="kind">self-hosted file sync</div></div>
-          <span class="status live">v5.1.1</span>
-        </div>
-        <p>File sync like Dropbox, on a server you run. Delta sync, version history and optional end-to-end encryption.</p>
-        <div class="actions"><a class="get main" href="drive.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a></div>
+      <article class="pc fam-systems">
+        <div class="pc-top"><a href="file.html" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-file"/></svg></a><div><h3><a href="file.html">Null File</a></h3><span class="v">v1.2.0</span></div></div>
+        <p>A fast file manager for Linux. The Null OS default.</p>
+        <div class="actions"><a class="get main" href="https://github.com/Null0Grid/null-file/releases/download/1.2.0/null-file_1.2.0_amd64.deb" data-file="null-file_1.2.0_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>.deb</a><a class="get" href="file.html#download">All downloads</a></div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="sec" id="more">
-  <div class="wrap">
-    <div class="sec-head"><h2>Also from Null Grid</h2><p>A browser, a search page, a file manager and an operating system.</p></div>
-    <div class="grid4">
-      <article class="block">
-        <div class="block-top">
-          <a href="grid.html" tabindex="-1" aria-hidden="true"><svg class="glyph" viewBox="0 0 1024 1024" role="img" aria-label="Null Grid logo"><use href="#logo-grid"/></svg></a>
-          <div class="block-title"><h3><a href="grid.html">Null <span>Grid</span></a></h3><div class="kind">desktop web browser</div></div>
-          <span class="status live">v5.1.7</span>
-        </div>
-        <p>A browser with burner tabs, history that only keeps site names, saved tab loadouts and an AI side panel.</p>
-        <div class="actions"><a class="get main" href="grid.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a></div>
+<section class="sec" id="labs">
+  <div class="wrap fam-block">
+    <div class="fam-title"><h2 class="t-labs">Labs</h2><p>Experiments. Fun first, polish second.</p><a href="labs.html">More &rsaquo;</a></div>
+    <div class="pcs">
+      <article class="pc fam-labs">
+        <div class="pc-top"><a href="play.html" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-play"/></svg></a><div><h3><a href="play.html">Null Play</a></h3><span class="v">v1.1.0</span></div></div>
+        <p>Your whole game library in one launcher.</p>
+        <div class="actions"><a class="get main" href="https://github.com/Null0Grid/null-play/releases/download/1.1.0/null-play_1.1.0_amd64.deb" data-file="null-play_1.1.0_amd64.deb"><svg aria-hidden="true"><use href="#i-dl"/></svg>.deb</a><a class="get" href="play.html#download">All downloads</a></div>
       </article>
-      <article class="block">
-        <div class="block-top">
-          <a href="search.html" tabindex="-1" aria-hidden="true"><svg class="glyph" viewBox="0 0 1024 1024" role="img" aria-label="Null Search logo"><use href="#logo-search"/></svg></a>
-          <div class="block-title"><h3><a href="search.html">Null <span>Search</span></a></h3><div class="kind">search page · search.nullgrid.dev</div></div>
-          <span class="status live">live</span>
-        </div>
-        <p>Search the web from any browser, with nothing to download or sign up for. Your own notes and files can show up beside the results.</p>
-        <div class="actions"><a class="get main" data-link="search" href="https://search.nullgrid.dev"><svg aria-hidden="true"><use href="#i-go"/></svg>Open Null Search</a></div>
-      </article>
-      <article class="block">
-        <div class="block-top">
-          <a href="file.html" tabindex="-1" aria-hidden="true"><svg class="glyph" viewBox="0 0 1024 1024" role="img" aria-label="Null File logo"><use href="#logo-file"/></svg></a>
-          <div class="block-title"><h3><a href="file.html">Null <span>File</span></a></h3><div class="kind">file manager · Linux</div></div>
-          <span class="status live">v1.2.0</span>
-        </div>
-        <p>A fast, keyboard-friendly file manager with tabs, undo, a Ctrl+K command palette, a graph of your folders and an encrypted Vault.</p>
-        <div class="actions"><a class="get main" href="file.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a></div>
-      </article>
-      <article class="block">
-        <div class="block-top">
-          <a href="os.html" tabindex="-1" aria-hidden="true"><svg class="glyph" viewBox="0 0 1024 1024" role="img" aria-label="Null OS logo"><use href="#logo-os"/></svg></a>
-          <div class="block-title"><h3><a href="os.html">Null <span>OS</span></a></h3><div class="kind">operating system · Debian based</div></div>
-          <span class="status live">v1.2.1</span>
-        </div>
-        <p>A Debian desktop in the Neon Lab look, with KDE Plasma, the Null Grid browser, Null File and a network engineer's toolkit.</p>
-        <div class="actions"><a class="get main" href="os.html#download"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="together">
-  <div class="wrap">
-    <div class="sec-head"><h2>Built to work together</h2><p>Follow one note through Null Grid, git-graph style. Hover a commit to see what happens there.</p></div>
-    <div class="ggraph" id="journey">
-      <div class="g-head"><span class="g-repo">null0grid / your-data</span><span class="g-branch">⎇ main · 5 commits</span></div>
-      <div class="g-scroll">
-<svg class="g-svg" viewBox="0 0 960 330" role="img" aria-label="A note moving through Null Notes, Null Drive, Null Grid and Null Search, drawn like a git branch graph">
-<line class="lane l-notes" x1="150" y1="70" x2="940" y2="70"/>
-<g class="tag t-notes"><rect x="12" y="57" width="122" height="26" rx="6"/><text x="73" y="75" text-anchor="middle">notes</text></g>
-<line class="lane l-drive" x1="150" y1="140" x2="940" y2="140"/>
-<g class="tag t-drive"><rect x="12" y="127" width="122" height="26" rx="6"/><text x="73" y="145" text-anchor="middle">drive</text></g>
-<line class="lane l-grid" x1="150" y1="210" x2="940" y2="210"/>
-<g class="tag t-grid"><rect x="12" y="197" width="122" height="26" rx="6"/><text x="73" y="215" text-anchor="middle">grid</text></g>
-<line class="lane l-search" x1="150" y1="280" x2="940" y2="280"/>
-<g class="tag t-search"><rect x="12" y="267" width="122" height="26" rx="6"/><text x="73" y="285" text-anchor="middle">search</text></g>
-<path class="seg l-drive" data-seg="0" d="M240 70 C315.0 70, 315.0 140, 390 140"/>
-<path class="seg l-grid" data-seg="1" d="M390 140 C465.0 140, 465.0 210, 540 210"/>
-<path class="seg l-search" data-seg="2" d="M540 210 C615.0 210, 615.0 280, 690 280"/>
-<path class="seg l-notes" data-seg="3" d="M690 280 C760.0 280, 760.0 70, 830 70"/>
-<g class="commit c-notes" data-step="0" tabindex="0" role="button" aria-label="Step 1: write note.md">
-  <circle class="halo" cx="240" cy="70" r="22"/><circle class="dot" cx="240" cy="70" r="10"/>
-  <text class="msg" x="240" y="44" text-anchor="middle">write note.md</text>
-  <text class="hash" x="240" y="104" text-anchor="middle">a3f9c1e</text>
-</g>
-<g class="commit c-drive" data-step="1" tabindex="0" role="button" aria-label="Step 2: sync to drive">
-  <circle class="halo" cx="390" cy="140" r="22"/><circle class="dot" cx="390" cy="140" r="10"/>
-  <text class="msg" x="390" y="114" text-anchor="middle">sync → drive</text>
-  <text class="hash" x="390" y="174" text-anchor="middle">7b20d4f</text>
-</g>
-<g class="commit c-grid" data-step="2" tabindex="0" role="button" aria-label="Step 3: search &quot;pi-hole&quot;">
-  <circle class="halo" cx="540" cy="210" r="22"/><circle class="dot" cx="540" cy="210" r="10"/>
-  <text class="msg" x="540" y="184" text-anchor="middle">search &quot;pi-hole&quot;</text>
-  <text class="hash" x="540" y="244" text-anchor="middle">c91e0a2</text>
-</g>
-<g class="commit c-search" data-step="3" tabindex="0" role="button" aria-label="Step 4: match in vault">
-  <circle class="halo" cx="690" cy="280" r="22"/><circle class="dot" cx="690" cy="280" r="10"/>
-  <text class="msg" x="690" y="254" text-anchor="middle">match in vault</text>
-  <text class="hash" x="690" y="314" text-anchor="middle">4de8b37</text>
-</g>
-<g class="commit c-notes" data-step="4" tabindex="0" role="button" aria-label="Step 5: open nullnotes://">
-  <circle class="halo" cx="830" cy="70" r="22"/><circle class="dot" cx="830" cy="70" r="10"/>
-  <text class="msg" x="830" y="44" text-anchor="middle">open nullnotes://</text>
-  <text class="hash" x="830" y="104" text-anchor="middle">f06a915</text>
-</g>
-</svg>
-      </div>
-      <div class="j-panel" aria-live="polite">
-        <div class="j-kind" id="j-kind">&gt; commit a3f9c1e · null notes</div>
-        <h3 id="j-title">You write a note</h3>
-        <ul id="j-points">
-          <li>It's saved as a plain Markdown file in your vault, a folder on your own disk.</li>
-          <li>Null Notes gives it a permanent id, so it can be found and linked even after you rename it.</li>
-          <li>Lock it if it's private: it's encrypted with your passphrase before it's ever written to disk.</li>
-        </ul>
-        <div class="j-nav"><button type="button" id="j-prev" aria-label="Previous commit">←</button><span id="j-count">1 / 5</span><button type="button" id="j-next" aria-label="Next commit">→</button></div>
-      </div>
-    </div>
-  </div>
-</section>
-<script>
-(() => {
-  const STEPS = [
-    { kind: "commit a3f9c1e · null notes", title: "You write a note", points: [
-      "It's saved as a plain Markdown file in your vault, a folder on your own disk.",
-      "Null Notes gives it a permanent id, so it can be found and linked even after you rename it.",
-      "Lock it if it's private: it's encrypted with your passphrase before it's ever written to disk." ] },
-    { kind: "commit 7b20d4f · null drive", title: "It syncs to your server", points: [
-      "Within seconds, two-way sync uploads the note to the Null Drive server you run.",
-      "Its id travels with it, so a rename on one computer follows on every other. If two edits collide, you keep both copies.",
-      "Drive adds it to your account's private search index. On an end-to-end encrypted account it's encrypted first and never indexed." ] },
-    { kind: "commit c91e0a2 · null grid", title: "You search in the browser", points: [
-      "You type into Null Grid's start page with Vault switched on.",
-      "The search goes to Null Search for web results.",
-      "At the same moment, the browser itself asks your Drive with your token. That query goes straight to your server, never through ours." ] },
-    { kind: "commit 4de8b37 · null search", title: "Your note shows up", points: [
-      "The results page shows web results and Vault Matches side by side.",
-      "Your note appears with its title, a snippet and where it lives.",
-      "It's shown once, even though it exists in both Notes and Drive, because both copies share the same id." ] },
-    { kind: "commit f06a915 · null notes", title: "One click opens it", points: [
-      "The result carries a nullnotes:// link.",
-      "Click it and the note opens right in Null Notes on your computer, ready to edit.",
-      "Your edit syncs back to Drive, and the loop starts again." ] },
-  ];
-  const root = document.getElementById("journey");
-  if (!root) return;
-  const commits = [...root.querySelectorAll(".commit")];
-  const segs = [...root.querySelectorAll(".seg")];
-  const kind = document.getElementById("j-kind"), title = document.getElementById("j-title"),
-        list = document.getElementById("j-points"), count = document.getElementById("j-count");
-  let cur = 0, timer = null, held = false;
-  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function show(i) {
-    cur = (i + STEPS.length) % STEPS.length;
-    const st = STEPS[cur];
-    kind.textContent = "> " + st.kind; title.textContent = st.title;
-    list.innerHTML = "";
-    st.points.forEach(t => { const li = document.createElement("li"); li.textContent = t; list.append(li); });
-    count.textContent = (cur + 1) + " / " + STEPS.length;
-    commits.forEach((c, n) => { c.classList.toggle("on", n === cur); c.classList.toggle("done", n < cur); });
-    segs.forEach((g, n) => { g.classList.toggle("done", n < cur - 1); g.classList.toggle("live", n === cur - 1); });
-  }
-  function play() { if (reduce || held) return; stop(); timer = setInterval(() => show(cur + 1), 4200); }
-  function stop() { if (timer) clearInterval(timer); timer = null; }
-  commits.forEach((c, n) => {
-    c.addEventListener("pointerenter", () => { stop(); show(n); });
-    c.addEventListener("focus", () => { stop(); show(n); });
-    c.addEventListener("click", () => { held = true; stop(); show(n); });
-    c.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); held = true; stop(); show(n); } });
-  });
-  document.getElementById("j-prev").addEventListener("click", () => { held = true; stop(); show(cur - 1); });
-  document.getElementById("j-next").addEventListener("click", () => { held = true; stop(); show(cur + 1); });
-  root.addEventListener("pointerleave", play);
-  root.addEventListener("focusout", ev => { if (!root.contains(ev.relatedTarget)) play(); });
-  show(0); play();
-})();
-</script>
-
-
-<section class="sec" id="apps">
-  <div class="wrap">
-    <div class="sec-head"><h2>Get the apps</h2><p>Where each one runs today.</p></div>
-    <div class="tbl">
-      <table>
-        <thead><tr><th>App</th><th>Web</th><th>Windows</th><th>Linux</th><th>Server</th></tr></thead>
-        <tbody>
-          <tr><td><a href="search.html">Null Search</a></td><td><a data-link="search" href="https://search.nullgrid.dev">search.nullgrid.dev</a></td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
-          <tr><td><a href="grid.html">Null Grid</a></td><td class="no">—</td><td><a data-link="gridStore" href="#">Microsoft Store</a></td><td><a data-link="gridDeb" href="#">.deb</a> · <a data-link="gridRpm" href="#">.rpm</a></td><td class="no">—</td></tr>
-          <tr><td><a href="notes.html">Null Notes</a></td><td class="no">—</td><td><a data-link="notesStore" href="#">Microsoft Store</a></td><td><a data-link="notesDeb" href="#">.deb</a> · <a data-link="notesRpm" href="#">.rpm</a></td><td class="no">—</td></tr>
-          <tr><td><a href="drive.html">Null Drive</a></td><td><span class="soon">built into the server</span></td><td><a data-link="driveStore" href="#">Microsoft Store</a> · <a href="drive.html#windows">Installer</a></td><td><a data-link="driveDeskDeb" href="#">.deb</a> · <a data-link="driveDeskRpm" href="#">.rpm</a> · <a data-link="driveDeskAppImage" href="#">AppImage</a> · <a data-link="driveDeskTar" href="#">.tar.gz</a></td><td><a href="drive.html#server">Docker · binaries</a></td></tr>
-          <tr><td><a href="file.html">Null File</a></td><td class="no">—</td><td class="no">—</td><td><a href="file.html#linux">.deb · .rpm · AppImage · Flatpak · Snap</a></td><td class="no">—</td></tr>
-          <tr><td><a href="os.html">Null OS</a></td><td class="no">—</td><td class="no">—</td><td><a href="os.html#download">ISO · x64 PC</a></td><td class="no">—</td></tr>
-          <tr><td><a href="scribe.html">Null Scribe</a></td><td class="no">—</td><td><a data-link="scribeStore" href="#">Microsoft Store</a> · <a data-link="scribeWin" href="#">Installer</a></td><td><a data-link="scribeDeb" href="#">.deb</a> · <a data-link="scribeRpm" href="#">.rpm</a> · <a data-link="scribeAppImage" href="#">AppImage</a> · <a data-link="scribeTar" href="#">.tar.gz</a></td><td class="no">—</td></tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </section>
 <footer>
   <div class="wrap">
-    <span>Null Grid · <b class="foot-motto">Your data. Your grid.</b> · nullgrid.dev</span>
-    <span><a href="search.html">Search</a> · <a href="grid.html">Grid</a> · <a href="notes.html">Notes</a> · <a href="drive.html">Drive</a> · <a href="scribe.html">Scribe</a> · <a href="file.html">File</a> · <a href="os.html">OS</a> · <a href="downloads.html">Downloads</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
+    <span class="foot-copy">© NULL LABS. All rights reserved.</span>
+    <span><a href="suite.html">Suite</a> · <a href="systems.html">Systems</a> · <a href="labs.html">Labs</a> · <a href="downloads.html">Download</a> · <a href="docs.html">Docs</a> · <a href="about.html">About</a> · <a href="data.html">Data stance</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
   </div>
 </footer>
 <script>
@@ -1155,7 +1094,6 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
     try { sessionStorage.setItem("ng-term-promo", "1"); } catch (e) {}
     walk(PROMO, "Terminal downloads page", false, 9000);
   };
-  if (!seen && (/downloads\.html$|\/downloads$/.test(location.pathname) || document.querySelector(".hero:not(.slim) .glitch, .grid4"))) setTimeout(promo, 4000);
 })();
 (() => {
   document.querySelectorAll("a.btn, a.get, a.nav-dl").forEach(el => {
