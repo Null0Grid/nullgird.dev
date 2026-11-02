@@ -9,7 +9,7 @@ the website conversation copies it onto a page and the owner says "push it".
 
 ## Layout
 
-One folder per app (`null-scribe/`, `node-grid/`, `null-notes/`, `null-drive/`) or `suite/` for
+One folder per app (`null-scribe/`, `null-grid/`, `null-notes/`, `null-drive/`) or `suite/` for
 anything shared. Each folder has a `NOTES.md` that says what the files are and where they should go.
 
 ## Adding files (any conversation)
