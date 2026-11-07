@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><defs>
+    <filter id="s-pink" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="s-cyan" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="s-edge" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="n-sq" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="7"/><feFlood flood-color="#00e5ff" flood-opacity=".75"/>
+      <feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="n-sl" x="-100%" y="-30%" width="300%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="b3"/><feFlood flood-color="#8c1446" flood-opacity=".65"/><feComposite operator="in" in2="b3" result="g3"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="11" result="b2"/><feFlood flood-color="#ff2e88" flood-opacity=".75"/><feComposite operator="in" in2="b2" result="g2"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="b1"/><feFlood flood-color="#96beff" flood-opacity=".9"/><feComposite operator="in" in2="b1" result="g1"/>
+      <feMerge><feMergeNode in="g3"/><feMergeNode in="g2"/><feMergeNode in="g1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="tile1024"><rect width="1024" height="1024" rx="224"/></clipPath>
+    <filter id="sc-wave" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="6"/><feFlood flood-color="#ff2e88" flood-opacity=".55"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sc-led" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  
+
+<filter id="lg-sl" x="-100%" y="-30%" width="300%" height="160%">
+<feGaussianBlur in="SourceAlpha" stdDeviation="20" result="b3"/><feFlood flood-color="#8c1446" flood-opacity=".65"/><feComposite operator="in" in2="b3" result="g3"/>
+<feGaussianBlur in="SourceAlpha" stdDeviation="11" result="b2"/><feFlood flood-color="#ff2e88" flood-opacity=".75"/><feComposite operator="in" in2="b2" result="g2"/>
+<feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="b1"/><feFlood flood-color="#96beff" flood-opacity=".9"/><feComposite operator="in" in2="b1" result="g1"/>
+<feMerge><feMergeNode in="g3"/><feMergeNode in="g2"/><feMergeNode in="g1"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="lg-sq" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="8"/><feFlood flood-color="#00e5ff" flood-opacity=".75"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="lg-pk" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceAlpha" stdDeviation="10"/><feFlood flood-color="#ff2e88" flood-opacity=".7"/><feComposite operator="in" in2="SourceAlpha"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="lg-gn" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="10"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="lg-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+
+</defs>
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><rect x="150" y="364" width="724" height="296" rx="44" fill="none" stroke="#00e5ff" stroke-width="26" filter="url(#lg-sq)"/><circle cx="330" cy="512" r="92" fill="none" stroke="#eef6ff" stroke-width="22"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="304,450 330,450 304,574 278,574"/><polygon points="356,450 382,450 356,574 330,574"/></g><g stroke="#2f5b66" stroke-width="18" stroke-linecap="round"><line x1="486" y1="470" x2="690" y2="470"/><line x1="486" y1="512" x2="690" y2="512"/><line x1="486" y1="554" x2="690" y2="554"/></g><circle cx="770" cy="470" r="20" fill="#39ff88" filter="url(#lg-gn)"/><circle cx="770" cy="554" r="20" fill="#ff2e88"/><path d="M240 720 h544" stroke="#1f6f80" stroke-width="18" stroke-linecap="round"/></g>
+  </svg>

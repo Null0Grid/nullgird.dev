@@ -610,8 +610,16 @@ footer a { color: var(--muted); }
 .dp-more p { margin: 0; color: var(--muted); font-size: 15px; }
 
 /* ---- v2 ---- */
-:root { --panel: #12121a; --fg: #ffffff; --suite: #00e5ff; --systems: #ff2e88; --labs: #39ff88; }
-.site-brand .nav-lockup { height: 26px !important; width: auto !important; max-width: 140px; display: block; flex: none; }
+:root { --bg: #0a0a0f; --panel: #12121a; --fg: #ffffff; --muted: #8b92a8; --red: #ff3b4e; --error: #ff3b4e; --suite: #00e5ff; --systems: #ff2e88; --labs: #39ff88; --btn: #ffffff; --on-btn: #0a0a0f; }
+/* buttons are neutral: family colors are for family words, card stripes and badges only */
+.btn.primary, .get.main, .site-nav a.nav-dl, .site-nav a.nav-dl:hover { background: var(--btn) !important; border-color: var(--btn) !important; color: var(--on-btn) !important; }
+.btn.primary:hover, .get.main:hover, .site-nav a.nav-dl:hover { box-shadow: 0 0 18px rgba(255, 255, 255, .28) !important; }
+.site-nav a.nav-dl[aria-current="page"] { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--btn) !important; }
+.btn.ghost:hover, .get:hover { border-color: var(--fg); }
+.mark-sm { width: 18px; height: 18px; flex: none; vertical-align: -3px; }
+footer .foot-copy { display: inline-flex; align-items: center; gap: 10px; }
+.slim-mark { display: block; width: 28px; height: 28px; margin-bottom: 10px; }
+.site-brand .nav-lockup { height: 32px !important; width: auto !important; display: block; flex: none; }
 .site-brand > svg:not(.nav-lockup) { display: none; }
 .site-nav a.f-suite { color: var(--suite); } .site-nav a.f-systems { color: var(--systems); } .site-nav a.f-labs { color: var(--labs); }
 .site-nav a.f-suite[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--suite); }
@@ -619,7 +627,7 @@ footer a { color: var(--muted); }
 .site-nav a.f-labs[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--labs); }
 .site-nav a.fam { font-family: var(--f-display); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
 .lockwrap { display: grid; justify-items: center; text-align: center; gap: 6px; }
-.hero-lockup { width: min(100%, 560px); height: auto; display: block; }
+.hero-lockup { width: min(100%, 880px); height: auto; display: block; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 0 60px rgba(0, 229, 255, .08); }
 .slogan { margin: 14px 0 0; font: 400 clamp(20px, 3.4vw, 32px)/1.2 var(--f-display); letter-spacing: .06em; text-transform: uppercase; }
 .slogan .a { color: var(--pink); } .slogan .b { color: var(--cyan); }
 .slogan-sub { margin: 4px 0 0; color: var(--muted); font-size: 16px; max-width: 60ch; }
@@ -642,6 +650,11 @@ footer a { color: var(--muted); }
 .pc .v.soon { color: var(--amber); }
 .pc p { margin: 0; color: var(--muted); flex: 1; }
 .pc .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.pc.wide { flex-direction: row; align-items: center; gap: 18px; padding: 14px 22px; }
+.pc.wide .pc-top { flex: none; min-width: 210px; }
+.pc.wide p { flex: 1; min-width: 0; }
+.pc.wide .actions { flex: none; justify-content: flex-end; }
+@media (max-width: 860px) { .pc.wide { flex-direction: column; align-items: stretch; gap: 12px; padding: 18px 20px; } .pc.wide .actions { justify-content: flex-start; } }
 .fam-badge { display: inline-flex; justify-self: start; width: fit-content; align-self: flex-start; align-items: center; gap: 8px; padding: 3px 12px; border-radius: 999px; border: 1px solid currentColor; font: 400 12px var(--f-display); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
 .fam-badge.f-suite { color: var(--suite); background: rgba(0, 229, 255, .08); }
 .fam-badge.f-systems { color: var(--systems); background: rgba(255, 46, 136, .08); }
@@ -659,9 +672,9 @@ footer a { color: var(--muted); }
 .path h2 { margin: 0; font: 400 22px var(--f-display); letter-spacing: .03em; }
 .path p { margin: 0; color: var(--muted); font-size: 15px; flex: 1; }
 .path .btn { align-self: flex-start; }
-.path:nth-child(1) { border-top: 2px solid var(--green); }
-.path:nth-child(2) { border-top: 2px solid var(--cyan); }
-.path:nth-child(3) { border-top: 2px solid var(--pink); }
+.path:nth-child(1) { border-top: 2px solid var(--suite); }
+.path:nth-child(2) { border-top: 2px solid var(--suite); }
+.path:nth-child(3) { border-top: 2px solid var(--systems); }
 .labs-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; }
 .lab-unused { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 6px 14px; align-items: start; padding: 18px; background: var(--panel); border: 1px dashed #343a50; border-radius: 12px; text-decoration: none; color: var(--fg); }
 .lab:hover { border-color: var(--cyan); }
@@ -774,6 +787,9 @@ footer a { color: var(--muted); }
   <symbol id="logo-play" viewBox="0 0 1024 1024">
     <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><rect x="96" y="96" width="832" height="832" rx="150" fill="none" stroke="#1f6f80" stroke-width="20"/><path d="M362 286 L362 738 L742 512 Z" fill="#ff2e88" transform="translate(-22 0)" opacity=".85"/><path d="M362 286 L362 738 L742 512 Z" fill="#00e5ff" transform="translate(22 0)" opacity=".85"/><path d="M362 286 L362 738 L742 512 Z" fill="#eef6ff"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="736,760 774,760 734,850 696,850"/><polygon points="812,760 850,760 810,850 772,850"/></g></g>
   </symbol>
+  <symbol id="logo-server" viewBox="0 0 1024 1024">
+    <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><rect x="150" y="364" width="724" height="296" rx="44" fill="none" stroke="#00e5ff" stroke-width="26" filter="url(#lg-sq)"/><circle cx="330" cy="512" r="92" fill="none" stroke="#eef6ff" stroke-width="22"/><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="304,450 330,450 304,574 278,574"/><polygon points="356,450 382,450 356,574 330,574"/></g><g stroke="#2f5b66" stroke-width="18" stroke-linecap="round"><line x1="486" y1="470" x2="690" y2="470"/><line x1="486" y1="512" x2="690" y2="512"/><line x1="486" y1="554" x2="690" y2="554"/></g><circle cx="770" cy="470" r="20" fill="#39ff88" filter="url(#lg-gn)"/><circle cx="770" cy="554" r="20" fill="#ff2e88"/><path d="M240 720 h544" stroke="#1f6f80" stroke-width="18" stroke-linecap="round"/></g>
+  </symbol>
   <symbol id="logo-short" viewBox="0 0 1024 1024">
     <g clip-path="url(#tile1024)"><rect width="1024" height="1024" fill="#08090c"/><g fill="none" stroke-width="22" stroke-linejoin="round"><rect x="152" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/><rect x="404" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/><rect x="656" y="392" width="216" height="216" rx="40" stroke="#00e5ff" filter="url(#lg-sq)"/></g><g fill="none" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"><polyline points="214,532 260,456 306,532" stroke="#39ff88" filter="url(#lg-gn)"/><polyline points="476,446 552,500 476,554" stroke="#39ff88" filter="url(#lg-gn)"/><polyline points="718,532 764,456 810,532" stroke="#39ff88" filter="url(#lg-gn)"/></g><g fill="#00e8ff" filter="url(#lg-sl)"><polygon points="440,690 488,690 448,800 400,800"/><polygon points="536,690 584,690 544,800 496,800"/></g></g>
   </symbol>
@@ -792,7 +808,7 @@ footer a { color: var(--muted); }
 </svg>
 <header class="site-top">
   <div class="wrap">
-    <a class="site-brand" href="index.html" aria-label="Null home"><svg class="nav-lockup" role="img" aria-label="Null" viewBox="0 0 294 40"><g transform="scale(0.078125)"><path fill="#ffffff" fill-rule="evenodd" d="M256 20a236 236 0 1 1 0 472a236 236 0 1 1 0 -472ZM256 50a206 206 0 1 0 0 412a206 206 0 1 0 0 -412ZM248.0 150h38L186.0 362h-38ZM326.0 150h38L264.0 362h-38Z"/></g><g transform="translate(54 0.0)"><g fill="#ffffff"><rect x="0" y="0" width="16" height="8"/><rect x="32" y="0" width="16" height="8"/><rect x="0" y="8" width="24" height="8"/><rect x="32" y="8" width="16" height="8"/><rect x="0" y="16" width="48" height="8"/><rect x="0" y="24" width="16" height="8"/><rect x="24" y="24" width="24" height="8"/><rect x="0" y="32" width="16" height="8"/><rect x="32" y="32" width="16" height="8"/></g><g fill="#ffffff"><rect x="64" y="0" width="16" height="8"/><rect x="96" y="0" width="16" height="8"/><rect x="64" y="8" width="16" height="8"/><rect x="96" y="8" width="16" height="8"/><rect x="64" y="16" width="16" height="8"/><rect x="96" y="16" width="16" height="8"/><rect x="64" y="24" width="16" height="8"/><rect x="96" y="24" width="16" height="8"/><rect x="64" y="32" width="48" height="8"/></g><g fill="#ffffff"><rect x="128" y="0" width="16" height="8"/><rect x="128" y="8" width="16" height="8"/><rect x="128" y="16" width="16" height="8"/><rect x="128" y="24" width="16" height="8"/><rect x="128" y="32" width="40" height="8"/></g><g fill="#ffffff"><rect x="192" y="0" width="16" height="8"/><rect x="192" y="8" width="16" height="8"/><rect x="192" y="16" width="16" height="8"/><rect x="192" y="24" width="16" height="8"/><rect x="192" y="32" width="40" height="8"/></g></g></svg></a>
+    <a class="site-brand" href="index.html" aria-label="Null home"><svg class="nav-lockup" role="img" aria-label="Null" viewBox="20 20 2086 472"><path fill="#ffffff" fill-rule="evenodd" d="M256 20a236 236 0 1 1 0 472a236 236 0 1 1 0 -472ZM256 50a206 206 0 1 0 0 412a206 206 0 1 0 0 -412ZM248.0 150h38L186.0 362h-38ZM326.0 150h38L264.0 362h-38Z"/><g transform="translate(633.60 246.56)"><path fill="#ffffff" shape-rendering="crispEdges" d="M0.00 0.00h98.18v49.09h-98.18ZM196.35 0.00h98.18v49.09h-98.18ZM0.00 49.09h147.26v49.09h-147.26ZM196.35 49.09h98.18v49.09h-98.18ZM0.00 98.18h294.53v49.09h-294.53ZM0.00 147.26h98.18v49.09h-98.18ZM147.26 147.26h147.26v49.09h-147.26ZM0.00 196.35h98.18v49.09h-98.18ZM196.35 196.35h98.18v49.09h-98.18ZM392.70 0.00h98.18v49.09h-98.18ZM589.06 0.00h98.18v49.09h-98.18ZM392.70 49.09h98.18v49.09h-98.18ZM589.06 49.09h98.18v49.09h-98.18ZM392.70 98.18h98.18v49.09h-98.18ZM589.06 98.18h98.18v49.09h-98.18ZM392.70 147.26h98.18v49.09h-98.18ZM589.06 147.26h98.18v49.09h-98.18ZM392.70 196.35h294.53v49.09h-294.53ZM785.41 0.00h98.18v49.09h-98.18ZM785.41 49.09h98.18v49.09h-98.18ZM785.41 98.18h98.18v49.09h-98.18ZM785.41 147.26h98.18v49.09h-98.18ZM785.41 196.35h245.44v49.09h-245.44ZM1178.11 0.00h98.18v49.09h-98.18ZM1178.11 49.09h98.18v49.09h-98.18ZM1178.11 98.18h98.18v49.09h-98.18ZM1178.11 147.26h98.18v49.09h-98.18ZM1178.11 196.35h245.44v49.09h-245.44Z"/></g></svg></a>
     <nav class="site-nav" aria-label="Site">
       <a class="fam f-suite" href="suite.html" aria-current="page">Suite</a>
       <a class="fam f-systems" href="systems.html">Systems</a>
@@ -948,7 +964,7 @@ footer a { color: var(--muted); }
 </section>
 <footer>
   <div class="wrap">
-    <span class="foot-copy">© NULL LABS. All rights reserved.</span>
+    <span class="foot-copy"><svg class="mark-sm" aria-hidden="true" viewBox="0 0 512 512"><path fill="#ffffff" fill-rule="evenodd" d="M256 20a236 236 0 1 1 0 472a236 236 0 1 1 0 -472ZM256 50a206 206 0 1 0 0 412a206 206 0 1 0 0 -412ZM248.0 150h38L186.0 362h-38ZM326.0 150h38L264.0 362h-38Z"/></svg>© NULL LABS. All rights reserved.</span>
     <span><a href="suite.html">Suite</a> · <a href="systems.html">Systems</a> · <a href="labs.html">Labs</a> · <a href="downloads.html">Download</a> · <a href="docs.html">Docs</a> · <a href="about.html">About</a> · <a href="data.html">Data stance</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/Null0Grid">GitHub</a></span>
   </div>
 </footer>
