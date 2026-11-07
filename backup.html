@@ -8,8 +8,8 @@
 </head>
 <body bgcolor="#ffffff" text="#000000" link="#000000" vlink="#000000" alink="#000000">
 <h1>Null downloads (backup)</h1>
-<p>A plain backup of the downloads page, for when the main site is slow or won't load. Suite: Null Grid, Null Search, Null Notes, Null Drive, Null Scribe. Systems: Null OS, Null File (Null Short is not released yet). Labs: Null Play. Each link downloads the file directly.</p>
-<p>Jump to: <a href="#grid">Null Grid</a> | <a href="#search">Null Search</a> | <a href="#notes">Null Notes</a> | <a href="#drive">Null Drive</a> | <a href="#scribe">Null Scribe</a> | <a href="#os">Null OS</a> | <a href="#file">Null File</a> | <a href="#play">Null Play</a></p>
+<p>A plain backup of the downloads page, for when the main site is slow or won't load. Suite: Null Grid, Null Search, Null Notes, Null Drive, Null Scribe. Systems: Null OS, Null Server, Null File (Null Short is not released yet). Labs: Null Play. Each link downloads the file directly.</p>
+<p>Jump to: <a href="#grid">Null Grid</a> | <a href="#search">Null Search</a> | <a href="#notes">Null Notes</a> | <a href="#drive">Null Drive</a> | <a href="#scribe">Null Scribe</a> | <a href="#os">Null OS</a> | <a href="#server">Null Server</a> | <a href="#file">Null File</a> | <a href="#play">Null Play</a></p>
 <hr>
 
 <h2 id="grid">Null Grid</h2>
@@ -60,6 +60,16 @@
 <ul><li>With persistence (recommended): <code>git clone --depth 1 https://github.com/Null0Grid/null-os &amp;&amp; \
   sudo null-os/tools/make-usb.sh nullos-1.2.1-trixie-amd64.iso /dev/sdX</code></li><li>With dd: <code>sudo dd if=nullos-1.2.1-trixie-amd64.iso of=/dev/sdX bs=4M status=progress conv=fsync</code></li></ul>
 <details><summary>SHA-256 checksums</summary><table border="1" cellpadding="4"><tr><th>File</th><th>SHA-256</th></tr><tr><td><code>nullos-1.2.1-SOURCES.md</code></td><td><code>bd14d5076f0b2bb2d88f4a10bdda295f2aefe4d3a85892ddc96e6e2fad468736</code></td></tr><tr><td><code>nullos-1.2.1-trixie-amd64.iso</code></td><td><code>c9cbb88e209b1c87bc8f49e02db88e3dc1dc94062a52740684d3e8133adc358a</code></td></tr><tr><td><code>nullos-1.2.1-trixie-amd64.iso.sha256</code></td><td><code>11476bba884d7c8c3d100a0ff57a1903aca8a22bcec3188f7286b94eb435f5e7</code></td></tr></table></details>
+<hr>
+
+<h2 id="server">Null Server</h2>
+<p>Server OS for x64 and ARM64, based on Debian 13, no desktop. Live session login: null / null. Version 1.1.0.</p>
+<h3>ISO images</h3>
+<ul><li><a href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-amd64.iso">Null Server 1.1.0 for x64, x64</a> &middot; <code>nullserver-1.1.0-trixie-amd64.iso</code> &middot; 1002.0 MB</li><li><a href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-amd64.iso.sha256">Checksum file (x64)</a> &middot; <code>nullserver-1.1.0-trixie-amd64.iso.sha256</code> &middot; 0.1 KB</li><li><a href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-arm64.iso">Null Server 1.1.0 for ARM64, ARM64</a> &middot; <code>nullserver-1.1.0-trixie-arm64.iso</code> &middot; 1.0 GB</li><li><a href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-arm64.iso.sha256">Checksum file (ARM64)</a> &middot; <code>nullserver-1.1.0-trixie-arm64.iso.sha256</code> &middot; 0.1 KB</li></ul>
+<h3>Put it on a USB stick</h3>
+<ul><li>With persistence: <code>git clone --depth 1 https://github.com/Null0Grid/null-server &amp;&amp; \
+  sudo null-server/tools/make-usb.sh nullserver-1.1.0-trixie-amd64.iso /dev/sdX</code></li><li>With dd: <code>sudo dd if=nullserver-1.1.0-trixie-amd64.iso of=/dev/sdX bs=4M status=progress conv=fsync</code></li></ul>
+<details><summary>SHA-256 checksums</summary><table border="1" cellpadding="4"><tr><th>File</th><th>SHA-256</th></tr><tr><td><code>nullserver-1.1.0-trixie-amd64.iso</code></td><td><code>edded7e075069ffeb3d7f846d8e702d80fb5737ca37826a17580f5acabbea921</code></td></tr><tr><td><code>nullserver-1.1.0-trixie-amd64.iso.sha256</code></td><td><code>11a0c8ef74da91d0b580cd00d5b4ef339011350ad7bba3dea81358877ff13ae0</code></td></tr><tr><td><code>nullserver-1.1.0-trixie-arm64.iso</code></td><td><code>a78065a188b0c9f21f2a734fcbcbdc9cd664f675f58067bc63abd234a2ba907f</code></td></tr><tr><td><code>nullserver-1.1.0-trixie-arm64.iso.sha256</code></td><td><code>bb32917c123e28c10a0a0158ec35c0246dccadf712011df70bc6c3538a7e3efc</code></td></tr></table></details>
 <hr>
 
 <h2 id="file">Null File</h2>

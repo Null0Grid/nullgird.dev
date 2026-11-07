@@ -826,7 +826,7 @@ footer .foot-copy { display: inline-flex; align-items: center; gap: 10px; }
       <h1>Null Server</h1>
       <a class="fam-badge f-systems" href="systems.html">Systems</a>
       <p class="tagline">Null OS for servers: Debian 13, no desktop, ready for Null Drive.</p>
-      <div class="ctas"><span class="btn ghost soon-btn">ISOs coming soon</span><a class="btn ghost" href="https://github.com/Null0Grid/null-server">See it on GitHub</a></div>
+      <div class="ctas"><a class="btn primary" href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-amd64.iso" data-file="nullserver-1.1.0-trixie-amd64.iso"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download ISO (x64)</a><a class="btn ghost" href="#download">ARM64 and checksums</a></div>
       <p class="sub">Its own release line, separate from Null OS. Live session login: <code>null</code> / <code>null</code>.</p>
     </div>
     <div class="hero-logo"><svg class="" viewBox="0 0 1024 1024" role="img" aria-label="Null Server logo"><use href="#logo-server"/></svg></div>
@@ -834,7 +834,7 @@ footer .foot-copy { display: inline-flex; align-items: center; gap: 10px; }
 </section>
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head"><h2>See it</h2><p>From the 1.0.0 build, on the text console.</p></div>
+    <div class="sec-head"><h2>See it</h2><p>From the Null Server CI build, on the text console.</p></div>
     <div class="shots">
     <figure class="tour">
       <div class="screen">
@@ -855,10 +855,76 @@ footer .foot-copy { display: inline-flex; align-items: center; gap: 10px; }
 </section>
 <section class="sec">
   <div class="wrap">
-    <div class="verline">Not released yet · <a href="https://github.com/Null0Grid/null-server">follow it on GitHub</a></div>
+    <div class="verline">Latest: <b>1.1.0</b> on GitHub</div>
     <div class="facts"><div><h3>What it does</h3><p>Debian 13 with no desktop and the Null OS terminal. Boots to a shell from USB, installs to a disk in minutes (or unattended), with SSH, a firewall and security updates on from the start. Roles add Docker, Caddy, Samba/NFS, WireGuard, KVM, backups and more when you ask.</p></div><div><h3>Who it's for</h3><p>Homelabbers who want a small, ready server: a mini PC, an old laptop, a Proxmox or KVM guest, or a UEFI ARM board.</p></div><div><h3>Talks to</h3><p><code>null-drive install</code> sets up the Null Drive server on port 8080 and prints the address to put in Null Grid's Drive settings.</p></div></div>
     <div class="works"><span>Works with</span><a href="drive.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-drive"/></svg>Null Drive</a><a href="grid.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-grid"/></svg>Null Grid</a><a href="os.html"><svg aria-hidden="true" viewBox="0 0 1024 1024"><use href="#logo-os"/></svg>Null OS</a></div>
     <div class="plinks"><a href="https://github.com/Null0Grid/null-server/releases">Changelog (GitHub Releases)</a><a href="data.html">Data stance: what Null Server keeps and sends</a><a href="https://github.com/Null0Grid/null-server#readme">Docs (README)</a></div>
+  </div>
+</section>
+<section class="sec dl-merged" id="download">
+  <div class="wrap">
+    <div class="dm-head">
+      <div class="kick">version 1.1.0 · <a href="https://github.com/Null0Grid/null-server/releases">past releases</a> · <a href="downloads.html">all apps</a></div>
+      <h2>Download <span>Null Server</span></h2>
+      <p>Two ISOs: x64 for PCs, servers and VMs, ARM64 for UEFI boards. Every download comes straight from the 1.1.0 release.</p>
+      <p class="dl-note" style="margin-top:12px">Live session login: <code>null</code> / <code>null</code>. Then <code>sudo null-install</code> puts it on a disk.</p>
+      <div class="dp-rec" id="dp-rec" hidden><span></span><small></small></div>
+    </div>
+  <div class="ub-row" id="iso">
+    <h2>ISO images<small>Debian 13 (trixie) · x64 and ARM64</small></h2>
+    <div class="fl">
+        <div class="fl-row">
+          <div><h3>Null Server 1.1.0 for x64<span class="tag">x64</span></h3><p>PCs, servers, and Proxmox or KVM guests. Boot it to try it live, then run sudo null-install.</p><div class="meta">nullserver-1.1.0-trixie-amd64.iso · 1002.0 MB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-amd64.iso" data-file="nullserver-1.1.0-trixie-amd64.iso"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          
+        </div>
+        <div class="fl-row">
+          <div><h3>Checksum file (x64)</h3><p>Save it next to the ISO, then check the download.</p><div class="meta">nullserver-1.1.0-trixie-amd64.iso.sha256</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-amd64.iso.sha256" data-file="nullserver-1.1.0-trixie-amd64.iso.sha256"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sha256sum -c nullserver-1.1.0-trixie-amd64.iso.sha256</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>Null Server 1.1.0 for ARM64<span class="tag">ARM64</span></h3><p>UEFI ARM boards and VMs.</p><div class="meta">nullserver-1.1.0-trixie-arm64.iso · 1.0 GB</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-arm64.iso" data-file="nullserver-1.1.0-trixie-arm64.iso"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          
+        </div>
+        <div class="fl-row">
+          <div><h3>Checksum file (ARM64)</h3><p>Save it next to the ISO, then check the download.</p><div class="meta">nullserver-1.1.0-trixie-arm64.iso.sha256</div></div>
+          <a class="get main" href="https://github.com/Null0Grid/null-server/releases/download/1.1.0/nullserver-1.1.0-trixie-arm64.iso.sha256" data-file="nullserver-1.1.0-trixie-arm64.iso.sha256"><svg aria-hidden="true"><use href="#i-dl"/></svg>Download</a>
+          <div class="code"><pre><span class="p">$ </span>sha256sum -c nullserver-1.1.0-trixie-arm64.iso.sha256</pre><button class="copy" type="button">copy</button></div>
+        </div>
+    </div>
+  </div>
+  <div class="ub-row" id="usb">
+    <h2>Put it on a USB stick<small>Everything on the stick is erased</small></h2>
+    <div class="fl">
+        <div class="fl-row">
+          <div><h3>With persistence</h3><p>Writes the ISO and keeps changes on the stick, so it can run as a tiny server by itself. Replace /dev/sdX with your USB stick (check with lsblk).</p></div>
+          <span></span>
+          <div class="code"><pre><span class="p">$ </span>git clone --depth 1 https://github.com/Null0Grid/null-server &amp;&amp; \
+  sudo null-server/tools/make-usb.sh nullserver-1.1.0-trixie-amd64.iso /dev/sdX</pre><button class="copy" type="button">copy</button></div>
+        </div>
+        <div class="fl-row">
+          <div><h3>With dd</h3><p>A plain copy. balenaEtcher or Rufus on Windows also work.</p></div>
+          <span></span>
+          <div class="code"><pre><span class="p">$ </span>sudo dd if=nullserver-1.1.0-trixie-amd64.iso of=/dev/sdX bs=4M status=progress conv=fsync</pre><button class="copy" type="button">copy</button></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="ub-row" id="requirements">
+    <h2>System requirements</h2>
+    <ul class="dp-req"><li>x64: a 64-bit PC, server or VM (Proxmox, KVM); UEFI or BIOS</li><li>ARM64: a UEFI ARM board or VM</li><li>A USB stick of 2 GB or more; a fresh install uses about 2 GB of disk</li><li>Internet on first boot for any roles you pick in the installer</li></ul>
+  </div>
+
+  <div class="ub-row" id="verify">
+    <h2>Verify your download<small>SHA-256, release 1.1.0</small></h2>
+    <div>
+      <p class="dl-note" style="margin:0 0 14px">Check a file before you run it: <code>sha256sum &lt;file&gt;</code> on Linux and macOS, <code>Get-FileHash &lt;file&gt;</code> in PowerShell.</p>
+      <div class="dp-sums" id="checksums"><table><tbody><tr><td>nullserver-1.1.0-trixie-amd64.iso</td><td>ISO image · x64</td><td class="hash">edded7e075069ffeb3d7f846d8e702d80fb5737ca37826a17580f5acabbea921</td></tr><tr><td>nullserver-1.1.0-trixie-amd64.iso.sha256</td><td>Checksum file</td><td class="hash">11a0c8ef74da91d0b580cd00d5b4ef339011350ad7bba3dea81358877ff13ae0</td></tr><tr><td>nullserver-1.1.0-trixie-arm64.iso</td><td>ISO image · x64</td><td class="hash">a78065a188b0c9f21f2a734fcbcbdc9cd664f675f58067bc63abd234a2ba907f</td></tr><tr><td>nullserver-1.1.0-trixie-arm64.iso.sha256</td><td>Checksum file</td><td class="hash">bb32917c123e28c10a0a0158ec35c0246dccadf712011df70bc6c3538a7e3efc</td></tr></tbody></table></div>
+    </div>
+  </div>
+
   </div>
 </section>
 <footer>
