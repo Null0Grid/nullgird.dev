@@ -10,7 +10,8 @@ Made 2026-10-30 from the brand brief (section 2). Drawn from geometry in `brand.
 | `mark-glitch.svg` | Mark with the pink/cyan glitch, for hero and share images |
 | `wordmark.svg` | NULL with the notched U (hero scale) |
 | `wordmark-plain-u.svg` | NULL with the plain U (small sizes) |
-| `lockup-standard.svg` / `.png` | Mark + wordmark, flat white on #0a0a0f |
+| `lockup-standard.svg` / `.png` | Mark over wordmark (stacked), flat white on #0a0a0f, for doc and README headers |
+| `lockup-horizontal.svg` / `.png` | Mark left, plain-U wordmark right, baseline-aligned, flat white; 32 px tall in the site nav |
 | `lockup-hero.svg` / `.png` | Mark + wordmark + SUITE · SYSTEMS · LABS, glitch, scanlines (1280×720) |
 | `favicon.svg` | Thick mark; white in dark browsers, black in light ones |
 | `favicon-16/32/48.png` | Thick mark on #0a0a0f |
